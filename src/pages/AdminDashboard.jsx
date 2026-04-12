@@ -6,10 +6,12 @@ import AdminServices from '../components/admin/AdminServices';
 import AdminFounders from '../components/admin/AdminFounders';
 import AdminVideos from '../components/admin/AdminVideos';
 import AdminSettings from '../components/admin/AdminSettings';
+import AdminHeroImages from '../components/admin/AdminHeroImages';
 import './AdminDashboard.css';
 
 const TABS = [
   { id: 'gallery', label: '📷 Gallery', component: AdminGalleryTab },
+  { id: 'hero', label: '🖼️ Hero Images', component: AdminHeroImages },
   { id: 'oyako', label: '🏠 Oyako', component: AdminOyako },
   { id: 'events', label: '📅 Events', component: AdminEvents },
   { id: 'services', label: '📚 Services', component: AdminServices },
