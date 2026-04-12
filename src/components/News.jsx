@@ -7,9 +7,9 @@ import './News.css';
 
 export default function News() {
   const { lang } = useLang();
-  const ref = useReveal();
   const [event, setEvent] = useState(null);
   const [ready, setReady] = useState(false);
+  const ref = useReveal([ready]);
 
   useEffect(() => {
     (async () => {
