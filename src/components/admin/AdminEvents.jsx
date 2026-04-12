@@ -8,6 +8,7 @@ export default function AdminEvents() {
   const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({ title: '', description: '', date: '', image_url: '', active: true });
   const [editId, setEditId] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -19,20 +20,35 @@ export default function AdminEvents() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.title.trim()) { alert('Title is required'); return; }
     setSaving(true);
+    setSuccess(false);
     try {
       if (editId) {
-        await supabase.from('events_items').update(form).eq('id', editId);
+        const { error } = await supabase.from('events_items').update({
+          title: form.title, description: form.description, date: form.date,
+          image_url: form.image_url, active: form.active,
+        }).eq('id', editId);
+        if (error) throw error;
         await logAction('update', 'events_items', form.title);
       } else {
         const maxOrder = items.length > 0 ? Math.max(...items.map(i => i.order_index)) + 1 : 0;
-        await supabase.from('events_items').insert({ ...form, order_index: maxOrder });
+        const { error } = await supabase.from('events_items').insert({
+          title: form.title, description: form.description, date: form.date,
+          image_url: form.image_url, active: form.active, order_index: maxOrder,
+        });
+        if (error) throw error;
         await logAction('create', 'events_items', form.title);
       }
       setForm({ title: '', description: '', date: '', image_url: '', active: true });
       setEditId(null);
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
       await load();
-    } catch (err) { alert('Save failed: ' + err.message); }
+    } catch (err) {
+      console.error('AdminEvents save error:', err);
+      alert('Save failed: ' + (err.message || JSON.stringify(err)));
+    }
     setSaving(false);
   };
 
@@ -43,9 +59,14 @@ export default function AdminEvents() {
 
   const handleDelete = async (item) => {
     if (!confirm(`Delete "${item.title}"?`)) return;
-    await deleteRow('events_items', item.id);
-    await logAction('delete', 'events_items', item.title);
-    setItems(prev => prev.filter(i => i.id !== item.id));
+    try {
+      await deleteRow('events_items', item.id);
+      await logAction('delete', 'events_items', item.title);
+      setItems(prev => prev.filter(i => i.id !== item.id));
+    } catch (err) {
+      console.error('AdminEvents delete error:', err);
+      alert('Delete failed: ' + (err.message || JSON.stringify(err)));
+    }
   };
 
   const handleImageUpload = async (e) => {
@@ -63,7 +84,7 @@ export default function AdminEvents() {
     const [moved] = arr.splice(result.source.index, 1);
     arr.splice(result.destination.index, 0, moved);
     setItems(arr);
-    try { await reorder('events_items', arr); } catch {}
+    try { await reorder('events_items', arr); } catch (err) { console.error('Reorder error:', err); }
   };
 
   if (loading) return <div className="adm-loading">Loading...</div>;
@@ -86,7 +107,8 @@ export default function AdminEvents() {
         <div className="adm-field"><label>Image</label>{form.image_url && <img src={form.image_url} alt="" className="adm-preview-img" />}<input type="file" accept="image/*" onChange={handleImageUpload} /></div>
         <div className="adm-form-actions">
           <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Saving...' : editId ? 'Update' : 'Add Event'}</button>
-          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', date: '', image_url: '', active: true }); }} className="adm-btn-cancel">Cancel</button>}
+          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Cancel</button>}
+          {success && <span style={{ color: '#2e7d32', fontWeight: 600, marginLeft: 8 }}>Saved!</span>}
         </div>
       </form>
       <DragDropContext onDragEnd={handleDragEnd}>
