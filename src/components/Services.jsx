@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import servicesData from '../data/services.json';
@@ -8,9 +8,7 @@ export default function Services() {
   const { lang } = useLang();
   const [openId, setOpenId] = useState(null);
   const [services, setServices] = useState(null);
-  const sectionRef = useRef(null);
 
-  // Fetch from Supabase, fallback to static JSON if table empty
   useEffect(() => {
     (async () => {
       try {
@@ -33,59 +31,29 @@ export default function Services() {
     })();
   }, []);
 
-  // Reveal animation — add srv-visible after DOM paint
-  useEffect(() => {
-    if (!services) return;
-    const el = sectionRef.current;
-    if (!el) return;
-
-    // requestAnimationFrame ensures DOM is painted before we start observing
-    const raf = requestAnimationFrame(() => {
-      const cards = el.querySelectorAll('.srv-card:not(.srv-visible)');
-      if (cards.length === 0) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('srv-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.05 }
-      );
-
-      cards.forEach((c) => observer.observe(c));
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [services]);
-
-  const toggle = (id) => setOpenId(openId === id ? null : id);
+  const toggle = (id) => {
+    setOpenId(prev => prev === id ? null : id);
+  };
 
   if (!services) return null;
 
-  console.log('Services: rendering', services.length, 'items, source:', services[0]?.fromDb ? 'Supabase' : 'static');
-
   return (
-    <section id="services" ref={sectionRef}>
+    <section id="services">
       <div className="container">
         <span className="tag">PROGRAMS</span>
         <h2 className="sec-title">Our Services</h2>
         <div className="bar" />
         <div className="services-grid">
-          {services.map((srv, i) => {
-            const isOpen = openId === (srv.id || srv.id);
+          {services.map((srv) => {
+            const isOpen = openId === srv.id;
             const body = srv.fromDb ? null : srv.body?.[lang];
 
             return (
               <div
                 key={srv.id}
-                className={`srv-card srv-enter ${isOpen ? 'open' : ''} ${!srv.fromDb && srv.fullWidth ? 'full-width' : ''}`}
-                style={{ transitionDelay: `${i * 0.07}s` }}
-                onClick={() => toggle(srv.id)}
+                className={`srv-card ${isOpen ? 'open' : ''} ${!srv.fromDb && srv.fullWidth ? 'full-width' : ''}`}
               >
-                <div className="srv-head">
+                <div className="srv-head" onClick={() => toggle(srv.id)}>
                   <div className="srv-head-left">
                     <div className="srv-icon" style={{ background: srv.fromDb ? (srv.icon_bg || '#FFF0F5') : srv.iconBg }}>
                       {srv.fromDb ? (srv.icon_emoji || '📚') : srv.icon}
