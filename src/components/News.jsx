@@ -22,7 +22,7 @@ export default function News() {
         .limit(1);
       if (data && data.length > 0) {
         const db = data[0];
-        setEvent({ title: db.title, description: db.description, date: db.date, image_url: db.image_url, fromDb: true });
+        setEvent({ title: db.title, description: db.description, event_date: db.event_date, image_url: db.image_url, fromDb: true });
       } else {
         // Fallback to static JSON
         const active = eventsStatic.find((e) => e.active);
@@ -40,7 +40,7 @@ export default function News() {
       <section id="news" ref={ref}>
         <div className="container">
           <div className="news-inner reveal">
-            <div className="news-badge">{event.date || 'NEW'}</div>
+            <div className="news-badge">{event.event_date || 'NEW'}</div>
             <div className="news-text">
               <h3>{event.title}</h3>
               {event.description && <p>{event.description}</p>}
