@@ -12,8 +12,9 @@ export default function Hiroba() {
   useEffect(() => {
     (async () => {
       const { data } = await supabase
-        .from('oyako_section')
+        .from('hero_images')
         .select('*')
+        .eq('section_name', 'oyako_hero')
         .limit(1)
         .single();
       if (data) setDb(data);

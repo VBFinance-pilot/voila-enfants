@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import AdminGalleryTab from '../components/admin/AdminGalleryTab';
-import AdminOyako from '../components/admin/AdminOyako';
 import AdminEvents from '../components/admin/AdminEvents';
 import AdminServices from '../components/admin/AdminServices';
 import AdminFounders from '../components/admin/AdminFounders';
@@ -12,7 +11,6 @@ import './AdminDashboard.css';
 const TABS = [
   { id: 'gallery', label: '📷 Gallery', component: AdminGalleryTab },
   { id: 'hero', label: '🖼️ Hero Images', component: AdminHeroImages },
-  { id: 'oyako', label: '🏠 Oyako', component: AdminOyako },
   { id: 'events', label: '📅 Events', component: AdminEvents },
   { id: 'services', label: '📚 Services', component: AdminServices },
   { id: 'founders', label: '👥 Founders', component: AdminFounders },
