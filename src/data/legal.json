@@ -1,0 +1,332 @@
+{
+  "ja": {
+    "backToHome": "← トップページに戻る",
+    "lastUpdated": "最終更新日：2025年4月",
+    "privacy": {
+      "title": "プライバシーポリシー",
+      "subtitle": "Privacy Policy",
+      "intro": {
+        "title": "はじめに",
+        "body": "Voilà les enfants（以下「当校」）は、お客様の個人情報の保護を重要視しております。本プライバシーポリシーは、当校のウェブサイト（voila-les-enfants.jp）において収集する個人情報の取り扱いについて説明するものです。当校は、日本の個人情報保護法（APPI）およびEU一般データ保護規則（GDPR）に準拠した運用を行っています。"
+      },
+      "collection": {
+        "title": "収集する情報",
+        "body": "当校は、以下の場合に個人情報を収集することがあります：",
+        "items": [
+          "<strong>お問い合わせフォーム：</strong>お名前、メールアドレス、メッセージ内容",
+          "<strong>体験レッスン申込：</strong>お名前、お子様の年齢、連絡先情報",
+          "<strong>ウェブサイトアクセス：</strong>IPアドレス、ブラウザ情報、アクセス日時（サーバーログ）"
+        ]
+      },
+      "purpose": {
+        "title": "利用目的",
+        "body": "収集した個人情報は、以下の目的でのみ使用いたします：",
+        "items": [
+          "お問い合わせへの回答・対応",
+          "体験レッスンの調整・ご案内",
+          "サービスに関するご連絡",
+          "ウェブサイトの改善・運用管理"
+        ]
+      },
+      "thirdParty": {
+        "title": "第三者サービス",
+        "body": "当校のウェブサイトは以下の第三者サービスを利用しています：",
+        "items": [
+          "<strong>Vercel：</strong>ウェブサイトのホスティング（米国）。Vercelのプライバシーポリシーに従ってアクセスログが処理されます。",
+          "<strong>Protonmail：</strong>お問い合わせフォームからのメール送信（スイス）。エンドツーエンド暗号化により安全に処理されます。",
+          "<strong>Google Fonts：</strong>ウェブフォントの配信。閲覧時にIPアドレスがGoogleに送信される場合があります。"
+        ]
+      },
+      "rights": {
+        "title": "お客様の権利（GDPR / APPI）",
+        "body": "お客様は、以下の権利を有しています：",
+        "items": [
+          "<strong>アクセス権：</strong>当校が保有するお客様の個人情報を確認する権利",
+          "<strong>訂正権：</strong>不正確な個人情報の訂正を求める権利",
+          "<strong>削除権：</strong>個人情報の削除を求める権利",
+          "<strong>ポータビリティ権：</strong>個人情報を構造化された形式で受け取る権利",
+          "<strong>異議申立権：</strong>個人情報の処理に異議を唱える権利"
+        ],
+        "footer": "これらの権利を行使する場合は、下記の連絡先までご連絡ください。"
+      },
+      "cookies": {
+        "title": "Cookieについて",
+        "body": "当校のウェブサイトは、基本的にCookieを使用しておりません。第三者サービス（Google Fonts等）が技術的なCookieを使用する場合がありますが、トラッキング目的のCookieは使用しておりません。"
+      },
+      "retention": {
+        "title": "データの保管期間",
+        "body": "お問い合わせフォームから送信された情報は、対応完了後最長12か月間保管し、その後安全に削除いたします。"
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "body": "プライバシーに関するご質問・ご要望は、以下までご連絡ください：",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    },
+    "terms": {
+      "title": "利用規約",
+      "subtitle": "Terms of Service",
+      "intro": {
+        "title": "はじめに",
+        "body": "本利用規約（以下「本規約」）は、Voilà les enfants（以下「当校」）が運営するウェブサイト（voila-les-enfants.jp）のご利用に関する条件を定めるものです。当サイトをご利用いただくことにより、本規約に同意したものとみなします。"
+      },
+      "usage": {
+        "title": "サービスの利用",
+        "items": [
+          "当サイトは、当校のサービス情報の提供、お問い合わせ、体験レッスンの申込み等を目的としています。",
+          "利用者は、当サイトを合法的な目的でのみ利用するものとします。",
+          "当サイトの内容を不正に複製・改変・配布することを禁止します。"
+        ]
+      },
+      "contactForm": {
+        "title": "お問い合わせフォームについて",
+        "items": [
+          "お問い合わせフォームに入力された情報は、ご質問への回答およびサービスのご案内のために使用されます。",
+          "虚偽の情報を送信すること、または迷惑行為を行うことを禁止します。",
+          "フォームの送信は、プライバシーポリシーに同意したものとみなします。"
+        ]
+      },
+      "ip": {
+        "title": "知的財産権",
+        "body": "当サイトに掲載されているテキスト、画像、ロゴ、デザイン、写真等のすべてのコンテンツは、当校または正当な権利者に帰属します。事前の書面による許可なく、これらのコンテンツを複製、転載、または商用利用することを禁止します。"
+      },
+      "liability": {
+        "title": "免責事項",
+        "items": [
+          "当校は、当サイトの情報の正確性・完全性について最善を尽くしますが、その内容を保証するものではありません。",
+          "当サイトの利用により生じた損害について、当校は一切の責任を負いません。",
+          "当サイトに掲載されている外部リンク先の内容について、当校は責任を負いません。"
+        ]
+      },
+      "availability": {
+        "title": "サービスの可用性",
+        "body": "当校は、メンテナンスやその他の理由により、予告なくウェブサイトのサービスを一時的に中断・変更・終了する場合があります。これにより生じた損害について、当校は責任を負いません。"
+      },
+      "changes": {
+        "title": "規約の変更",
+        "body": "当校は、本規約を予告なく変更する場合があります。変更後の規約は、当サイトに掲載された時点で効力を生じます。"
+      },
+      "law": {
+        "title": "準拠法・管轄",
+        "body": "本規約は日本法に準拠し、京都地方裁判所を第一審の専属的合意管轄裁判所とします。"
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "body": "本規約に関するご質問は、以下までご連絡ください：",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    },
+    "legal": {
+      "title": "法的表示",
+      "subtitle": "Mentions légales",
+      "publisher": {
+        "title": "サイト運営者",
+        "items": [
+          "<strong>事業名：</strong>Voilà les enfants",
+          "<strong>代表者：</strong>Victor Beauvisage / Maria",
+          "<strong>事業形態：</strong>個人事業（英語教育サービス）",
+          "<strong>所在地：</strong>京都府、日本",
+          "<strong>メール：</strong>contact-voilaJP@protonmail.com",
+          "<strong>電話番号：</strong>090-6009-0792"
+        ]
+      },
+      "hosting": {
+        "title": "ホスティング",
+        "items": [
+          "<strong>ホスティング事業者：</strong>Vercel Inc.",
+          "<strong>所在地：</strong>340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+          "<strong>ウェブサイト：</strong>vercel.com"
+        ]
+      },
+      "responsible": {
+        "title": "編集責任者",
+        "body": "サイトの内容に関する編集責任者：Victor Beauvisage"
+      },
+      "activity": {
+        "title": "事業内容",
+        "items": [
+          "子ども・大人向け英語教育",
+          "フランス語・日本語レッスン",
+          "季節のイベント・ワークショップ",
+          "英語キャンプ",
+          "ホームステイプログラム",
+          "講師向けコーチング"
+        ]
+      },
+      "ip": {
+        "title": "知的財産権",
+        "body": "当サイトのすべてのコンテンツ（テキスト、画像、ロゴ、写真、デザイン）は著作権法により保護されています。無断転載・複製を禁止します。"
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "body": "法的表示に関するご質問は、以下までご連絡ください：",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    }
+  },
+  "en": {
+    "backToHome": "← Back to Home",
+    "lastUpdated": "Last updated: April 2025",
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "プライバシーポリシー",
+      "intro": {
+        "title": "Introduction",
+        "body": "Voilà les enfants (\"we\", \"our\", \"us\") is committed to protecting your personal information. This Privacy Policy explains how we collect, use and safeguard data through our website (voila-les-enfants.jp). We comply with the Japan Act on the Protection of Personal Information (APPI) and the EU General Data Protection Regulation (GDPR)."
+      },
+      "collection": {
+        "title": "Information We Collect",
+        "body": "We may collect personal information in the following situations:",
+        "items": [
+          "<strong>Contact form:</strong> your name, email address and message content",
+          "<strong>Trial lesson booking:</strong> your name, your child's age and contact details",
+          "<strong>Website access:</strong> IP address, browser information and access timestamps (server logs)"
+        ]
+      },
+      "purpose": {
+        "title": "How We Use Your Information",
+        "body": "We use collected information solely for the following purposes:",
+        "items": [
+          "Responding to your enquiries",
+          "Arranging trial lessons and providing information",
+          "Communicating about our services",
+          "Website improvement and operational management"
+        ]
+      },
+      "thirdParty": {
+        "title": "Third-Party Services",
+        "body": "Our website uses the following third-party services:",
+        "items": [
+          "<strong>Vercel:</strong> website hosting (United States). Access logs are processed in accordance with Vercel's privacy policy.",
+          "<strong>Protonmail:</strong> email delivery for the contact form (Switzerland). Messages are processed with end-to-end encryption.",
+          "<strong>Google Fonts:</strong> web font delivery. Your IP address may be transmitted to Google when browsing."
+        ]
+      },
+      "rights": {
+        "title": "Your Rights (GDPR / APPI)",
+        "body": "You have the following rights regarding your personal data:",
+        "items": [
+          "<strong>Right of access:</strong> request a copy of the personal data we hold about you",
+          "<strong>Right to rectification:</strong> request correction of inaccurate data",
+          "<strong>Right to erasure:</strong> request deletion of your personal data",
+          "<strong>Right to portability:</strong> receive your data in a structured, machine-readable format",
+          "<strong>Right to object:</strong> object to the processing of your personal data"
+        ],
+        "footer": "To exercise any of these rights, please contact us using the details below."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "Our website does not use cookies for tracking purposes. Third-party services (such as Google Fonts) may use technical cookies, but no tracking or advertising cookies are used."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "body": "Information submitted through the contact form is retained for up to 12 months after your enquiry has been resolved, after which it is securely deleted."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "For any questions or requests regarding your privacy, please contact us:",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "subtitle": "利用規約",
+      "intro": {
+        "title": "Introduction",
+        "body": "These Terms of Service (\"Terms\") govern your use of the website operated by Voilà les enfants (voila-les-enfants.jp). By accessing or using our website, you agree to be bound by these Terms."
+      },
+      "usage": {
+        "title": "Use of the Website",
+        "items": [
+          "This website is intended to provide information about our services, facilitate enquiries and enable trial lesson bookings.",
+          "You agree to use this website only for lawful purposes.",
+          "Unauthorised reproduction, modification or distribution of content on this website is prohibited."
+        ]
+      },
+      "contactForm": {
+        "title": "Contact Form",
+        "items": [
+          "Information submitted through the contact form is used to respond to your enquiries and provide information about our services.",
+          "Submitting false information or using the form for spam or abusive purposes is prohibited.",
+          "By submitting the form, you consent to the processing of your data as described in our Privacy Policy."
+        ]
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "body": "All content on this website — including text, images, logos, photographs and design — is the property of Voilà les enfants or its respective rights holders. No content may be reproduced, republished or used commercially without prior written permission."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "items": [
+          "We endeavour to ensure the accuracy of information on this website but make no guarantees as to its completeness or correctness.",
+          "We shall not be liable for any damages arising from the use of this website.",
+          "We are not responsible for the content of external websites linked from this site."
+        ]
+      },
+      "availability": {
+        "title": "Service Availability",
+        "body": "We may temporarily suspend, modify or discontinue the website without notice for maintenance or other reasons. We shall not be liable for any damages resulting from such interruptions."
+      },
+      "changes": {
+        "title": "Changes to These Terms",
+        "body": "We may update these Terms at any time without prior notice. Updated Terms take effect immediately upon being posted on this website."
+      },
+      "law": {
+        "title": "Governing Law & Jurisdiction",
+        "body": "These Terms are governed by the laws of Japan. The Kyoto District Court shall have exclusive jurisdiction as the court of first instance for any disputes."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "For questions about these Terms, please contact us:",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    },
+    "legal": {
+      "title": "Legal Notice",
+      "subtitle": "Mentions légales / 法的表示",
+      "publisher": {
+        "title": "Publisher",
+        "items": [
+          "<strong>Business name:</strong> Voilà les enfants",
+          "<strong>Representatives:</strong> Victor Beauvisage / Maria",
+          "<strong>Business type:</strong> Sole proprietorship (English education services)",
+          "<strong>Location:</strong> Kyoto, Japan",
+          "<strong>Email:</strong> contact-voilaJP@protonmail.com",
+          "<strong>Phone:</strong> 090-6009-0792"
+        ]
+      },
+      "hosting": {
+        "title": "Hosting",
+        "items": [
+          "<strong>Hosting provider:</strong> Vercel Inc.",
+          "<strong>Address:</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+          "<strong>Website:</strong> vercel.com"
+        ]
+      },
+      "responsible": {
+        "title": "Editorial Responsibility",
+        "body": "Person responsible for editorial content: Victor Beauvisage"
+      },
+      "activity": {
+        "title": "Business Activities",
+        "items": [
+          "English education for children and adults",
+          "French and Japanese language lessons",
+          "Seasonal events and workshops",
+          "English camps",
+          "Homestay programmes",
+          "Teacher coaching"
+        ]
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "body": "All content on this website (text, images, logos, photographs, design) is protected by copyright law. Unauthorised reproduction or republication is prohibited."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "For questions regarding this legal notice, please contact us:",
+        "email": "contact-voilaJP@protonmail.com"
+      }
+    }
+  }
+}

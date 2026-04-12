@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import { useLang } from '../contexts/LanguageContext';
 import './Footer.css';
 
 export default function Footer() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <footer>
@@ -21,6 +22,13 @@ export default function Footer() {
         <a href="#media">1-Min English</a>
         <a href="#contact">{t('nav.contact')}</a>
       </nav>
+      <div className="foot-legal">
+        <Link to="/privacy">Privacy Policy</Link>
+        <span className="foot-legal-sep">|</span>
+        <Link to="/terms">Terms of Service</Link>
+        <span className="foot-legal-sep">|</span>
+        <Link to="/legal">{lang === 'ja' ? '法的表示' : 'Legal Notice'}</Link>
+      </div>
       <p className="foot-copy">
         {t('footer.copyright')}<br />
         <a href="mailto:contact-voilaJP@protonmail.com" className="foot-email">
