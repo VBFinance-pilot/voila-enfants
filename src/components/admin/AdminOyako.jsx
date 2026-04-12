@@ -14,17 +14,25 @@ export default function AdminOyako() {
     })();
   }, []);
 
+  const [success, setSuccess] = useState(false);
+
   const handleSave = async () => {
     setSaving(true);
+    setSuccess(false);
     try {
+      const payload = { title: data.title || '', description: data.description || '', image_url: data.image_url || '' };
       if (data.id) {
-        await supabase.from('oyako_section').update({ title: data.title, description: data.description, image_url: data.image_url, updated_at: new Date().toISOString() }).eq('id', data.id);
+        const { error } = await supabase.from('oyako_section').update({ ...payload, updated_at: new Date().toISOString() }).eq('id', data.id);
+        if (error) throw error;
       } else {
-        const { data: row } = await supabase.from('oyako_section').insert({ title: data.title, description: data.description, image_url: data.image_url }).select().single();
-        setData(row);
+        const { data: row, error } = await supabase.from('oyako_section').insert(payload).select().single();
+        if (error) throw error;
+        if (row) setData(row);
       }
-      await logAction('update', 'oyako_section', data.title);
-    } catch (err) { alert('Save failed: ' + err.message); }
+      await logAction('update', 'oyako_section', payload.title);
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err) { alert('Save failed: ' + (err.message || err)); }
     setSaving(false);
   };
 
@@ -57,6 +65,7 @@ export default function AdminOyako() {
       <button onClick={handleSave} disabled={saving} className="adm-btn-save">
         {saving ? 'Saving...' : 'Save Oyako Section'}
       </button>
+      {success && <span style={{ color: '#2e7d32', marginLeft: 12, fontWeight: 600 }}>Saved!</span>}
     </div>
   );
 }
