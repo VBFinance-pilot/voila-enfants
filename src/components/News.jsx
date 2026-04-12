@@ -9,7 +9,16 @@ export default function News() {
   const { lang } = useLang();
   const [event, setEvent] = useState(null);
   const [ready, setReady] = useState(false);
+  const [lightbox, setLightbox] = useState(false);
   const ref = useReveal([ready]);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => { if (e.key === 'Escape') setLightbox(false); };
+    window.addEventListener('keydown', onKey);
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
+  }, [lightbox]);
 
   useEffect(() => {
     (async () => {
@@ -61,9 +70,20 @@ export default function News() {
               {event.description && <p>{event.description}</p>}
               {event.date && <div className="news-date">{event.date}</div>}
             </div>
-            {event.image_url && <div className="news-visual news-visual--img"><img src={event.image_url} alt={event.title || ''} /></div>}
+            {event.image_url && (
+              <div className="news-visual news-visual--img" onClick={() => setLightbox(true)} style={{ cursor: 'pointer' }}>
+                <img src={event.image_url} alt={event.title || ''} />
+                <div className="news-zoom-hint">🔍</div>
+              </div>
+            )}
           </div>
         </div>
+        {lightbox && event.image_url && (
+          <div className="news-lb" onClick={() => setLightbox(false)}>
+            <button className="news-lb-close" onClick={() => setLightbox(false)}>✕</button>
+            <img src={event.image_url} alt={event.title || ''} onClick={e => e.stopPropagation()} />
+          </div>
+        )}
       </section>
     );
   }
