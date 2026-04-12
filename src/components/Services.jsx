@@ -9,15 +9,25 @@ export default function Services() {
   const { lang, t } = useLang();
   const [openId, setOpenId] = useState(null);
   const [dbServices, setDbServices] = useState(null);
-  const ref = useReveal();
+  const [loaded, setLoaded] = useState(false);
+  const ref = useReveal([loaded]);
 
   useEffect(() => {
     (async () => {
-      const { data } = await supabase
-        .from('services_items')
-        .select('*')
-        .order('order_index');
-      if (data && data.length > 0) setDbServices(data);
+      try {
+        const { data, error } = await supabase
+          .from('services_items')
+          .select('*')
+          .order('order_index');
+        if (error) console.error('Services: Supabase error', error);
+        if (data && data.length > 0) {
+          console.log('Services: loaded from Supabase', data.length, 'items');
+          setDbServices(data);
+        }
+      } catch (err) {
+        console.error('Services: fetch exception', err);
+      }
+      setLoaded(true);
     })();
   }, []);
 
