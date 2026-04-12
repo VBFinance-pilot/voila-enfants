@@ -1,0 +1,58 @@
+{
+  "cards": [
+    {
+      "amount": "¥2,000〜",
+      "name": { "ja": "30分クラス", "en": "30-min class" },
+      "type": { "ja": "オンラインのみ", "en": "Online only" },
+      "featured": false
+    },
+    {
+      "amount": "¥2,500〜",
+      "name": { "ja": "45分クラス", "en": "45-min class" },
+      "type": { "ja": "対面・オンライン", "en": "In-person & Online" },
+      "featured": true
+    },
+    {
+      "amount": "¥2,800〜",
+      "name": { "ja": "60分クラス", "en": "60-min class" },
+      "type": { "ja": "対面・オンライン", "en": "In-person & Online" },
+      "featured": false
+    },
+    {
+      "amount": "¥3,500〜",
+      "name": { "ja": "90分クラス", "en": "90-min class" },
+      "type": { "ja": "対面・オンライン", "en": "In-person & Online" },
+      "featured": false
+    }
+  ],
+  "extras": {
+    "ja": [
+      {
+        "items": [
+          { "title": "🎈 英語学童 (After-school English)", "text": "放課後の時間を英語で過ごしながら、個性と自信を育てる学童クラスです。時間数・内容により料金が異なりますのでお気軽にご相談ください。" },
+          { "title": "👨‍👩‍👧 グループレッスン", "text": "お友達3名以上で新規グループを作る場合、<span class=\"pink-t\">スタータークラス</span>を特別価格でご案内します。" }
+        ]
+      },
+      {
+        "items": [
+          { "title": "🎉 定期Party!", "text": "季節のイベントや国際交流パーティーなどを定期開催！在籍生徒さまは<span class=\"pink-t\">ファミリープライス</span>で参加いただけます。" },
+          { "title": "📝 無料レベルチェック", "text": "担当講師が丁寧にレベルチェックを行い、最適なクラス・レッスンプラン・月謝料金をご説明いたします。" }
+        ]
+      }
+    ],
+    "en": [
+      {
+        "items": [
+          { "title": "🎈 After-school English", "text": "A fun after-school programme where children spend time learning English while growing confidence and individuality. Fees vary by hours and content — please feel free to ask!" },
+          { "title": "👨‍👩‍👧 Group Lessons", "text": "Starting a new group of 3 or more friends? We offer our <span class=\"pink-t\">Starter Class</span> at a special group rate." }
+        ]
+      },
+      {
+        "items": [
+          { "title": "🎉 Regular Parties!", "text": "We host regular seasonal events and international exchange parties! Current students enjoy <span class=\"pink-t\">family pricing</span>." },
+          { "title": "📝 Free Level Check", "text": "Our teacher will carefully assess your child's level and explain the best class, lesson plan and monthly fee for your family." }
+        ]
+      }
+    ]
+  }
+}

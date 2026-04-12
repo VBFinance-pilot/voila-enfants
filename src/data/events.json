@@ -1,0 +1,13 @@
+[
+  {
+    "id": "easter-2026",
+    "badge": { "ja": "🌸 季節のイベント", "en": "🌸 Seasonal Event" },
+    "title": { "ja": "🐣 Happy Easter！", "en": "🐣 Happy Easter!" },
+    "body": {
+      "ja": "フランスとアメリカのイースター文化を体験！英語でイースターを楽しもう 🇫🇷🇺🇸",
+      "en": "Discover French & American Easter traditions — celebrate Easter in English! 🇫🇷🇺🇸"
+    },
+    "visual": "🐣",
+    "active": true
+  }
+]

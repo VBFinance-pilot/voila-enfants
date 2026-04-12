@@ -1,0 +1,17 @@
+:root {
+  --primary: #8B1A4A;
+  --primary-light: #C4547A;
+  --accent-pink: #E8186C;
+  --accent-gold: #F5A623;
+  --bg-cream: #FFF8F5;
+  --bg-light: #FFF0F5;
+  --text-dark: #1E1E1E;
+  --text-mid: #555;
+  --text-light: #999;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 12px rgba(139,26,74,0.10);
+  --shadow: 0 6px 24px rgba(139,26,74,0.13);
+  --shadow-lg: 0 16px 48px rgba(139,26,74,0.16);
+  --radius: 18px;
+  --radius-sm: 10px;
+}

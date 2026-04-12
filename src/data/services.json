@@ -1,0 +1,121 @@
+[
+  {
+    "id": "face-to-face",
+    "icon": "🤝",
+    "iconBg": "#FFF0F5",
+    "title": "Face to face languages",
+    "body": {
+      "ja": {
+        "description": "心と心でつながる、あたたかい<strong>対面レッスン</strong>といつでもどこでも繋がることができる<strong>オンラインレッスン</strong>。英語・フランス語・日本語が飛び交う<strong>トリリンガルな環境</strong>で、自然なコミュニケーションの中で<strong>自信や国際感覚</strong>も育ちます。",
+        "highlights": [
+          { "icon": "✨", "text": "1レッスン2,200円〜" },
+          { "icon": "✨", "text": "単発ビジターOK！" },
+          { "icon": "✨", "text": "無限振替サポートつき！" },
+          { "icon": "✨", "text": "オンライン対応で天候に左右されない！" }
+        ],
+        "extra": "さらに：<strong>算数・数学レッスン</strong>、赤ちゃんママのための<strong>子育て英語サロン</strong>、<strong>ティーチングメソッドコーチング！！</strong>"
+      },
+      "en": {
+        "description": "Warm <strong>in-person lessons</strong> where hearts connect, plus <strong>online lessons</strong> anytime, anywhere. In our <strong>trilingual environment</strong> of English, French and Japanese, children naturally develop <strong>confidence and a global mindset</strong>.",
+        "highlights": [
+          { "icon": "✨", "text": "From ¥2,200 per lesson" },
+          { "icon": "✨", "text": "Drop-in visitors welcome!" },
+          { "icon": "✨", "text": "Unlimited make-up lesson support!" },
+          { "icon": "✨", "text": "Online option — never miss a lesson!" }
+        ],
+        "extra": "Also: <strong>Maths lessons</strong>, <strong>Parent English salon</strong>, and <strong>Teacher Coaching!!</strong>"
+      }
+    }
+  },
+  {
+    "id": "events-party",
+    "icon": "🎉",
+    "iconBg": "#FFF8E0",
+    "title": "Event and Party",
+    "body": {
+      "ja": {
+        "description": "「そうだ！パーティーしよう！」の気持ちで、<strong>季節ごとに楽しいイベント</strong>を開催しています。クリスマス、ハロウィン、バースデーなど、笑顔と英語があふれる空間。",
+        "highlights": [
+          { "icon": "🎊", "text": "ビジターの方も<strong>1回から参加OK</strong>！" },
+          { "icon": "🎊", "text": "生徒さんは特別<strong>Family価格</strong>でご案内" },
+          { "icon": "🎊", "text": "<strong>フランス文化アペリティフパーティー</strong>も開催！" }
+        ]
+      },
+      "en": {
+        "description": "With the spirit of Let's have a party!, we host <strong>fun seasonal events</strong> throughout the year — Christmas, Halloween, birthdays and more. Smiles and English everywhere!",
+        "highlights": [
+          { "icon": "🎊", "text": "Visitors welcome — <strong>one-time attendance OK</strong>!" },
+          { "icon": "🎊", "text": "Current students get special <strong>Family pricing</strong>" },
+          { "icon": "🎊", "text": "<strong>French-culture Apéritif Parties</strong> too!" }
+        ]
+      }
+    }
+  },
+  {
+    "id": "homestay",
+    "icon": "🌍",
+    "iconBg": "#E8F4FF",
+    "title": "Worldwide 🌍 Homestay",
+    "body": {
+      "ja": {
+        "description": "本物の言語と文化を体験する<strong>「短期・長期・週末留学ホームステイ」</strong>。日本の自宅での週末留学から、<strong>フランス（パリ・ボルドー）</strong>などの短期・長期ホームステイまで対応。",
+        "highlights": [
+          { "icon": "✨", "text": "安心の日本語サポートつき" },
+          { "icon": "✨", "text": "海外フライト付き添いサービスあり" },
+          { "icon": "✨", "text": "クリスマスやイースターなど季節のイベント体験も！" }
+        ]
+      },
+      "en": {
+        "description": "Experience real language and culture with our <strong>short-stay, long-stay and weekend homestays</strong> — from a weekend in Japan to <strong>France (Paris, Bordeaux)</strong> and beyond.",
+        "highlights": [
+          { "icon": "✨", "text": "Japanese support for peace of mind" },
+          { "icon": "✨", "text": "Flight escort service available" },
+          { "icon": "✨", "text": "Seasonal cultural events included (Christmas, Easter…)!" }
+        ]
+      }
+    }
+  },
+  {
+    "id": "english-camps",
+    "icon": "⛺",
+    "iconBg": "#EDFFF5",
+    "title": "English Camps",
+    "body": {
+      "ja": {
+        "description": "学びも遊びも全力で楽しむ<strong>English Camp!!</strong>へようこそ！2泊3日〜3泊4日、すべての活動が英語！<strong>日本語サポートあり！</strong>",
+        "extra": "クラフト・ゲーム・スポーツ・BBQ・温泉・プール盛りだくさん！プレゼンテーションや暗唱大会で自信を育て、<strong>和・フレンチの特別ディナー</strong>プランも！"
+      },
+      "en": {
+        "description": "Welcome to <strong>English Camp!!</strong> — where learning and play go full throttle! 2–3 nights of everything in English. <strong>Japanese support available!</strong>",
+        "extra": "Crafts, games, sports, BBQ, hot springs, swimming pool and so much more! Build confidence through presentations and recitation contests — plus a special <strong>Japanese-French dinner</strong> plan!"
+      }
+    }
+  },
+  {
+    "id": "vip-lessons",
+    "icon": "👑",
+    "iconBg": "#FFFAED",
+    "title": "VIP Lessons at your home",
+    "fullWidth": true,
+    "body": {
+      "ja": {
+        "description": "<strong>VIP自宅英語レッスン！</strong>講師がご自宅に伺い、空いているお部屋でVIP対応のプライベートレッスン。英語そのものを<strong>\"ご自宅にお届け\"</strong>するプレミアムレッスン。自然な日常英会話・海外の空気感・インターナショナルな英国気をご家庭にそのまま再現。",
+        "highlights": [
+          { "icon": "⭐", "text": "単発60分5,000円（グループ定額）" },
+          { "icon": "⭐", "text": "兄弟・姉妹・お友達も一緒にOK！（最大3名まで）" },
+          { "icon": "⭐", "text": "お友達を誘ってお得に！" }
+        ],
+        "quote": "\"Your home feels like abroad.\""
+      },
+      "en": {
+        "description": "<strong>VIP home English lessons!</strong> Our teacher comes to your home and delivers premium private lessons in the comfort of your own space — bringing <strong>English itself to your doorstep</strong>.",
+        "highlights": [
+          { "icon": "⭐", "text": "Drop-in 60 min from ¥5,000 (group flat rate)" },
+          { "icon": "⭐", "text": "Siblings and friends welcome! (up to 3 students)" },
+          { "icon": "⭐", "text": "Bring friends and save!" }
+        ],
+        "quote": "\"Your home feels like abroad.\""
+      }
+    }
+  }
+]

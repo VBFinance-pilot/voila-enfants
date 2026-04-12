@@ -1,0 +1,246 @@
+{
+  "ja": {
+    "nav": {
+      "activities": "Activities",
+      "services": "Services",
+      "pricing": "料金",
+      "hiroba": "親子ひろば",
+      "about": "About",
+      "gallery": "Gallery",
+      "contact": "お問い合わせ"
+    },
+    "mobileNav": {
+      "activities": "🎨 Activities",
+      "services": "📚 Services",
+      "pricing": "💰 料金",
+      "hiroba": "🌈 親子ひろば",
+      "about": "🌍 About",
+      "founders": "👥 Founders",
+      "gallery": "📷 Gallery",
+      "media": "🎤 1-Min English",
+      "contact": "✉️ お問い合わせ"
+    },
+    "hero": {
+      "welcome": "Welcome to",
+      "brand": "Voilà les enfants",
+      "sub": "英語で",
+      "big": "AクティビティS 💗",
+      "tagline": "〜All different, All good〜",
+      "btnPrograms": "プログラムを見る ↓",
+      "btnTrial": "無料体験レッスン 🎁"
+    },
+    "activities": {
+      "tag": "OUR APPROACH",
+      "title": "Activities in English",
+      "body": "<p>私たちの英語アクティビティは、</p><p class=\"hl-pink\">「体験を通して英語を生きたことばとして身につける」</p><p>ことを目的にしています。</p><br/><p>子どもたちは動き、遊び、表現しながら、まるで海外の家庭のような<span class=\"hl-bold\">インターナショナルな空間</span>の中で自然に英語を吸収していきます。</p>",
+      "programsHeading": "主なプログラム：",
+      "programs": [
+        { "icon": "🎵", "title": "ベビー＆キッズクラス", "desc": "歌・体遊び・絵本を通して楽しく英語にふれる" },
+        { "icon": "🎨", "title": "アフタースクールプログラム", "desc": "アートやサイエンス、遊びを取り入れた英語 immersion 学習法！" },
+        { "icon": "🌸", "title": "季節のワークショップ＆キャンプ", "desc": "文化交流や体験型イベント" },
+        { "icon": "👨‍👩‍👧", "title": "ファミリー英会話", "desc": "親子で学べるやさしい育児英会話レッスン" },
+        { "icon": "💻", "title": "オンラインレッスン", "desc": "どこからでも受けられる柔軟な学習スタイル。英語・算数・数学・英検等対策" },
+        { "icon": "👩‍🏫", "title": "先生向けコーチング", "desc": "現役講師のための実践的サポート、ゲームやワークシートなどの指導も！" }
+      ],
+      "footer": "<p>どのクラスも<span class=\"hl-bold\">「コミュニケーション・創造力・自信」</span>を大切にしています。</p><p>英語だけでなく<span class=\"hl-bold\">「自分を好きになる力」</span>や<span class=\"hl-bold\">「人を幸せにする力」</span>も育てます。</p><p>それは、英語学習を超えた<span class=\"hl-bold\">「人生を豊かにする体験」</span>です。</p>"
+    },
+    "hiroba": {
+      "tag": "OYAKO HIROBA",
+      "title": "🌈 英語であそべる親子ひろばオープン！ 🌈",
+      "coin": "💰 ワンコイン500円で留学体験！",
+      "body": "<p>親子でたったの500円。おもちゃ・絵本・手遊びを使い、子どもが楽しむうちに英語がスッと入る仕掛けがいっぱい。</p><p>🍊 1歳〜16歳の4人の子どもを育てる私たちが運営。「みんなで温かく子育てできる場所」をつくりました。</p><p>🏠 あたたかい家庭のような<strong>畳スペース</strong>。走っても寝転んでも安心。親子で気軽に楽しめる<strong>国際ひろば</strong>へようこそ！</p>",
+      "cta": "参加を申し込む →"
+    },
+    "pricing": {
+      "tag": "PRICING",
+      "title": "料金のご案内",
+      "intro": "世界中のすべての子どもたち、すべての人たちに<strong>学びの扉を開きたい</strong>という想いから始まりました。どんな子ども達でも、学びは<strong>平等であるべき</strong>。",
+      "freeBadge": "🎁 入会金 & 教材費　完全無料 💗",
+      "unlimTitle": "京都エリアで珍しい \"振替無制限システム\" 💗",
+      "unlimBody": "忙しくても安心！欠席してもいつでも何度でも \"その分全部\" が受け取れます。",
+      "enrollment": "入会金",
+      "materials": "教材費",
+      "free": "無料 💗",
+      "note": "未就園児の子供たちには特別価格をご用意しておりますのでお気軽にご連絡ください♪",
+      "trialTitle": "🎁 無料体験レッスン（60分）",
+      "trialBody": "初めての方は<span class=\"pink-t\">60分の無料体験レッスン</span>をご利用いただけます。",
+      "trialSibling": "ぜひお友達とご兄弟、姉妹とご一緒にご参加下さい（<strong>ご兄弟・姉妹割引あり</strong>）",
+      "trialCta": "無料体験を予約する 🎉"
+    },
+    "about": {
+      "tag": "WHO WE ARE",
+      "title": "🌍 About US!!",
+      "body": "<p>私たちは、<strong>日本語・フランス語・英語</strong>が毎日自然に飛び交う、日仏ミックスのファミリースクールです。</p><p>これまで 🇯🇵 日本・🇻🇳 ベトナム・🇫🇷 パリ・🇫🇷 フランスなど世界各地で<strong>15年以上英語教育</strong>に携わり、子どもが母語を覚えるように<strong>\"自然に・楽しく・確実に身につく\"</strong>英語学習を提供してきました。</p><p>オンラインレッスン、季節ごとのイベント、そして国際キャンプを通して、世界中の生徒とつながり、<strong>国境を越えた温かいコミュニティ</strong>を育てています。</p><p>私たちのレッスンは、<strong>自信を育て、好奇心を広げ、成長を祝いながら</strong>進んでいくスタイルです。子どもも大人も、リアルなトリリンガル環境で、国際的な空気に包まれて学びます。</p>",
+      "servicesTitle": "提供している内容：",
+      "servicesList": [
+        "赤ちゃんから大人までの英語レッスン",
+        "ママと家族のための実用英語",
+        "英語講師向けコーチング",
+        "学習サポート・試験対策",
+        "文化交流・海外留学プログラム"
+      ],
+      "closing": "私たちと一緒に学び、成長し、世界中どこにいても<em>\"ただいま おかえり\"</em>と言える場所 ― もう一つのあなたの居場所をつくりましょう。"
+    },
+    "founders": {
+      "title": "Founders",
+      "role": "International Language Educator"
+    },
+    "gallery": {
+      "tag": "OUR MEMORIES",
+      "title": "Gallery",
+      "note": "📷 Cliquez sur une photo pour l'agrandir"
+    },
+    "media": {
+      "tag": "CONTENT",
+      "title": "1-Minute English",
+      "sub": "毎日使えるネイティブ英語フレーズをわかりやすく紹介！",
+      "brand": "英語でAクティビティS!"
+    },
+    "contact": {
+      "title": "Can't wait to meet you!",
+      "intro": "お問い合わせ・ご質問・ご予約方法・プログラムのご案内など、どうぞお気軽にご連絡ください。",
+      "emailLabel": "メールアドレス",
+      "phoneLabel": "電話番号",
+      "lineLabel": "LINE",
+      "lineSub": "LINEで簡単にお問い合わせ",
+      "qr": "QRコードを読み取ってください",
+      "ctaBtn": "無料体験レッスンを予約 🎁",
+      "formTitle": "✉️ メッセージを送る",
+      "formLast": "姓（必須）",
+      "formFirst": "名（必須）",
+      "formEmail": "E-mail（必須）",
+      "formMessage": "Message（必須）",
+      "phLast": "山田",
+      "phFirst": "太郎",
+      "phMessage": "お問い合わせ内容、体験レッスンのご希望などをお書きください...",
+      "submitBtn": "送信 ✉️",
+      "submitSuccess": "✅ 送信完了！ありがとうございます！"
+    },
+    "footer": {
+      "tagline": "英語でAクティビティS 💗 〜All different, All good〜",
+      "copyright": "© 2025 Voilà les enfants. All rights reserved."
+    }
+  },
+  "en": {
+    "nav": {
+      "activities": "Activities",
+      "services": "Services",
+      "pricing": "Pricing",
+      "hiroba": "Oyako Hiroba",
+      "about": "About",
+      "gallery": "Gallery",
+      "contact": "Contact"
+    },
+    "mobileNav": {
+      "activities": "🎨 Activities",
+      "services": "📚 Services",
+      "pricing": "💰 Pricing",
+      "hiroba": "🌈 Oyako Hiroba",
+      "about": "🌍 About",
+      "founders": "👥 Founders",
+      "gallery": "📷 Gallery",
+      "media": "🎤 1-Min English",
+      "contact": "✉️ Contact"
+    },
+    "hero": {
+      "welcome": "Welcome to",
+      "brand": "Voilà les enfants",
+      "sub": "English",
+      "big": "Activities 💗",
+      "tagline": "〜All different, All good〜",
+      "btnPrograms": "Discover our programs ↓",
+      "btnTrial": "Free Trial Lesson 🎁"
+    },
+    "activities": {
+      "tag": "OUR APPROACH",
+      "title": "Activities in English",
+      "body": "<p>Our English activities are designed so that children</p><p class=\"hl-pink\">acquire English as a living language through real experience.</p><br/><p>Children move, play and express themselves in an <span class=\"hl-bold\">international environment</span> just like a home abroad.</p><p>We prioritise <span class=\"hl-bold\">communication, creativity and self-expression</span> above all.</p>",
+      "programsHeading": "Our Programs:",
+      "programs": [
+        { "icon": "🎵", "title": "Baby & Kids Class", "desc": "Songs, movement games and picture books for a joyful first English experience" },
+        { "icon": "🎨", "title": "After-school Program", "desc": "English immersion learning through art, science and play!" },
+        { "icon": "🌸", "title": "Seasonal Workshops & Camps", "desc": "Cultural exchange and hands-on events every season" },
+        { "icon": "👨‍👩‍👧", "title": "Family English Conversation", "desc": "Friendly parent-child lessons for everyday English at home" },
+        { "icon": "💻", "title": "Online Lessons", "desc": "Flexible learning from anywhere — English, maths, Eiken prep and more" },
+        { "icon": "👩‍🏫", "title": "Teacher Coaching", "desc": "Practical support for practising teachers, including games and worksheets!" }
+      ],
+      "footer": "<p>Every class puts <span class=\"hl-bold\">communication, creativity and confidence</span> at the centre.</p><p>We nurture <span class=\"hl-bold\">self-love</span> and <span class=\"hl-bold\">the ability to bring happiness to others</span>.</p><p>It's more than language learning — it's a <span class=\"hl-bold\">life-enriching experience</span>.</p>"
+    },
+    "hiroba": {
+      "tag": "OYAKO HIROBA",
+      "title": "🌈 Oyako Hiroba is open — play in English together! 🌈",
+      "coin": "💰 Just ¥500 per family — a study-abroad feeling at home!",
+      "body": "<p>Just ¥500 for parent and child. Toys, picture books and finger-play are packed with ways to let English naturally sink in while kids have fun.</p><p>🍊 Run by parents raising 4 children aged 1–16. We created a place where everyone can raise children warmly, together.</p><p>🏠 A cosy <strong>tatami space</strong> like a warm home. Safe to run, roll, and relax. Welcome to our <strong>international hiroba</strong>!</p>",
+      "cta": "Sign up now →"
+    },
+    "pricing": {
+      "tag": "PRICING",
+      "title": "Our Tuition",
+      "intro": "We started with the dream of <strong>opening the door to learning</strong> for every child, everywhere. Learning should be <strong>equal for all</strong>.",
+      "freeBadge": "🎁 No enrollment fee & free materials 💗",
+      "unlimTitle": "Rare in Kyoto: Unlimited make-up lesson system 💗",
+      "unlimBody": "No worries! If you miss a class, you can always make it up — as many times as you need.",
+      "enrollment": "Enrollment fee",
+      "materials": "Materials",
+      "free": "Free 💗",
+      "note": "Special pricing available for pre-school children — feel free to contact us ♪",
+      "trialTitle": "🎁 Free Trial Lesson (60 min)",
+      "trialBody": "First-timers are welcome to a <span class=\"pink-t\">free 60-minute trial lesson</span>.",
+      "trialSibling": "Bring a friend or your siblings along! (<strong>sibling discount available</strong>)",
+      "trialCta": "Book a free trial lesson 🎁"
+    },
+    "about": {
+      "tag": "WHO WE ARE",
+      "title": "🌍 About US!!",
+      "body": "<p>We are a French-Japanese family school where <strong>Japanese, French and English</strong> flow naturally every day.</p><p>With over <strong>15 years of English education</strong> experience across 🇯🇵 Japan, 🇻🇳 Vietnam, 🇫🇷 Paris and beyond, we help children acquire English the way they learn their mother tongue — <strong>naturally, joyfully and effectively</strong>.</p><p>Through online lessons, seasonal events and international camps, we connect with students worldwide, nurturing a <strong>warm, borderless community</strong>.</p><p>Our lessons <strong>build confidence, spark curiosity and celebrate growth</strong>. Children and adults alike learn in a real trilingual environment, immersed in an international atmosphere.</p>",
+      "servicesTitle": "What we offer:",
+      "servicesList": [
+        "English lessons for babies to adults",
+        "Practical English for mums and families",
+        "Coaching for English teachers",
+        "Study support & exam preparation",
+        "Cultural exchange & study abroad programmes"
+      ],
+      "closing": "Learn, grow, and build — together with us — a place where you can say <em>\"I'm home\"</em>, anywhere in the world."
+    },
+    "founders": {
+      "title": "Founders",
+      "role": "International Language Educator"
+    },
+    "gallery": {
+      "tag": "OUR MEMORIES",
+      "title": "Gallery",
+      "note": "📷 Click a photo to enlarge"
+    },
+    "media": {
+      "tag": "CONTENT",
+      "title": "1-Minute English",
+      "sub": "Easy, native English phrases you can use every day!",
+      "brand": "English Activities!"
+    },
+    "contact": {
+      "title": "Can't wait to meet you!",
+      "intro": "For enquiries, bookings, programme info or any questions — don't hesitate to reach out!",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone number",
+      "lineLabel": "LINE",
+      "lineSub": "Message us on LINE",
+      "qr": "Scan the QR code",
+      "ctaBtn": "Book a free trial lesson 🎁",
+      "formTitle": "✉️ Send us a message",
+      "formLast": "Last name (required)",
+      "formFirst": "First name (required)",
+      "formEmail": "E-mail (required)",
+      "formMessage": "Message (required)",
+      "phLast": "Smith",
+      "phFirst": "John",
+      "phMessage": "Your message, lesson enquiry or anything you'd like to know...",
+      "submitBtn": "Send ✉️",
+      "submitSuccess": "✅ Sent! Thank you!"
+    },
+    "footer": {
+      "tagline": "English Activities 💗 〜All different, All good〜",
+      "copyright": "© 2025 Voilà les enfants. All rights reserved."
+    }
+  }
+}

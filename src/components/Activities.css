@@ -1,0 +1,37 @@
+#activities { background: white; }
+.activities-layout {
+  display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start;
+}
+.activities-body p {
+  font-size: 0.9rem; line-height: 2.1; color: var(--text-mid); margin-bottom: 10px;
+}
+.programs-heading { font-size: 0.95rem; font-weight: 700; margin: 26px 0 16px; }
+.program-item {
+  padding: 10px 0 10px 18px; border-left: 3px solid #F0E0EB;
+  margin-bottom: 10px; transition: border-color 0.22s;
+}
+.program-item:hover { border-color: var(--accent-pink); }
+.program-item strong {
+  display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 2px;
+}
+.program-item p {
+  font-size: 0.81rem; color: var(--text-mid); line-height: 1.65; margin: 0;
+}
+.activities-photo-wrap {
+  position: sticky; top: 90px; display: flex;
+  flex-direction: column; align-items: center;
+}
+.round-photo {
+  width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(139,26,74,0.18);
+  background: linear-gradient(135deg, #FFE8F0, #E8F4FF);
+  display: flex; align-items: center; justify-content: center; font-size: 5rem;
+}
+.round-photo img { width: 100%; height: 100%; object-fit: cover; }
+.activities-footer {
+  background: var(--bg-cream); border-radius: var(--radius);
+  padding: 32px 36px; margin-top: 44px; text-align: center;
+}
+.activities-footer p {
+  font-size: 0.88rem; line-height: 2.1; color: var(--text-mid); margin-bottom: 6px;
+}

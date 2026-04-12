@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,600;1,700&display=swap');
+@import './variables.css';
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-cream); }
+::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+
+/* BUTTONS */
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px;
+  border-radius: 28px; border: none; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; text-decoration: none; font-family: 'Noto Sans JP', sans-serif;
+  transition: all 0.28s; white-space: nowrap;
+}
+.btn-primary {
+  background: var(--primary); color: white;
+  box-shadow: 0 4px 16px rgba(139,26,74,0.30);
+}
+.btn-primary:hover {
+  background: var(--primary-light); transform: translateY(-2px);
+  box-shadow: 0 7px 22px rgba(139,26,74,0.38);
+}
+.btn-secondary {
+  background: white; color: var(--primary); border: 2px solid var(--primary);
+}
+.btn-secondary:hover {
+  background: var(--bg-light); transform: translateY(-2px);
+}
+
+/* COMMONS */
+section { padding: 84px 24px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.tag {
+  display: inline-block; background: var(--bg-light); color: var(--primary);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 15px; border-radius: 20px; margin-bottom: 14px;
+}
+.sec-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem); font-weight: 700;
+  color: var(--text-dark); line-height: 1.2; margin-bottom: 18px;
+}
+.sec-title-ja {
+  font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700;
+  color: var(--text-dark); margin-bottom: 18px;
+}
+.bar {
+  width: 54px; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-pink));
+  border-radius: 3px; margin-bottom: 30px;
+}
+.bar.center { margin-left: auto; margin-right: auto; }
+
+/* HELPERS */
+.hl-pink { color: var(--accent-pink); font-weight: 700; }
+.hl-bold { font-weight: 700; color: var(--text-dark); }
+.pink-t { color: var(--accent-pink); font-weight: 700; }
+
+/* REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.up { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+
+/* EN mode: hide Japanese translations in media cards */
+[data-lang="en"] .media-ja { display: none; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .activities-layout { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .activities-photo-wrap { position: static !important; max-width: 280px; margin: 0 auto; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .srv-card.full-width { grid-column: 1 !important; }
+  .hiroba-layout { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .hiroba-img { max-width: 320px; margin: 0 auto; }
+  .price-cards { grid-template-columns: 1fr 1fr !important; }
+  .price-extras { grid-template-columns: 1fr !important; }
+  .about-services-box ul { grid-template-columns: 1fr !important; }
+  .contact-layout { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .gallery-grid { columns: 3 !important; }
+  .media-row { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media (max-width: 620px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+  section { padding: 60px 16px; }
+  .founders-wrap { grid-template-columns: 1fr !important; max-width: 280px; }
+  .gallery-grid { columns: 2 !important; }
+  .frow { grid-template-columns: 1fr !important; }
+  .cform { padding: 24px 18px !important; }
+  .price-cards { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .media-row { grid-template-columns: repeat(2,1fr) !important; }
+}

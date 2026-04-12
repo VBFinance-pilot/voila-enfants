@@ -1,0 +1,42 @@
+#gallery { background: var(--bg-cream); }
+.gallery-grid { columns: 4; column-gap: 13px; }
+.g-item {
+  break-inside: avoid; margin-bottom: 13px; border-radius: 13px;
+  overflow: hidden; cursor: pointer; position: relative; transition: transform 0.3s;
+}
+.g-item:hover { transform: scale(1.02); }
+.g-item img { width: 100%; display: block; border-radius: 13px; }
+.g-overlay {
+  position: absolute; inset: 0; border-radius: 13px;
+  background: rgba(139,26,74,0); transition: background 0.28s;
+  display: flex; align-items: center; justify-content: center;
+}
+.g-item:hover .g-overlay { background: rgba(139,26,74,0.18); }
+.g-overlay-icon {
+  color: white; font-size: 1.6rem; opacity: 0; transition: opacity 0.28s;
+}
+.g-item:hover .g-overlay-icon { opacity: 1; }
+.gallery-note {
+  text-align: center; margin-top: 28px; font-size: 0.82rem; color: var(--text-light);
+  background: white; border-radius: var(--radius-sm); padding: 12px 20px;
+  display: inline-block;
+}
+
+/* LIGHTBOX */
+.lb {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,10,20,0.92);
+  display: flex; align-items: center; justify-content: center;
+  cursor: zoom-out; padding: 24px;
+}
+.lb img {
+  max-width: 92vw; max-height: 90vh; border-radius: 14px; object-fit: contain;
+}
+.lb-close {
+  position: absolute; top: 20px; right: 24px;
+  background: rgba(255,255,255,0.12); border: none; color: white;
+  width: 40px; height: 40px; border-radius: 50%; font-size: 1.1rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lb-close:hover { background: rgba(255,255,255,0.22); }

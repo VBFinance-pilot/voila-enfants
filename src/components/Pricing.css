@@ -1,0 +1,75 @@
+#pricing { background: white; }
+.pricing-intro {
+  text-align: center; max-width: 720px; margin: 0 auto 56px;
+}
+.pricing-intro p {
+  font-size: 0.88rem; line-height: 2; color: var(--text-mid); margin-bottom: 10px;
+}
+.free-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+  color: white; padding: 13px 30px; border-radius: 30px;
+  font-size: 1.02rem; font-weight: 700; margin: 18px 0;
+  box-shadow: 0 5px 20px rgba(139,26,74,0.28);
+}
+.unlim-box {
+  background: var(--bg-cream); border-radius: var(--radius-sm);
+  padding: 16px 24px; display: inline-block; margin-top: 10px;
+}
+.unlim-box p:first-child { color: var(--primary); font-weight: 700; font-size: 0.9rem; }
+.unlim-box p:last-child { font-size: 0.8rem; color: var(--text-mid); margin-top: 3px; }
+.pricing-labels {
+  display: flex; justify-content: center; gap: 48px; margin-bottom: 40px; flex-wrap: wrap;
+}
+.pricing-label-item { text-align: center; }
+.pricing-label-title {
+  font-size: 0.8rem; font-weight: 700; color: var(--text-mid); margin-bottom: 6px;
+}
+.pricing-label-value {
+  font-family: 'Dancing Script', cursive; font-size: 2.2rem;
+  font-weight: 700; color: var(--accent-pink);
+}
+.price-cards {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-bottom: 40px;
+}
+.pcard {
+  background: var(--bg-cream); border-radius: var(--radius);
+  padding: 28px 18px; text-align: center; border: 2px solid transparent;
+  transition: all 0.28s;
+}
+.pcard:hover {
+  border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow);
+}
+.pcard.feat {
+  background: linear-gradient(140deg, var(--primary), var(--primary-light)); color: white;
+}
+.pcard-amt {
+  font-family: 'Dancing Script', cursive; font-size: 2.1rem;
+  font-weight: 700; color: var(--primary); line-height: 1;
+}
+.pcard.feat .pcard-amt { color: white; }
+.pcard-name { font-size: 0.88rem; font-weight: 700; margin: 9px 0 4px; }
+.pcard.feat .pcard-name { color: rgba(255,255,255,0.9); }
+.pcard-type { font-size: 0.77rem; color: var(--text-mid); }
+.pcard.feat .pcard-type { color: rgba(255,255,255,0.7); }
+.price-extras {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 36px;
+}
+.pex-card {
+  background: var(--bg-cream); border-radius: var(--radius); padding: 24px 26px;
+}
+.pex-card h3 {
+  font-size: 0.97rem; font-weight: 700; margin-bottom: 11px;
+  display: flex; align-items: center; gap: 8px;
+}
+.pex-card p { font-size: 0.83rem; line-height: 1.85; color: var(--text-mid); }
+.trial-banner {
+  background: linear-gradient(135deg, #FFF2F8, #FFF8F0);
+  border: 2px solid var(--accent-pink); border-radius: var(--radius);
+  padding: 36px 40px; text-align: center;
+}
+.trial-banner h3 {
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.trial-banner p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.85; }

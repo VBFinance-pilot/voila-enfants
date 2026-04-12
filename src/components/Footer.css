@@ -1,0 +1,26 @@
+footer {
+  background: #1A1A2E; color: rgba(255,255,255,0.65);
+  padding: 48px 24px 32px; text-align: center;
+}
+.foot-logo {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 7px; margin-bottom: 14px;
+}
+.foot-logo-img { height: 60px; width: auto; filter: brightness(10); }
+.foot-tag { font-size: 0.78rem; color: rgba(255,255,255,0.42); margin-bottom: 26px; }
+.foot-nav {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 6px 20px; margin-bottom: 26px;
+}
+.foot-nav a {
+  color: rgba(255,255,255,0.5); text-decoration: none;
+  font-size: 0.79rem; transition: color 0.2s;
+}
+.foot-nav a:hover { color: white; }
+.foot-copy {
+  font-size: 0.73rem; color: rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;
+}
+.foot-email {
+  color: rgba(255,255,255,0.3); text-decoration: none;
+}
