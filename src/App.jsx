@@ -7,7 +7,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Legal from './pages/Legal';
 
-const AdminGallery = lazy(() => import('./pages/AdminGallery'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
 export default function App() {
   return (
@@ -23,7 +23,7 @@ export default function App() {
             path="/admin"
             element={
               <Suspense fallback={<div style={{ padding: '40vh 0', textAlign: 'center' }}>Loading...</div>}>
-                <AdminGallery />
+                <AdminDashboard />
               </Suspense>
             }
           />
