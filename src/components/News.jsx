@@ -55,12 +55,13 @@ export default function News() {
       <section id="news" ref={ref}>
         <div className="container">
           <div className="news-inner reveal">
-            <div className="news-badge">{event.date || 'NEW'}</div>
+            <div className="news-badge">NEW</div>
             <div className="news-text">
               <h3>{event.title}</h3>
               {event.description && <p>{event.description}</p>}
+              {event.date && <div className="news-date">{event.date}</div>}
             </div>
-            {event.image_url && <div className="news-visual"><img src={event.image_url} alt="" style={{ maxHeight: 80, borderRadius: 8 }} /></div>}
+            {event.image_url && <div className="news-visual news-visual--img"><img src={event.image_url} alt={event.title || ''} /></div>}
           </div>
         </div>
       </section>
