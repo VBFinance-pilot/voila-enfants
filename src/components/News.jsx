@@ -13,21 +13,34 @@ export default function News() {
 
   useEffect(() => {
     (async () => {
-      // Try Supabase first
-      const { data } = await supabase
-        .from('events_items')
-        .select('*')
-        .eq('active', true)
-        .order('order_index')
-        .limit(1);
-      if (data && data.length > 0) {
-        const db = data[0];
-        setEvent({ title: db.title, description: db.description, event_date: db.event_date, image_url: db.image_url, fromDb: true });
-      } else {
-        // Fallback to static JSON
-        const active = eventsStatic.find((e) => e.active);
-        if (active) setEvent({ ...active, fromDb: false });
+      try {
+        // Try Supabase first
+        const { data, error } = await supabase
+          .from('events_items')
+          .select('*')
+          .eq('active', true)
+          .order('order_index')
+          .limit(1);
+
+        if (error) {
+          console.error('News: Supabase fetch error', error);
+        }
+
+        if (data && data.length > 0) {
+          const db = data[0];
+          console.log('News: loaded event from Supabase', db.title);
+          setEvent({ title: db.title, description: db.description, event_date: db.event_date, image_url: db.image_url, fromDb: true });
+          setReady(true);
+          return;
+        }
+      } catch (err) {
+        console.error('News: Supabase exception', err);
       }
+
+      // Fallback to static JSON
+      console.log('News: falling back to static events.json');
+      const active = eventsStatic.find((e) => e.active);
+      if (active) setEvent({ ...active, fromDb: false });
       setReady(true);
     })();
   }, []);
