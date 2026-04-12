@@ -4,17 +4,58 @@ import { useReveal } from './useReveal';
 import './Contact.css';
 
 export default function Contact() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const ref = useReveal();
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      e.target.reset();
-    }, 3500);
+    setStatus('loading');
+    setErrorMsg('');
+
+    const form = e.target;
+    const data = {
+      from_name: `${form.lastName.value} ${form.firstName.value}`.trim(),
+      from_email: form.email.value,
+      message: form.message.value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        setStatus('success');
+        form.reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setErrorMsg(result.error || (lang === 'ja' ? '送信に失敗しました。' : 'Failed to send.'));
+      }
+    } catch {
+      setStatus('error');
+      setErrorMsg(lang === 'ja' ? 'ネットワークエラーが発生しました。' : 'Network error. Please try again.');
+    }
+  };
+
+  const btnText = () => {
+    switch (status) {
+      case 'loading': return lang === 'ja' ? '送信中...' : 'Sending...';
+      case 'success': return t('contact.submitSuccess');
+      default: return t('contact.submitBtn');
+    }
+  };
+
+  const btnStyle = () => {
+    if (status === 'success') return { background: '#2E9E6A' };
+    if (status === 'error') return { background: '#D32F2F' };
+    return undefined;
   };
 
   return (
@@ -71,27 +112,31 @@ export default function Contact() {
               <div className="frow">
                 <div className="fg">
                   <label>{t('contact.formLast')}</label>
-                  <input type="text" placeholder={t('contact.phLast')} required />
+                  <input name="lastName" type="text" placeholder={t('contact.phLast')} required />
                 </div>
                 <div className="fg">
                   <label>{t('contact.formFirst')}</label>
-                  <input type="text" placeholder={t('contact.phFirst')} required />
+                  <input name="firstName" type="text" placeholder={t('contact.phFirst')} required />
                 </div>
               </div>
               <div className="fg">
                 <label>{t('contact.formEmail')}</label>
-                <input type="email" placeholder="votre@email.com" required />
+                <input name="email" type="email" placeholder="votre@email.com" required />
               </div>
               <div className="fg">
                 <label>{t('contact.formMessage')}</label>
-                <textarea placeholder={t('contact.phMessage')} required />
+                <textarea name="message" placeholder={t('contact.phMessage')} required />
               </div>
+              {status === 'error' && (
+                <p className="form-error">{errorMsg}</p>
+              )}
               <button
                 type="submit"
                 className="fsubmit"
-                style={submitted ? { background: '#2E9E6A' } : undefined}
+                disabled={status === 'loading'}
+                style={btnStyle()}
               >
-                {submitted ? t('contact.submitSuccess') : t('contact.submitBtn')}
+                {btnText()}
               </button>
             </form>
           </div>
