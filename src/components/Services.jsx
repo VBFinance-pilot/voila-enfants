@@ -9,9 +9,8 @@ export default function Services() {
   const [openId, setOpenId] = useState(null);
   const [services, setServices] = useState(null);
   const sectionRef = useRef(null);
-  const [revealed, setRevealed] = useState(false);
 
-  // Fetch from Supabase
+  // Fetch from Supabase, fallback to static JSON if table empty
   useEffect(() => {
     (async () => {
       try {
@@ -19,45 +18,48 @@ export default function Services() {
           .from('services_items')
           .select('*')
           .order('order_index');
-        console.log('Services: fetch result', { count: data?.length, error });
+        console.log('Services: Supabase response', { data, error });
         if (!error && data && data.length > 0) {
+          console.log('Services: using', data.length, 'items from Supabase');
           setServices(data.map(srv => ({ ...srv, fromDb: true })));
           return;
         }
+        if (error) console.error('Services: Supabase error', error);
+        else console.log('Services: table empty (0 rows), using static fallback');
       } catch (err) {
-        console.error('Services: exception', err);
+        console.error('Services: fetch exception', err);
       }
-      // Fallback to static
-      console.log('Services: using static JSON fallback');
       setServices(servicesData.map(srv => ({ ...srv, fromDb: false })));
     })();
   }, []);
 
-  // Reveal animation — runs once when services are loaded and DOM is ready
+  // Reveal animation — add srv-visible after DOM paint
   useEffect(() => {
-    if (!services || revealed) return;
+    if (!services) return;
     const el = sectionRef.current;
     if (!el) return;
 
-    const cards = el.querySelectorAll('.srv-card');
-    if (cards.length === 0) return;
+    // requestAnimationFrame ensures DOM is painted before we start observing
+    const raf = requestAnimationFrame(() => {
+      const cards = el.querySelectorAll('.srv-card:not(.srv-visible)');
+      if (cards.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('srv-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('srv-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.05 }
+      );
 
-    cards.forEach((c) => observer.observe(c));
-    setRevealed(true);
-    return () => observer.disconnect();
-  }, [services, revealed]);
+      cards.forEach((c) => observer.observe(c));
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [services]);
 
   const toggle = (id) => setOpenId(openId === id ? null : id);
 
