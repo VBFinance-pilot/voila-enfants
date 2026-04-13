@@ -43,7 +43,7 @@ export default function Founders() {
           {founders.map((f, i) => (
             <div key={f.name} className={`founder-card reveal ${i > 0 ? 'reveal-d1' : ''}`}>
               <div className="founder-avatar">
-                {f.photo && <img src={f.photo} alt={f.name} />}
+                {f.photo && <img src={f.photo} alt={`${f.name} – founder of Voilà les enfants English school Kyoto`} />}
               </div>
               <div className="founder-name">{f.name}</div>
               <div className="founder-role">{f.title || t('founders.role')}</div>

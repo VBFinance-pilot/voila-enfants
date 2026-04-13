@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="hero-bg" />
       <div className="hero-content">
         <div className="hero-logo-mark">
-          <img src="/logo.png" alt="Voilà les enfants" className="hero-logo-hero-img" />
+          <img src="/logo.png" alt="Voilà les enfants – English school for children in Kyoto Nishikyo-ku 京都西京区の子供英語教室" className="hero-logo-hero-img" />
         </div>
         <p className="hero-welcome">
           {t('hero.welcome')} <em>{t('hero.brand')}</em>！

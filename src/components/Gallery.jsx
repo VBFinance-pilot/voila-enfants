@@ -71,7 +71,7 @@ export default function Gallery() {
               className="g-item"
               onClick={() => setLightbox(img.image_url)}
             >
-              <img src={img.image_url} alt={img.title || 'Gallery'} loading="lazy" />
+              <img src={img.image_url} alt={img.title || 'Voilà les enfants English school Kyoto – classroom activities'} loading="lazy" />
               <div className="g-overlay">
                 <span className="g-overlay-icon">🔍</span>
               </div>
@@ -88,7 +88,7 @@ export default function Gallery() {
           <button className="lb-close" onClick={() => setLightbox(null)}>
             ✕
           </button>
-          <img src={lightbox} alt="Gallery" />
+          <img src={lightbox} alt="Voilà les enfants English school Kyoto – photo" />
         </div>
       )}
     </section>

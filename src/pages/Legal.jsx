@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useLang } from '../contexts/LanguageContext';
 import legalData from '../data/legal.json';
 import LegalLayout from './LegalLayout';
@@ -8,6 +9,11 @@ export default function Legal() {
 
   return (
     <LegalLayout title={d.title} subtitle={d.subtitle} currentPage="legal">
+      <Helmet>
+        <title>Legal Notice | Voilà les enfants</title>
+        <meta name="description" content="Legal notice for Voilà les enfants English school in Kyoto." />
+        <link rel="canonical" href="https://www.voila-les-enfants.jp/legal" />
+      </Helmet>
       <Section title={d.publisher.title}>
         <ul>
           {d.publisher.items.map((item, i) => (

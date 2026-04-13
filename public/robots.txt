@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /cards
+Disallow: /qrcode
+
+Sitemap: https://www.voila-les-enfants.jp/sitemap.xml

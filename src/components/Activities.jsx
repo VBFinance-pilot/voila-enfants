@@ -8,7 +8,7 @@ export default function Activities() {
   const { t } = useLang();
   const ref = useReveal();
   const [heroImg, setHeroImg] = useState('/hero-bg.png');
-  const [heroAlt, setHeroAlt] = useState('Activities');
+  const [heroAlt, setHeroAlt] = useState('English activities for children in Kyoto Nishikyo-ku 京都西京区の子供英語アクティビティ');
 
   useEffect(() => {
     (async () => {
