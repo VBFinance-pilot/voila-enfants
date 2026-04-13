@@ -9,6 +9,7 @@ import Legal from './pages/Legal';
 
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const QRCode = lazy(() => import('./pages/QRCode'));
+const BusinessCards = lazy(() => import('./pages/BusinessCards'));
 
 export default function App() {
   return (
@@ -25,6 +26,14 @@ export default function App() {
             element={
               <Suspense fallback={<div style={{ padding: '40vh 0', textAlign: 'center' }}>Loading...</div>}>
                 <QRCode />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/cards"
+            element={
+              <Suspense fallback={<div style={{ padding: '40vh 0', textAlign: 'center' }}>Loading...</div>}>
+                <BusinessCards />
               </Suspense>
             }
           />
