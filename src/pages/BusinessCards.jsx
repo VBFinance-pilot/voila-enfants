@@ -145,7 +145,7 @@ export default function BusinessCards() {
               <div className="bc-b-qr" ref={qrRef} />
               <div className="bc-b-contact">
                 <div className="bc-b-hello">Bonjour !</div>
-                <div className="bc-b-phone">090-XXXX-XXXX</div>
+                <div className="bc-b-phone">090-6009-0792</div>
                 <div className="bc-b-cta">お問い合わせはこちら</div>
                 <div className="bc-b-site">www.voila-les-enfants.jp</div>
               </div>
