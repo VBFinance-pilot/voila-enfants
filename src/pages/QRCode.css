@@ -1,0 +1,130 @@
+.qr-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFF8F5 0%, #FFF0F5 100%);
+  padding: 24px;
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+.qr-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(139, 26, 74, 0.1);
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.qr-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #8B1A4A;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.qr-subtitle {
+  font-size: 0.9rem;
+  color: #999;
+  margin: 0 0 32px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(139, 26, 74, 0.08);
+}
+.qr-container svg,
+.qr-container canvas {
+  display: block;
+  border-radius: 16px;
+}
+
+.qr-scan-text {
+  font-size: 1.05rem;
+  color: #555;
+  margin: 0 0 6px;
+  font-style: italic;
+}
+
+.qr-url {
+  font-size: 0.82rem;
+  color: #C4547A;
+  margin: 0 0 28px;
+  font-family: 'Noto Sans JP', sans-serif;
+  word-break: break-all;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.qr-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.qr-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qr-btn-primary {
+  background: #8B1A4A;
+  color: #fff;
+}
+.qr-btn-primary:hover:not(:disabled) {
+  background: #6d1439;
+}
+
+.qr-btn-secondary {
+  background: rgba(139, 26, 74, 0.08);
+  color: #8B1A4A;
+}
+.qr-btn-secondary:hover:not(:disabled) {
+  background: rgba(139, 26, 74, 0.15);
+}
+
+.qr-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.qr-back:hover {
+  color: #8B1A4A;
+}
+
+@media (max-width: 480px) {
+  .qr-card {
+    padding: 32px 20px;
+  }
+  .qr-title {
+    font-size: 1.6rem;
+  }
+  .qr-actions {
+    flex-direction: column;
+  }
+  .qr-btn {
+    width: 100%;
+  }
+}
