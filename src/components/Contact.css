@@ -27,6 +27,39 @@
 .cinfo-value { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); }
 .cinfo-value a { color: inherit; text-decoration: none; }
 .cinfo-value a:hover { color: var(--primary); text-decoration: underline; }
+.line-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  background: #06C755;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+  margin-bottom: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.line-direct-btn:hover {
+  transform: translateY(-2px);
+  background: #05B34C;
+  box-shadow: 0 6px 16px rgba(6, 199, 85, 0.4);
+}
+
+.line-direct-btn:active {
+  transform: translateY(0);
+}
+
+.line-direct-btn svg {
+  flex-shrink: 0;
+}
+
 .qr-section {
   margin-top: 24px; display: flex; align-items: center; gap: 16px;
 }
