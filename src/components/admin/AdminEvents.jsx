@@ -6,7 +6,7 @@ export default function AdminEvents() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [form, setForm] = useState({ title: '', description: '', date: '', image_url: '', active: true });
+  const [form, setForm] = useState({ title: '', description: '', event_date: '', image_url: '', active: true });
   const [editId, setEditId] = useState(null);
   const [success, setSuccess] = useState(false);
 
@@ -26,7 +26,7 @@ export default function AdminEvents() {
     try {
       if (editId) {
         const { error } = await supabase.from('events_items').update({
-          title: form.title, description: form.description, date: form.date,
+          title: form.title, description: form.description, event_date: form.event_date,
           image_url: form.image_url, active: form.active,
         }).eq('id', editId);
         if (error) throw error;
@@ -34,13 +34,13 @@ export default function AdminEvents() {
       } else {
         const maxOrder = items.length > 0 ? Math.max(...items.map(i => i.order_index)) + 1 : 0;
         const { error } = await supabase.from('events_items').insert({
-          title: form.title, description: form.description, date: form.date,
+          title: form.title, description: form.description, event_date: form.event_date,
           image_url: form.image_url, active: form.active, order_index: maxOrder,
         });
         if (error) throw error;
         await logAction('create', 'events_items', form.title);
       }
-      setForm({ title: '', description: '', date: '', image_url: '', active: true });
+      setForm({ title: '', description: '', event_date: '', image_url: '', active: true });
       setEditId(null);
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
@@ -54,7 +54,7 @@ export default function AdminEvents() {
 
   const handleEdit = (item) => {
     setEditId(item.id);
-    setForm({ title: item.title, description: item.description || '', date: item.date || '', image_url: item.image_url || '', active: item.active });
+    setForm({ title: item.title, description: item.description || '', event_date: item.event_date || '', image_url: item.image_url || '', active: item.active });
   };
 
   const handleDelete = async (item) => {
@@ -96,7 +96,7 @@ export default function AdminEvents() {
         <div className="adm-field"><label>Title *</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required /></div>
         <div className="adm-field"><label>Description</label><textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} rows={3} /></div>
         <div className="adm-row">
-          <div className="adm-field"><label>Date</label><input value={form.date} onChange={e => setForm(f => ({ ...f, date: e.target.value }))} placeholder="e.g. April 2026" /></div>
+          <div className="adm-field"><label>Date</label><input value={form.event_date} onChange={e => setForm(f => ({ ...f, event_date: e.target.value }))} placeholder="e.g. April 2026" /></div>
           <div className="adm-field">
             <label>Active</label>
             <select value={form.active ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, active: e.target.value === 'yes' }))}>
@@ -107,7 +107,7 @@ export default function AdminEvents() {
         <div className="adm-field"><label>Image</label>{form.image_url && <img src={form.image_url} alt="" className="adm-preview-img" />}<input type="file" accept="image/*" onChange={handleImageUpload} /></div>
         <div className="adm-form-actions">
           <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Saving...' : editId ? 'Update' : 'Add Event'}</button>
-          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Cancel</button>}
+          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', event_date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Cancel</button>}
           {success && <span style={{ color: '#2e7d32', fontWeight: 600, marginLeft: 8 }}>Saved!</span>}
         </div>
       </form>
@@ -123,7 +123,7 @@ export default function AdminEvents() {
                       {item.image_url && <img src={item.image_url} alt="" className="adm-thumb" />}
                       <div className="adm-card-info">
                         <strong>{item.title}</strong>
-                        <span className="adm-meta">{item.date} {item.active ? '🟢' : '⚪'}</span>
+                        <span className="adm-meta">{item.event_date} {item.active ? '🟢' : '⚪'}</span>
                       </div>
                       <button onClick={() => handleEdit(item)} className="adm-btn-edit">✏️</button>
                       <button onClick={() => handleDelete(item)} className="adm-btn-del">🗑️</button>

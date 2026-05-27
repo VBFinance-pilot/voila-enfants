@@ -40,7 +40,7 @@ export default function News() {
         if (data && data.length > 0) {
           const db = data[0];
           console.log('News: loaded event from Supabase', db);
-          setEvent({ title: db.title, description: db.description, date: db.date, image_url: db.image_url, fromDb: true });
+          setEvent({ title: db.title, description: db.description, date: db.event_date, image_url: db.image_url, fromDb: true });
           setReady(true);
           return;
         }
