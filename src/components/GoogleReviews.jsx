@@ -35,7 +35,7 @@ function AuthorAvatar({ name, photoUri }) {
 }
 
 export default function GoogleReviews() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [placeData, setPlaceData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,9 +50,10 @@ export default function GoogleReviews() {
       return;
     }
     let cancelled = false;
+    setLoading(true);
     (async () => {
       try {
-        const res = await fetch(ENDPOINT, {
+        const res = await fetch(`${ENDPOINT}?languageCode=${lang}`, {
           method: 'GET',
           headers: {
             'X-Goog-Api-Key': apiKey,
@@ -64,7 +65,10 @@ export default function GoogleReviews() {
           throw new Error(`Places API ${res.status}: ${body}`);
         }
         const data = await res.json();
-        if (!cancelled) setPlaceData(data);
+        if (!cancelled) {
+          setPlaceData(data);
+          setError(null);
+        }
       } catch (err) {
         console.error('[GoogleReviews] fetch failed', err);
         if (!cancelled) setError(err.message || 'fetch-failed');
@@ -73,7 +77,7 @@ export default function GoogleReviews() {
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, [lang]);
 
   if (loading || error || !placeData) return null;
 
