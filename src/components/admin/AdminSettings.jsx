@@ -11,6 +11,10 @@ const DEFAULT_KEYS = [
   { key: 'facebook_url', label: 'Facebook URL' },
   { key: 'line_url', label: 'LINE URL' },
   { key: 'google_maps_embed', label: 'Google Maps Embed URL' },
+  { key: 'google_rating', label: 'Google Rating (e.g., 4.9)' },
+  { key: 'google_review_count', label: 'Google Review Count (e.g., 13)' },
+  { key: 'google_maps_url', label: 'Google Maps Profile URL' },
+  { key: 'google_maps_embed_src', label: 'Google Maps Embed URL (iframe src)' },
 ];
 
 export default function AdminSettings() {

@@ -1,13 +1,62 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLang } from '../contexts/LanguageContext';
+import { supabase } from '../lib/supabase';
 import { useReveal } from './useReveal';
 import './Contact.css';
+
+const DEFAULT_MAPS_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d667.7026456815657!2d135.66460691877944!3d34.97627562419339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001012efd62eacb%3A0xb8c3da992b45ad3c!2zVm9pbMOgIGxlcyBlbmZhbnRzIOiLseiqnuOBp0Hjgq_jg4bjgqPjg5Pjg4bjgqNT4p2j77iP!5e0!3m2!1sfr!2sjp!4v1779884209109!5m2!1sfr!2sjp';
+const DEFAULT_MAPS_URL = 'https://maps.app.goo.gl/bs3uAzJ829STXSN48';
+const DEFAULT_RATING = '4.9';
+const DEFAULT_REVIEW_COUNT = '13';
+
+function Stars({ rating }) {
+  const filled = Math.max(0, Math.min(5, Math.round(rating)));
+  return (
+    <span className="review-stars" aria-label={`${rating} out of 5 stars`}>
+      {'★★★★★'.slice(0, filled)}
+      <span className="review-stars-empty">{'★★★★★'.slice(filled)}</span>
+    </span>
+  );
+}
 
 export default function Contact() {
   const { t, lang } = useLang();
   const ref = useReveal();
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState('');
+  const [mapsEmbed, setMapsEmbed] = useState(DEFAULT_MAPS_EMBED);
+  const [mapsUrl, setMapsUrl] = useState(DEFAULT_MAPS_URL);
+  const [rating, setRating] = useState(DEFAULT_RATING);
+  const [reviewCount, setReviewCount] = useState(DEFAULT_REVIEW_COUNT);
+  const [reviews, setReviews] = useState([]);
+  const reviewsRef = useReveal([reviews]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase
+        .from('site_settings')
+        .select('key, value')
+        .in('key', ['google_maps_embed_src', 'google_maps_url', 'google_rating', 'google_review_count']);
+      (data || []).forEach(({ key, value }) => {
+        if (!value) return;
+        if (key === 'google_maps_embed_src') setMapsEmbed(value);
+        else if (key === 'google_maps_url') setMapsUrl(value);
+        else if (key === 'google_rating') setRating(value);
+        else if (key === 'google_review_count') setReviewCount(value);
+      });
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase
+        .from('reviews')
+        .select('*')
+        .eq('active', true)
+        .order('order_index', { ascending: true });
+      if (data) setReviews(data);
+    })();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -153,6 +202,64 @@ export default function Contact() {
             </form>
           </div>
         </div>
+
+        <div className="contact-map reveal">
+          <h3 className="contact-block-title">{t('contact.map_title')}</h3>
+          <div className="bar" />
+          <div className="map-frame">
+            <iframe
+              src={mapsEmbed}
+              title="Voilà les enfants — Google Maps"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+
+        {reviews.length > 0 && (
+          <div className="contact-reviews" ref={reviewsRef}>
+            <h3 className="contact-block-title reveal">{t('contact.reviews_title')}</h3>
+            <div className="bar reveal" />
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reviews-badge reveal"
+              aria-label={t('contact.see_all_reviews')}
+            >
+              <span className="reviews-badge-rating">{rating}</span>
+              <Stars rating={Number(rating) || 0} />
+              <span className="reviews-badge-meta">
+                {t('contact.reviews_on_google')} · {reviewCount} {t('contact.reviews_count')}
+              </span>
+            </a>
+            <div className="reviews-grid">
+              {reviews.map((r, i) => (
+                <article
+                  key={r.id}
+                  className={`review-card reveal ${i > 0 ? `reveal-d${Math.min(i, 3)}` : ''}`}
+                  lang={r.language === 'JP' ? 'ja' : r.language === 'EN' ? 'en' : undefined}
+                >
+                  <Stars rating={r.rating} />
+                  <p className="review-text">{r.text}</p>
+                  <footer className="review-foot">
+                    <span className="review-author">{r.author_name}</span>
+                    {r.review_date && <span className="review-date">{r.review_date}</span>}
+                  </footer>
+                </article>
+              ))}
+            </div>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reviews-see-all reveal"
+            >
+              {t('contact.see_all_reviews')} →
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
