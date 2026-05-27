@@ -78,9 +78,6 @@ section { padding: 84px 24px; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
 
-/* EN mode: hide Japanese translations in media cards */
-[data-lang="en"] .media-ja { display: none; }
-
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .activities-layout { grid-template-columns: 1fr !important; gap: 44px !important; }
@@ -94,7 +91,6 @@ section { padding: 84px 24px; }
   .about-services-box ul { grid-template-columns: 1fr !important; }
   .contact-layout { grid-template-columns: 1fr !important; gap: 44px !important; }
   .gallery-grid { columns: 3 !important; }
-  .media-row { grid-template-columns: repeat(2,1fr) !important; }
 }
 @media (max-width: 620px) {
   .nav-links { display: none !important; }
@@ -105,5 +101,4 @@ section { padding: 84px 24px; }
   .frow { grid-template-columns: 1fr !important; }
   .cform { padding: 24px 18px !important; }
   .price-cards { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
-  .media-row { grid-template-columns: repeat(2,1fr) !important; }
 }
