@@ -14,6 +14,15 @@
 }
 #videos .container { position: relative; z-index: 1; }
 
+.sec-subtitle {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
 .videos-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

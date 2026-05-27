@@ -96,6 +96,11 @@
       "sub": "毎日使えるネイティブ英語フレーズをわかりやすく紹介！",
       "brand": "英語でAクティビティS!"
     },
+    "videos": {
+      "tag": "ポートフォリオ",
+      "title": "私たちのアクティビティ",
+      "subtitle": "イベント、海外ホームステイ、シーズンキャンプ — 子どもたちの体験の様子をご覧ください。"
+    },
     "contact": {
       "title": "Can't wait to meet you!",
       "intro": "お問い合わせ・ご質問・ご予約方法・プログラムのご案内など、どうぞお気軽にご連絡ください。",
@@ -218,6 +223,11 @@
       "title": "1-Minute English",
       "sub": "Easy, native English phrases you can use every day!",
       "brand": "English Activities!"
+    },
+    "videos": {
+      "tag": "PORTFOLIO",
+      "title": "A Glimpse Into Our World",
+      "subtitle": "Discover our events, worldwide homestays, and seasonal camps through the moments we've captured."
     },
     "contact": {
       "title": "Can't wait to meet you!",

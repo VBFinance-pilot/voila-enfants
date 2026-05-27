@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import { useReveal } from './useReveal';
 import './Videos.css';
 
 export default function Videos() {
+  const { t } = useLang();
   const [videos, setVideos] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const ref = useReveal([videos]);
@@ -24,8 +26,9 @@ export default function Videos() {
   return (
     <section id="videos" ref={ref}>
       <div className="container">
-        <span className="tag">VIDEOS</span>
-        <h2 className="sec-title">Our Videos</h2>
+        <span className="tag">{t('videos.tag')}</span>
+        <h2 className="sec-title">{t('videos.title')}</h2>
+        <p className="sec-subtitle">{t('videos.subtitle')}</p>
         <div className="bar" />
         <div className="videos-grid">
           {videos.map((vid, i) => (
