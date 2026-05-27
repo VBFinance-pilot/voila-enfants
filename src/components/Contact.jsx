@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import { useReveal } from './useReveal';
+import GoogleReviews from './GoogleReviews';
 import './Contact.css';
 
 const DEFAULT_MAPS_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d667.7026456815657!2d135.66460691877944!3d34.97627562419339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001012efd62eacb%3A0xb8c3da992b45ad3c!2zVm9pbMOgIGxlcyBlbmZhbnRzIOiLseiqnuOBp0Hjgq_jg4bjgqPjg5Pjg4bjgqNT4p2j77iP!5e0!3m2!1sfr!2sjp!4v1779884209109!5m2!1sfr!2sjp';
@@ -182,6 +183,8 @@ export default function Contact() {
             />
           </div>
         </div>
+
+        <GoogleReviews />
       </div>
     </section>
   );
