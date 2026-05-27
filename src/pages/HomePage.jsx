@@ -10,6 +10,7 @@ import About from '../components/About';
 import Founders from '../components/Founders';
 import Gallery from '../components/Gallery';
 import Media from '../components/Media';
+import Videos from '../components/Videos';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
@@ -26,6 +27,7 @@ export default function HomePage() {
       <News />
       <Activities />
       <Services />
+      <Videos />
       <Hiroba />
       <Pricing />
       <About />
