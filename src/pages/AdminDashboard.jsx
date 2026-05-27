@@ -4,7 +4,6 @@ import AdminEvents from '../components/admin/AdminEvents';
 import AdminServices from '../components/admin/AdminServices';
 import AdminFounders from '../components/admin/AdminFounders';
 import AdminVideos from '../components/admin/AdminVideos';
-import AdminReviews from '../components/admin/AdminReviews';
 import AdminSettings from '../components/admin/AdminSettings';
 import AdminHeroImages from '../components/admin/AdminHeroImages';
 import './AdminDashboard.css';
@@ -16,7 +15,6 @@ const TABS = [
   { id: 'services', label: '📚 Services', component: AdminServices },
   { id: 'founders', label: '👥 Founders', component: AdminFounders },
   { id: 'videos', label: '🎬 Videos', component: AdminVideos },
-  { id: 'reviews', label: '⭐ Reviews', component: AdminReviews },
   { id: 'settings', label: '⚙️ Settings', component: AdminSettings },
 ];
 
