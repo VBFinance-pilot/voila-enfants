@@ -18,7 +18,7 @@
   color: var(--text-mid);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 640px;
+  max-width: none;
   margin: 0 auto 24px;
   text-align: center;
 }
