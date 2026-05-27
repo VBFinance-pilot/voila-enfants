@@ -7,3 +7,14 @@
   margin: 0 auto;
   min-height: 320px;
 }
+
+.tag-link {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tag-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 26, 74, 0.15);
+}
