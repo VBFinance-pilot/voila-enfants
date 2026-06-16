@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
+import Analytics from './components/Analytics';
 import HomePage from './pages/HomePage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -16,6 +17,7 @@ export default function App() {
     <BrowserRouter>
       <LanguageProvider>
         <ScrollToTop />
+        <Analytics />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
