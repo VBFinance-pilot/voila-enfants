@@ -5,7 +5,7 @@ import servicesData from '../data/services.json';
 import './Services.css';
 
 export default function Services() {
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const [openId, setOpenId] = useState(null);
   const [services, setServices] = useState(null);
 
@@ -41,7 +41,7 @@ export default function Services() {
     <section id="services">
       <div className="container">
         <span className="tag">PROGRAMS</span>
-        <h2 className="sec-title">Our Services</h2>
+        <h2 className="sec-title">{t('services.title')}</h2>
         <div className="bar" />
         <div className="services-grid">
           {services.map((srv) => {
