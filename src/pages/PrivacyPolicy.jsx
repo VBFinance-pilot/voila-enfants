@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet-async';
 import { useLang } from '../contexts/LanguageContext';
 import legalData from '../data/legal.json';
 import LegalLayout from './LegalLayout';
+import Seo from '../components/Seo';
 
 export default function PrivacyPolicy() {
   const { lang } = useLang();
@@ -9,11 +9,7 @@ export default function PrivacyPolicy() {
 
   return (
     <LegalLayout title={d.title} subtitle={d.subtitle} currentPage="privacy">
-      <Helmet>
-        <title>Privacy Policy | Voilà les enfants</title>
-        <meta name="description" content="Privacy policy for Voilà les enfants English school in Kyoto." />
-        <link rel="canonical" href="https://www.voila-les-enfants.jp/privacy" />
-      </Helmet>
+      <Seo page="privacy" path="/privacy" />
       <Section title={d.intro.title}>
         <p>{d.intro.body}</p>
       </Section>

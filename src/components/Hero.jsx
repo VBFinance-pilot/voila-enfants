@@ -8,6 +8,7 @@ export default function Hero() {
     <section id="hero">
       <div className="hero-bg" />
       <div className="hero-content">
+        <h1 className="sr-only">{t('hero.h1')}</h1>
         <div className="hero-logo-mark">
           <img src="/logo.png" alt="Voilà les enfants – English school for children in Kyoto Nishikyo-ku 京都西京区の子供英語教室" className="hero-logo-hero-img" />
         </div>

@@ -5,17 +5,22 @@
     <link rel="icon" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Voilà les enfants | 子供英語教室 京都 西京区 | English School Kyoto</title>
-    <meta name="description" content="京都・西京区の子供英語教室。英語キャンプ、オンラインレッスン、ホームステイ、親子ひろば。English classes for children in Kyoto Nishikyo-ku. Fun trilingual activities!" />
+    <!-- Primary SEO (ja default; react-helmet swaps per language on load) -->
+    <title>京都・西京区の子供英語・フランス語教室｜Voilà les enfants</title>
+    <meta name="description" content="京都市西京区の英・仏・日トリリンガル教室。ネイティブ講師と遊びながら学ぶ。0〜12歳対象、無料体験受付中。" />
     <meta name="keywords" content="English classes Kyoto, English school Nishikyo-ku, activities for children Kyoto, Oyako Hiroba Kyoto, English camps Kyoto, worldwide homestay Kyoto, 子供英語教室 京都, 英語レッスン 西京区, 英語活動 京都, オンライン英語レッスン 京都, 親子ひろば 京都, 英語キャンプ 京都, kids English Kyoto, trilingual school Kyoto" />
     <link rel="canonical" href="https://www.voila-les-enfants.jp/" />
+
+    <!-- hreflang (single URL serves both languages) -->
+    <link rel="alternate" hreflang="ja" href="https://www.voila-les-enfants.jp/" />
+    <link rel="alternate" hreflang="en" href="https://www.voila-les-enfants.jp/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.voila-les-enfants.jp/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Voilà les enfants" />
-    <meta property="og:title" content="Voilà les enfants | 子供英語教室 京都 西京区" />
-    <meta property="og:description" content="京都・西京区の子供英語教室。英語キャンプ、オンラインレッスン、ホームステイ、親子ひろば。Fun trilingual activities for children!" />
+    <meta property="og:title" content="京都・西京区の子供英語・フランス語教室｜Voilà les enfants" />
+    <meta property="og:description" content="京都市西京区の英・仏・日トリリンガル教室。ネイティブ講師と遊びながら学ぶ。0〜12歳対象、無料体験受付中。" />
     <meta property="og:url" content="https://www.voila-les-enfants.jp/" />
     <meta property="og:image" content="https://www.voila-les-enfants.jp/logo.png" />
     <meta property="og:locale" content="ja_JP" />
@@ -23,15 +28,15 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Voilà les enfants | 子供英語教室 京都" />
-    <meta name="twitter:description" content="京都・西京区の子供英語教室。Fun trilingual English activities for children in Kyoto!" />
+    <meta name="twitter:title" content="京都・西京区の子供英語・フランス語教室｜Voilà les enfants" />
+    <meta name="twitter:description" content="京都市西京区の英・仏・日トリリンガル教室。ネイティブ講師と遊びながら学ぶ。0〜12歳対象、無料体験受付中。" />
     <meta name="twitter:image" content="https://www.voila-les-enfants.jp/logo.png" />
 
     <!-- Geo Tags (Nishikyo-ku, Kyoto) -->
     <meta name="geo.region" content="JP-26" />
     <meta name="geo.placename" content="Nishikyo-ku, Kyoto, Japan" />
-    <meta name="geo.position" content="34.9833;135.6833" />
-    <meta name="ICBM" content="34.9833, 135.6833" />
+    <meta name="geo.position" content="34.976276;135.664607" />
+    <meta name="ICBM" content="34.976276, 135.664607" />
 
     <!-- Structured Data: LocalBusiness + EducationalOrganization -->
     <script type="application/ld+json">
@@ -65,12 +70,15 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 34.9833,
-        "longitude": 135.6833
+        "latitude": 34.976276,
+        "longitude": 135.664607
       },
+      "knowsLanguage": ["ja", "en", "fr"],
       "areaServed": [
-        { "@type": "City", "name": "Kyoto" },
-        { "@type": "AdministrativeArea", "name": "Nishikyo-ku" },
+        { "@type": "City", "name": "京都市" },
+        { "@type": "AdministrativeArea", "name": "西京区" },
+        { "@type": "Place", "name": "大枝" },
+        { "@type": "Place", "name": "桂" },
         { "@type": "Country", "name": "Japan" }
       ],
       "priceRange": "¥¥",
@@ -97,7 +105,10 @@
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Oyako Hiroba", "description": "親子ひろば - Parent-child English activities in Nishikyo-ku" }}
         ]
       },
-      "sameAs": []
+      "sameAs": [
+        "https://www.instagram.com/voila_les_enfants/",
+        "https://lin.ee/PXNYpdO"
+      ]
     }
     </script>
 

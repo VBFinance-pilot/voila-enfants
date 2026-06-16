@@ -1,5 +1,23 @@
 {
   "ja": {
+    "seo": {
+      "home": {
+        "title": "京都・西京区の子供英語・フランス語教室｜Voilà les enfants",
+        "description": "京都市西京区の英・仏・日トリリンガル教室。ネイティブ講師と遊びながら学ぶ。0〜12歳対象、無料体験受付中。"
+      },
+      "privacy": {
+        "title": "プライバシーポリシー｜Voilà les enfants 京都",
+        "description": "京都・西京区の子供英語・フランス語教室 Voilà les enfants のプライバシーポリシー。"
+      },
+      "terms": {
+        "title": "利用規約｜Voilà les enfants 京都",
+        "description": "京都・西京区の子供英語・フランス語教室 Voilà les enfants の利用規約。"
+      },
+      "legal": {
+        "title": "法的表示｜Voilà les enfants 京都",
+        "description": "京都・西京区の子供英語・フランス語教室 Voilà les enfants の法的表示・運営者情報。"
+      }
+    },
     "nav": {
       "activities": "Activities",
       "services": "Services",
@@ -23,6 +41,7 @@
     "hero": {
       "welcome": "Welcome to",
       "brand": "Voilà les enfants",
+      "h1": "京都・西京区の子供向け 英語・フランス語・日本語トリリンガル教室",
       "sub": "英語で",
       "big": "AクティビティS 💗",
       "tagline": "〜All different, All good〜",
@@ -43,6 +62,9 @@
         { "icon": "👩‍🏫", "title": "先生向けコーチング", "desc": "現役講師のための実践的サポート、ゲームやワークシートなどの指導も！" }
       ],
       "footer": "<p>どのクラスも<span class=\"hl-bold\">「コミュニケーション・創造力・自信」</span>を大切にしています。</p><p>英語だけでなく<span class=\"hl-bold\">「自分を好きになる力」</span>や<span class=\"hl-bold\">「人を幸せにする力」</span>も育てます。</p><p>それは、英語学習を超えた<span class=\"hl-bold\">「人生を豊かにする体験」</span>です。</p>"
+    },
+    "services": {
+      "title": "英語・フランス語プログラム"
     },
     "hiroba": {
       "tag": "OYAKO HIROBA",
@@ -120,7 +142,7 @@
       "phMessage": "お問い合わせ内容、体験レッスンのご希望などをお書きください...",
       "submitBtn": "送信 ✉️",
       "submitSuccess": "✅ 送信完了！ありがとうございます！",
-      "map_title": "アクセス",
+      "map_title": "アクセス（京都市西京区・大枝）",
       "reviews_title": "保護者の声",
       "reviews_on_google": "Googleで",
       "reviews_count": "件の評価",
@@ -132,6 +154,24 @@
     }
   },
   "en": {
+    "seo": {
+      "home": {
+        "title": "Kids English & French School in Kyoto｜Voilà les enfants",
+        "description": "Trilingual EN/FR/JP classes for kids in Nishikyo, Kyoto. Native teachers, ages 0–12. Free trial lesson!"
+      },
+      "privacy": {
+        "title": "Privacy Policy｜Voilà les enfants Kyoto",
+        "description": "Privacy policy for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "terms": {
+        "title": "Terms of Service｜Voilà les enfants Kyoto",
+        "description": "Terms of service for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "legal": {
+        "title": "Legal Notice｜Voilà les enfants Kyoto",
+        "description": "Legal notice for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      }
+    },
     "nav": {
       "activities": "Activities",
       "services": "Services",
@@ -155,6 +195,7 @@
     "hero": {
       "welcome": "Welcome to",
       "brand": "Voilà les enfants",
+      "h1": "English, French & Japanese trilingual school for children in Nishikyo, Kyoto",
       "sub": "English",
       "big": "Activities 💗",
       "tagline": "〜All different, All good〜",
@@ -175,6 +216,9 @@
         { "icon": "👩‍🏫", "title": "Teacher Coaching", "desc": "Practical support for practising teachers, including games and worksheets!" }
       ],
       "footer": "<p>Every class puts <span class=\"hl-bold\">communication, creativity and confidence</span> at the centre.</p><p>We nurture <span class=\"hl-bold\">self-love</span> and <span class=\"hl-bold\">the ability to bring happiness to others</span>.</p><p>It's more than language learning — it's a <span class=\"hl-bold\">life-enriching experience</span>.</p>"
+    },
+    "services": {
+      "title": "Our Programs"
     },
     "hiroba": {
       "tag": "OYAKO HIROBA",
@@ -252,7 +296,7 @@
       "phMessage": "Your message, lesson enquiry or anything you'd like to know...",
       "submitBtn": "Send ✉️",
       "submitSuccess": "✅ Sent! Thank you!",
-      "map_title": "Find Us",
+      "map_title": "Access — Nishikyo-ku, Kyoto",
       "reviews_title": "What Parents Say",
       "reviews_on_google": "on Google",
       "reviews_count": "reviews",
