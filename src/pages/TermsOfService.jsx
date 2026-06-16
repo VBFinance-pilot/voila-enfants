@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet-async';
 import { useLang } from '../contexts/LanguageContext';
 import legalData from '../data/legal.json';
 import LegalLayout from './LegalLayout';
+import Seo from '../components/Seo';
 
 export default function TermsOfService() {
   const { lang } = useLang();
@@ -9,11 +9,7 @@ export default function TermsOfService() {
 
   return (
     <LegalLayout title={d.title} subtitle={d.subtitle} currentPage="terms">
-      <Helmet>
-        <title>Terms of Service | Voilà les enfants</title>
-        <meta name="description" content="Terms of service for Voilà les enfants English school in Kyoto." />
-        <link rel="canonical" href="https://www.voila-les-enfants.jp/terms" />
-      </Helmet>
+      <Seo page="terms" path="/terms" />
       <Section title={d.intro.title}>
         <p>{d.intro.body}</p>
       </Section>
