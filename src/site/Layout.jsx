@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang, LANGS } from '../contexts/LanguageContext';
-import { nav, common, footer, home, CONTACT } from './copy';
+import { nav, common, footer, home, CONTACT, topicHref } from './copy';
 import './site.css';
 
 const LANG_LABEL = { ja: 'JA', en: 'EN', fr: 'FR' };
@@ -68,7 +68,7 @@ function Header() {
               </SmartLink>
             ))}
           </nav>
-          <Link to="/#contact" className="vs-btn vs-btn-wine vs-header-cta">{tx(common.bookTrial)}</Link>
+          <Link to={topicHref('trial')} className="vs-btn vs-btn-wine vs-header-cta">{tx(common.bookTrial)}</Link>
           <button type="button" className="vs-burger" aria-label={tx(common.menu)} aria-expanded={open} onClick={() => setOpen(true)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16" /></svg>
           </button>
@@ -86,7 +86,7 @@ function Header() {
             <SmartLink key={i.href} to={i.href} className="vs-drawer-link" onClick={() => setOpen(false)}>{tx(i.label)}</SmartLink>
           ))}
           <LangSwitch />
-          <Link to="/#contact" className="vs-btn vs-btn-wine" onClick={() => setOpen(false)}>{tx(common.bookTrial)}</Link>
+          <Link to={topicHref('trial')} className="vs-btn vs-btn-wine" onClick={() => setOpen(false)}>{tx(common.bookTrial)}</Link>
           <a href={CONTACT.line} className="vs-btn vs-btn-line" target="_blank" rel="noopener noreferrer">{tx(common.chatLine)}</a>
         </div>
       )}

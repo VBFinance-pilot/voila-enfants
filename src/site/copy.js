@@ -181,7 +181,7 @@ export const home = {
         },
       },
       {
-        slot: 'live_camp', href: '/#contact', img: '/img/bbq.jpg',
+        slot: 'live_camp', href: '/?topic=live_camp#contact', img: '/img/bbq.jpg',
         alt: { ja: 'キャンプのバーベキュー', en: 'Camp barbecue', fr: 'Barbecue au camp' },
         label: { ja: 'SUMMER CAMP · WINTER CAMP', en: 'SUMMER CAMP · WINTER CAMP', fr: 'CAMP D’ÉTÉ · CAMP D’HIVER' },
         title: { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' },
@@ -334,6 +334,8 @@ export const form = {
   sending: { ja: '送信中…', en: 'Sending…', fr: 'Envoi…' },
   sent: { ja: '送信しました。ありがとうございます！', en: 'Sent — thank you!', fr: 'Message envoyé — merci !' },
   failed: { ja: '送信に失敗しました。LINEかお電話でご連絡ください。', en: 'Sending failed. Please contact us on LINE or by phone.', fr: 'L’envoi a échoué. Contactez-nous par LINE ou téléphone.' },
+  topic: { ja: 'お問い合わせ内容', en: 'Regarding', fr: 'Au sujet de' },
+  topicRemove: { ja: '件名を外す', en: 'Remove topic', fr: 'Retirer le sujet' },
 };
 
 export const footer = {
@@ -347,3 +349,20 @@ export const footer = {
   homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
   events: { ja: 'イベント', en: 'Events', fr: 'Événements' },
 };
+
+// Topic shown on the contact form when a visitor arrives from a specific card
+// (e.g. /?topic=celebrate_apero#contact → « Au sujet de : L’Apéro »).
+export const TOPICS = {
+  trial: { ja: '無料体験レッスン', en: 'Free trial lesson', fr: 'Cours d’essai gratuit' },
+  visit: { ja: 'スクール見学', en: 'School visit', fr: 'Visite de l’école' },
+  ...Object.fromEntries(home.learn.cards.map((c) => [c.slot, c.title])),
+  ...Object.fromEntries(home.learn.also.map((a, i) => [`also_${i}`, a])),
+  ...Object.fromEntries(home.live.cards.map((c) => [c.slot, c.title])),
+  celebrate_events: home.celebrate.events.title,
+  celebrate_apero: { ja: 'L’Apéro（2人のシェフ）', en: 'L’Apéro (two chefs)', fr: 'L’Apéro (deux chefs)' },
+  homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
+  franchise: { ja: 'フランチャイズ', en: 'Franchise', fr: 'Franchise' },
+  careers: { ja: '採用応募', en: 'Job application', fr: 'Candidature' },
+};
+
+export const topicHref = (key, path = '/', anchor = 'contact') => `${path}?topic=${key}#${anchor}`;

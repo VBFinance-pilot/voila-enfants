@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   }
 
   const { from_name, from_email, message } = req.body;
+  const topic = String(req.body.topic || '').replace(/[\r\n]+/g, ' ').trim().slice(0, 80);
 
   if (!from_name || !from_email || !message) {
     return res.status(400).json({ error: 'All fields are required' });
@@ -42,6 +43,10 @@ export default async function handler(req, res) {
             <td style="padding: 8px 12px; font-weight: 700; color: #8B1A4A; font-size: 14px; vertical-align: top;">Email</td>
             <td style="padding: 8px 12px; color: #1E1E1E; font-size: 14px;"><a href="mailto:${escapeHtml(from_email)}" style="color: #E8186C;">${escapeHtml(from_email)}</a></td>
           </tr>
+          ${topic ? `<tr>
+            <td style="padding: 8px 12px; font-weight: 700; color: #8B1A4A; font-size: 14px; vertical-align: top;">Sujet</td>
+            <td style="padding: 8px 12px; color: #1E1E1E; font-size: 14px; font-weight: 700;">${escapeHtml(topic)}</td>
+          </tr>` : ''}
           <tr>
             <td colspan="2" style="padding: 16px 12px 8px; border-top: 1px solid #F0E0EB; font-weight: 700; color: #8B1A4A; font-size: 14px;">Message</td>
           </tr>
@@ -61,7 +66,9 @@ export default async function handler(req, res) {
       from: `"Voilà les enfants" <${process.env.SMTP_USER}>`,
       replyTo: `"${from_name}" <${from_email}>`,
       to: process.env.CONTACT_EMAIL_TO,
-      subject: `[Voilà les enfants] Message de ${from_name}`,
+      subject: topic
+        ? `[Voilà les enfants] ${topic} — ${from_name}`
+        : `[Voilà les enfants] Message de ${from_name}`,
       html: htmlBody,
     });
 

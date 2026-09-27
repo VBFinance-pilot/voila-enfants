@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useReveal } from '../components/useReveal';
 import Seo from '../components/Seo';
 import Layout, { SmartLink } from './Layout';
-import { home, common, form as formCopy, CONTACT } from './copy';
+import { home, common, form as formCopy, CONTACT, topicHref } from './copy';
 import { ContactForm, GoogleReviewsBlock, MapBlock, UpcomingEvents, InstagramSection, GallerySection, VideosSection } from './widgets';
 import { useSiteImages } from './siteImages';
 
@@ -23,7 +23,7 @@ function Hero() {
           <p className="vs-display" aria-hidden="true">{tx(h.title1)}<br />{tx(h.title2)}</p>
           <p>{tx(h.sub)}</p>
           <div className="vs-hero-ctas">
-            <Link to="/#contact" className="vs-btn vs-btn-light">{tx(common.bookTrial60)}</Link>
+            <Link to={topicHref('trial')} className="vs-btn vs-btn-light">{tx(common.bookTrial60)}</Link>
             <Link to="/#learn" className="vs-btn vs-btn-ghost-light">{tx(h.ctaAll)}</Link>
           </div>
         </div>
@@ -74,7 +74,7 @@ function Learn() {
         </div>
         <div className="vs-grid-4">
           {l.cards.map((c, i) => (
-            <Link key={c.img} to="/#contact" className={`vs-card reveal`} style={{ transitionDelay: `${i * 80}ms` }}>
+            <Link key={c.img} to={topicHref(c.slot)} className={`vs-card reveal`} style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="vs-card-img"><img src={img(c.slot)} alt={tx(c.alt)} loading="lazy" /></div>
               <div className="vs-card-body">
                 <div className="vs-card-label">{tx(c.label)}</div>
@@ -87,7 +87,7 @@ function Learn() {
         </div>
         <div className="vs-chips reveal">
           <span>{tx(l.alsoLabel)}</span>
-          {l.also.map((a) => <Link key={a.en} to="/#contact" className="vs-chip">{tx(a)}</Link>)}
+          {l.also.map((a, i) => <Link key={a.en} to={topicHref(`also_${i}`)} className="vs-chip">{tx(a)}</Link>)}
         </div>
       </div>
     </section>
@@ -141,7 +141,7 @@ function Celebrate() {
           <p className="vs-lead">{tx(c.intro)}</p>
         </div>
         <div className="vs-grid-2">
-          <Link to="/#contact" className="vs-duo reveal">
+          <Link to={topicHref('celebrate_events')} className="vs-duo reveal">
             <img src={img(c.events.slot)} alt={tx(c.events.alt)} loading="lazy" />
             <div className="vs-duo-body">
               <div className="vs-card-label">{tx(c.events.label)}</div>
@@ -150,7 +150,7 @@ function Celebrate() {
               <span className="vs-more">{tx(c.quote)} ›</span>
             </div>
           </Link>
-          <Link to="/#contact" className="vs-duo vs-dark reveal" style={{ transitionDelay: '100ms' }}>
+          <Link to={topicHref('celebrate_apero')} className="vs-duo vs-dark reveal" style={{ transitionDelay: '100ms' }}>
             <img src={img(c.apero.slot)} alt={tx(c.apero.alt)} loading="lazy" />
             <div className="vs-duo-body">
               <div className="vs-card-label">{tx(c.apero.label)}</div>
@@ -215,7 +215,7 @@ function Admissions() {
                 <div key={r.l.en} className={r.accent ? 'is-accent' : undefined}><span>{tx(r.l)}</span><strong>{tx(r.v)}</strong></div>
               ))}
             </div>
-            <Link to="/#contact" className="vs-btn vs-btn-wine">{tx(a.cta)}</Link>
+            <Link to={topicHref('trial')} className="vs-btn vs-btn-wine">{tx(a.cta)}</Link>
           </div>
         </div>
       </div>
@@ -289,7 +289,7 @@ function Visit() {
         <h2 className="vs-h2" style={{ fontSize: 'clamp(38px, 4.8vw, 64px)' }}>{tx(v.title1)}<br />{tx(v.title2)}</h2>
         <p>{tx(common.address)}{'\u3000·\u3000'}{CONTACT.phone}</p>
         <div className="vs-hero-ctas" style={{ justifyContent: 'center' }}>
-          <a href="#contact" className="vs-btn vs-btn-light">{tx(home.admissions.cta)}</a>
+          <Link to={topicHref('visit')} className="vs-btn vs-btn-light">{tx(home.admissions.cta)}</Link>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-line">{tx(common.chatLine)}</a>
           <a href="#map" className="vs-btn vs-btn-ghost-light">{tx(v.map)}</a>
         </div>

@@ -177,6 +177,7 @@ export function HomestayPage() {
               <div className="vs-box">
                 <ContactForm
                   subject="Homestay"
+                  defaultTopic="homestay"
                   extra={[
                     { name: 'plan', label: { ja: 'プラン', en: 'Plan', fr: 'Formule' }, options: [{ ja: 'Family Stay', en: 'Family Stay', fr: 'Family Stay' }, { ja: 'Full Immersion', en: 'Full Immersion', fr: 'Full Immersion' }, { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' }, { ja: '未定', en: 'Not sure yet', fr: 'Je ne sais pas encore' }] },
                     { name: 'dates', label: { ja: 'ご希望の時期・期間', en: 'Preferred dates / length', fr: 'Dates / durée souhaitées' } },
@@ -277,6 +278,7 @@ export function FranchisePage() {
               </div>
               <ContactForm
                 subject={F.contact.subject}
+                defaultTopic="franchise"
                 extra={[
                   { name: 'country', label: F.contact.fields.country },
                   { name: 'city', label: F.contact.fields.city },
@@ -354,6 +356,7 @@ export function CareersPage() {
               </div>
               <ContactForm
                 subject={C.apply.subject}
+                defaultTopic="careers"
                 extra={[
                   { name: 'position', label: C.apply.fields.position, options: C.roles.items.map((r) => r.t) },
                   { name: 'languages', label: C.apply.fields.languages, placeholder: C.apply.fields.languagesPh },

@@ -1,16 +1,25 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import BeholdWidget from '@behold/react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import eventsStatic from '../data/events.json';
-import { home, form as formCopy, CONTACT } from './copy';
+import { home, form as formCopy, CONTACT, TOPICS } from './copy';
 
 /* ───────────── Contact form (posts to /api/contact) ───────────── */
 // `extra` = [{ name, label, placeholder, type, options, wide }] rendered after
 // name/email and folded into the message body, so the existing API is reused.
-export function ContactForm({ subject, extra = [], messageLabel, title }) {
+// `defaultTopic` = TOPICS key shown when the URL has no ?topic=.
+export function ContactForm({ subject, extra = [], messageLabel, title, defaultTopic }) {
   const { tx } = useLang();
   const [status, setStatus] = useState('idle');
+  const [params] = useSearchParams();
+  const urlTopic = params.get('topic');
+  const wanted = TOPICS[urlTopic] ? urlTopic : defaultTopic || null;
+  const [topicKey, setTopicKey] = useState(wanted);
+  const [prevWanted, setPrevWanted] = useState(wanted);
+  if (wanted !== prevWanted) { setPrevWanted(wanted); setTopicKey(wanted); }
+  const topic = topicKey ? TOPICS[topicKey] : null;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -23,14 +32,15 @@ export function ContactForm({ subject, extra = [], messageLabel, title }) {
         return v ? `${tx(x.label)}: ${v}` : null;
       })
       .filter(Boolean);
-    const message = [subject ? `[${subject}]` : null, ...lines, lines.length ? '' : null, f.message.value]
+    const topicText = topic ? `${topic.fr} / ${topic.ja}` : '';
+    const message = [subject ? `[${subject}]` : null, topic ? `Sujet : ${topicText}` : null, ...lines, lines.length || topic ? '' : null, f.message.value]
       .filter((l) => l !== null)
       .join('\n');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ from_name: f.name.value.trim(), from_email: f.email.value.trim(), message }),
+        body: JSON.stringify({ from_name: f.name.value.trim(), from_email: f.email.value.trim(), message, topic: topic ? topic.fr : subject || '' }),
       });
       const out = await res.json().catch(() => ({}));
       if (res.ok && out.success) {
@@ -47,6 +57,13 @@ export function ContactForm({ subject, extra = [], messageLabel, title }) {
   return (
     <form className="vs-form" onSubmit={onSubmit}>
       {title && <div className="vs-form-title">{title}</div>}
+      {topic && (
+        <div className="vs-form-topic" role="status">
+          <span className="vs-form-topic-k">{tx(formCopy.topic)}</span>
+          <strong>{tx(topic)}</strong>
+          <button type="button" aria-label={tx(formCopy.topicRemove)} title={tx(formCopy.topicRemove)} onClick={() => setTopicKey(null)}>×</button>
+        </div>
+      )}
       <div className="vs-form-grid">
         <label>{tx(formCopy.name)}<input name="name" type="text" autoComplete="name" required /></label>
         <label>{tx(formCopy.email)}<input name="email" type="email" autoComplete="email" required /></label>
