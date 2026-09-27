@@ -6,6 +6,7 @@ import Layout from './Layout';
 import { common, CONTACT } from './copy';
 import { homestay as H, franchise as F, careers as C } from './copy-pages';
 import { ContactForm } from './widgets';
+import { useSiteImages } from './siteImages';
 
 const home = { ja: 'ホーム', en: 'Home', fr: 'Accueil' };
 
@@ -35,11 +36,12 @@ function Label({ children }) {
 export function HomestayPage() {
   const { tx } = useLang();
   const ref = useReveal();
+  const img = useSiteImages();
   return (
     <Layout>
       <Seo page="homestay" path="/homestay" />
       <div ref={ref}>
-        <PageHero img="/img/tatami2.jpg" crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
+        <PageHero img={img('homestay_hero')} crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
           <a href="#apply" className="vs-btn vs-btn-light">{tx(H.ctaBook)}</a>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-ghost-light">{tx(H.ctaLine)}</a>
         </PageHero>
@@ -70,9 +72,9 @@ export function HomestayPage() {
             <div className="vs-chapter reveal"><b>I</b><Label>{tx(H.kyoto.label)}</Label></div>
             <div className="vs-split">
               <div className="vs-mosaic reveal" style={{ width: 'min(720px, 52%)' }}>
-                <img src="/img/tatami2.jpg" alt={tx({ ja: '和室', en: 'Tatami room', fr: 'Chambre en tatami' })} loading="lazy" />
-                <img src="/img/kitchen.jpg" alt={tx({ ja: 'みんなで料理とおやつの時間', en: 'Cooking and snack time together', fr: 'Cuisine et goûter ensemble' })} loading="lazy" />
-                <img src="/img/dinner.jpg" alt={tx({ ja: '家族で囲む食卓', en: 'Family dinner table', fr: 'Repas en famille' })} loading="lazy" />
+                <img src={img('homestay_room')} alt={tx({ ja: '和室', en: 'Tatami room', fr: 'Chambre en tatami' })} loading="lazy" />
+                <img src={img('homestay_meal1')} alt={tx({ ja: 'みんなで料理とおやつの時間', en: 'Cooking and snack time together', fr: 'Cuisine et goûter ensemble' })} loading="lazy" />
+                <img src={img('homestay_meal2')} alt={tx({ ja: '家族で囲む食卓', en: 'Family dinner table', fr: 'Repas en famille' })} loading="lazy" />
               </div>
               <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 <h2 className="vs-h3">{tx(H.kyoto.title1)}<br />{tx(H.kyoto.title2)}</h2>
@@ -98,12 +100,15 @@ export function HomestayPage() {
               <p className="vs-lead" style={{ maxWidth: 520 }}>{tx(H.travel.body)}</p>
             </div>
             <div className="vs-places">
-              {H.travel.places.map((p) => (
+              {H.travel.places.map((p) => {
+                const src = img(`travel_${p.name.toLowerCase()}`);
+                return (
                 <div key={p.name} className="vs-place reveal">
-                  <div className="vs-place-img">{p.img ? <img src={p.img} alt={p.name} loading="lazy" /> : <span>{p.name}</span>}</div>
+                  <div className="vs-place-img">{src ? <img src={src} alt={p.name} loading="lazy" /> : <span>{p.name}</span>}</div>
                   <b>{p.name}</b><small>{tx(p.sub)}</small>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -190,11 +195,12 @@ export function HomestayPage() {
 export function FranchisePage() {
   const { tx } = useLang();
   const ref = useReveal();
+  const img = useSiteImages();
   return (
     <Layout>
       <Seo page="franchise" path="/franchise" />
       <div ref={ref}>
-        <PageHero img="/img/ronde.jpg" crumb={F.crumb} eyebrow={F.eyebrow} lines={[F.title1, F.title2]} sub={F.sub}>
+        <PageHero img={img('franchise_hero')} crumb={F.crumb} eyebrow={F.eyebrow} lines={[F.title1, F.title2]} sub={F.sub}>
           <a href="#contact" className="vs-btn vs-btn-light">{tx(F.ctaContact)}</a>
           <a href="#journey" className="vs-btn vs-btn-ghost-light">{tx(F.ctaJourney)}</a>
         </PageHero>
@@ -289,11 +295,12 @@ export function FranchisePage() {
 export function CareersPage() {
   const { tx } = useLang();
   const ref = useReveal();
+  const img = useSiteImages();
   return (
     <Layout>
       <Seo page="careers" path="/careers" />
       <div ref={ref}>
-        <PageHero img="/img/hero.jpg" crumb={C.crumb} eyebrow={C.eyebrow} lines={[C.title1, C.title2, C.title3]} sub={C.sub}>
+        <PageHero img={img('careers_hero')} crumb={C.crumb} eyebrow={C.eyebrow} lines={[C.title1, C.title2, C.title3]} sub={C.sub}>
           <a href="#roles" className="vs-btn vs-btn-light">{tx(C.ctaRoles)}</a>
           <a href="#apply" className="vs-btn vs-btn-ghost-light">{tx(C.ctaApply)}</a>
         </PageHero>

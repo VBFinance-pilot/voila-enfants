@@ -278,3 +278,113 @@ export function InstagramSection() {
     </section>
   );
 }
+
+/* ───────────── Gallery (Supabase gallery_items, managed in /admin) ───────────── */
+const STATIC_GALLERY = Array.from({ length: 24 }, (_, i) => ({ id: `s-${i}`, image_url: `/gallery/Photo ${i + 1}.jpeg`, title: null }));
+
+export function GallerySection() {
+  const { tx } = useLang();
+  const [items, setItems] = useState(null);
+  const [open, setOpen] = useState(null);
+  const [all, setAll] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data, error } = await supabase.from('gallery_items').select('*').order('order_index', { ascending: true });
+        if (error) throw error;
+        setItems(data?.length ? data : STATIC_GALLERY);
+      } catch (err) {
+        console.error('[Gallery] fetch failed', err);
+        setItems(STATIC_GALLERY);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (open === null) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(null);
+      if (e.key === 'ArrowRight') setOpen((i) => (i + 1) % items.length);
+      if (e.key === 'ArrowLeft') setOpen((i) => (i - 1 + items.length) % items.length);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
+  }, [open, items]);
+
+  if (!items?.length) return null;
+  const t = home.gallery;
+  const shown = all ? items : items.slice(0, 8);
+
+  return (
+    <section id="gallery" className="vs-block">
+      <div className="vs-wrap" style={{ gap: 36 }}>
+        <div className="vs-head">
+          <div><div className="vs-label">{tx(t.label)}</div><h2 className="vs-h3">{tx(t.title)}</h2></div>
+        </div>
+        <div className="vs-gallery">
+          {shown.map((g, i) => (
+            <button key={g.id} type="button" className="vs-gallery-item" onClick={() => setOpen(i)} aria-label={g.title || `Photo ${i + 1}`}>
+              <img src={g.image_url} alt={g.title || ''} loading="lazy" />
+            </button>
+          ))}
+        </div>
+        {items.length > 8 && (
+          <button type="button" className="vs-btn vs-btn-outline-btn" onClick={() => setAll((v) => !v)}>
+            {all ? tx(t.less) : `${tx(t.more)} (${items.length})`}
+          </button>
+        )}
+      </div>
+      {open !== null && (
+        <div className="vs-lightbox" role="dialog" aria-modal="true" onClick={() => setOpen(null)}>
+          <button type="button" className="vs-lb-btn vs-lb-close" aria-label="Close" onClick={() => setOpen(null)}>✕</button>
+          <button type="button" className="vs-lb-btn vs-lb-prev" aria-label="Previous" onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + items.length) % items.length); }}>‹</button>
+          <img src={items[open].image_url} alt={items[open].title || ''} onClick={(e) => e.stopPropagation()} />
+          <button type="button" className="vs-lb-btn vs-lb-next" aria-label="Next" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % items.length); }}>›</button>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* ───────────── Videos (Supabase videos_items, managed in /admin) ───────────── */
+export function VideosSection() {
+  const { tx } = useLang();
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data, error } = await supabase.from('videos_items').select('*').order('order_index', { ascending: true });
+        if (error) throw error;
+        setVideos(data || []);
+      } catch (err) {
+        console.error('[Videos] fetch failed', err);
+      }
+    })();
+  }, []);
+  if (!videos.length) return null;
+  const t = home.videos;
+  return (
+    <section id="videos" className="vs-block">
+      <div className="vs-wrap" style={{ gap: 36 }}>
+        <div className="vs-head"><div><div className="vs-label">{tx(t.label)}</div><h2 className="vs-h3">{tx(t.title)}</h2></div></div>
+        <div className="vs-grid-3">
+          {videos.map((v) => (
+            <div key={v.id} className="vs-video">
+              <div className="vs-video-frame">
+                {v.youtube_id ? (
+                  <iframe src={`https://www.youtube.com/embed/${v.youtube_id}`} title={v.title || 'Video'} loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                ) : v.video_url ? (
+                  <video src={v.video_url} controls preload="metadata" playsInline />
+                ) : null}
+              </div>
+              {v.title && <strong>{v.title}</strong>}
+              {v.description && <span>{v.description}</span>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

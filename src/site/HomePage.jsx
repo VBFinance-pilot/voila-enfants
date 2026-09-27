@@ -6,14 +6,16 @@ import { useReveal } from '../components/useReveal';
 import Seo from '../components/Seo';
 import Layout, { SmartLink } from './Layout';
 import { home, common, form as formCopy, CONTACT } from './copy';
-import { ContactForm, GoogleReviewsBlock, MapBlock, UpcomingEvents, InstagramSection } from './widgets';
+import { ContactForm, GoogleReviewsBlock, MapBlock, UpcomingEvents, InstagramSection, GallerySection, VideosSection } from './widgets';
+import { useSiteImages } from './siteImages';
 
 function Hero() {
   const { tx } = useLang();
   const h = home.hero;
+  const img = useSiteImages();
   return (
     <section className="vs-hero" id="top">
-      <img src="/img/hero.jpg" alt="" fetchPriority="high" />
+      <img src={img('home_hero')} alt="" fetchPriority="high" />
       <div className="vs-wrap vs-hero-inner">
         <div className="vs-hero-copy">
           <h1 className="sr-only">{tx(h.h1seo)}</h1>
@@ -59,6 +61,7 @@ function Philosophy() {
 function Learn() {
   const { tx } = useLang();
   const l = home.learn;
+  const img = useSiteImages();
   return (
     <section id="learn" className="vs-block" style={{ paddingTop: 0 }}>
       <div className="vs-wrap">
@@ -72,7 +75,7 @@ function Learn() {
         <div className="vs-grid-4">
           {l.cards.map((c, i) => (
             <Link key={c.img} to="/#contact" className={`vs-card reveal`} style={{ transitionDelay: `${i * 80}ms` }}>
-              <div className="vs-card-img"><img src={c.img} alt={tx(c.alt)} loading="lazy" /></div>
+              <div className="vs-card-img"><img src={img(c.slot)} alt={tx(c.alt)} loading="lazy" /></div>
               <div className="vs-card-body">
                 <div className="vs-card-label">{tx(c.label)}</div>
                 <h3 className="vs-card-title">{tx(c.title)}</h3>
@@ -94,6 +97,7 @@ function Learn() {
 function Live() {
   const { tx } = useLang();
   const l = home.live;
+  const img = useSiteImages();
   return (
     <section id="live" className="vs-dark vs-live">
       <div className="vs-wrap">
@@ -107,7 +111,7 @@ function Live() {
         <div className="vs-grid-3">
           {l.cards.map((c, i) => (
             <SmartLink key={c.title.en} to={c.href} className="vs-photo-card reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-              <img src={c.img} alt={tx(c.alt)} loading="lazy" />
+              <img src={img(c.slot)} alt={tx(c.alt)} loading="lazy" />
               <div className="vs-photo-card-body">
                 <div className="vs-card-label">{tx(c.label)}</div>
                 <h3 className="vs-card-title">{tx(c.title)}</h3>
@@ -125,6 +129,7 @@ function Live() {
 function Celebrate() {
   const { tx } = useLang();
   const c = home.celebrate;
+  const img = useSiteImages();
   return (
     <section id="celebrate" className="vs-block">
       <div className="vs-wrap">
@@ -137,7 +142,7 @@ function Celebrate() {
         </div>
         <div className="vs-grid-2">
           <Link to="/#contact" className="vs-duo reveal">
-            <img src={c.events.img} alt={tx(c.events.alt)} loading="lazy" />
+            <img src={img(c.events.slot)} alt={tx(c.events.alt)} loading="lazy" />
             <div className="vs-duo-body">
               <div className="vs-card-label">{tx(c.events.label)}</div>
               <h3 className="vs-card-title" style={{ fontSize: 28 }}>{tx(c.events.title)}</h3>
@@ -146,7 +151,7 @@ function Celebrate() {
             </div>
           </Link>
           <Link to="/#contact" className="vs-duo vs-dark reveal" style={{ transitionDelay: '100ms' }}>
-            <img src={c.apero.img} alt={tx(c.apero.alt)} loading="lazy" />
+            <img src={img(c.apero.slot)} alt={tx(c.apero.alt)} loading="lazy" />
             <div className="vs-duo-body">
               <div className="vs-card-label">{tx(c.apero.label)}</div>
               <h3 className="vs-apero-title">L’Apéro</h3>
@@ -275,9 +280,10 @@ function Upcoming() {
 function Visit() {
   const { tx } = useLang();
   const v = home.visit;
+  const img = useSiteImages();
   return (
     <section className="vs-visit">
-      <img src="/img/ronde.jpg" alt="" loading="lazy" />
+      <img src={img('visit_band')} alt="" loading="lazy" />
       <div className="vs-visit-inner">
         <div className="vs-label">{tx(v.label)}</div>
         <h2 className="vs-h2" style={{ fontSize: 'clamp(38px, 4.8vw, 64px)' }}>{tx(v.title1)}<br />{tx(v.title2)}</h2>
@@ -347,6 +353,8 @@ export default function HomePage() {
         <Admissions />
         <Hosts />
         <Upcoming />
+        <GallerySection />
+        <VideosSection />
         <InstagramSection />
         <Visit />
         <Contact />

@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { supabase, uploadImage, logAction } from '../../lib/supabase';
+import { IMAGE_SLOTS } from '../../site/siteImages';
 
-const SECTIONS = [
-  { name: 'activities_hero', label: 'Activities (circular image)', hasText: false },
-  { name: 'oyako_hero', label: 'Oyako Hiroba', hasText: true },
-  { name: 'main_hero', label: 'Main Hero', hasText: true },
-];
+// One entry per photo on the new site. Removing an uploaded photo
+// brings back the built-in default photo.
+const SECTIONS = IMAGE_SLOTS.map((s) => ({ ...s, hasText: false }));
 
 export default function AdminHeroImages() {
   const [rows, setRows] = useState([]);
@@ -77,9 +76,10 @@ export default function AdminHeroImages() {
 
   return (
     <div className="adm-form-section">
-      <h3>Hero / Section Images</h3>
+      <h3>Photos du site</h3>
       <p style={{ color: '#888', fontSize: '0.85rem', marginBottom: 16 }}>
-        Manage images, titles and descriptions for each section.
+        Chaque bloc correspond à une photo du site. Téléversez une photo pour la remplacer ;
+        « Remove Image » remet la photo d’origine. Les changements sont visibles immédiatement (rechargez la page du site).
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
         {rows.map(row => {
@@ -93,6 +93,11 @@ export default function AdminHeroImages() {
                 <div style={{ flex: '0 0 160px' }}>
                   {row.image_url ? (
                     <img src={row.image_url} alt={row.alt_text || ''} style={{ width: 160, height: 120, objectFit: 'cover', borderRadius: 8, border: '2px solid #eee' }} />
+                  ) : section?.fallback ? (
+                    <div>
+                      <img src={section.fallback} alt="" style={{ width: 160, height: 120, objectFit: 'cover', borderRadius: 8, border: '2px dashed #ddd', opacity: 0.75 }} />
+                      <div style={{ fontSize: 12, color: '#999', marginTop: 4 }}>Photo par défaut</div>
+                    </div>
                   ) : (
                     <div style={{ width: 160, height: 120, background: '#f5f5f5', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#bbb', fontSize: 14, border: '2px dashed #ddd' }}>
                       No image

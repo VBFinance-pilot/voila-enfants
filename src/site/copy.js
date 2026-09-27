@@ -93,7 +93,7 @@ export const home = {
     },
     cards: [
       {
-        img: '/img/slime.jpg',
+        slot: 'learn_kids', img: '/img/slime.jpg',
         alt: { ja: 'スライム作りを楽しむ子どもたち', en: 'Children enjoying making slime', fr: 'Des enfants s’amusent à fabriquer du slime' },
         label: { ja: 'STUDIO KYOTO · 2–12歳', en: 'STUDIO KYOTO · AGES 2–12', fr: 'STUDIO KYOTO · 2–12 ANS' },
         title: { ja: 'キッズ・アクティビティ', en: 'Kids Activities', fr: 'Activités enfants' },
@@ -105,7 +105,7 @@ export const home = {
         price: { ja: '1時間 ¥2,800〜', en: 'From ¥2,800 / hour', fr: 'Dès ¥2 800 / heure' },
       },
       {
-        img: '/img/tatami2.jpg',
+        slot: 'learn_secondary', img: '/img/tatami2.jpg',
         alt: { ja: '和室で学ぶ中高生', en: 'Teenagers studying in a tatami room', fr: 'Des adolescents étudient dans une pièce en tatami' },
         label: { ja: 'STUDIO KYOTO · 中学生〜大学生', en: 'STUDIO KYOTO · JUNIOR HIGH TO UNIVERSITY', fr: 'STUDIO KYOTO · COLLÈGE À UNIVERSITÉ' },
         title: { ja: '中高生・大学生の英語', en: 'Secondary & University English', fr: 'Anglais collège, lycée & université' },
@@ -117,7 +117,7 @@ export const home = {
         price: { ja: '1時間 ¥3,800〜', en: 'From ¥3,800 / hour', fr: 'Dès ¥3 800 / heure' },
       },
       {
-        img: '/img/classroom.jpg',
+        slot: 'learn_online', img: '/img/classroom.jpg',
         alt: { ja: '教室で学ぶ生徒たち', en: 'Students learning in class', fr: 'Des élèves en classe' },
         label: { ja: 'ONLINE · 学習サポート', en: 'ONLINE · ACADEMIC SUPPORT', fr: 'EN LIGNE · SOUTIEN SCOLAIRE' },
         title: { ja: 'オンライン・受験対策', en: 'Online & Exam Prep', fr: 'En ligne & préparation aux examens' },
@@ -129,7 +129,7 @@ export const home = {
         price: { ja: '30分 ¥2,000〜', en: 'From ¥2,000 / 30 min', fr: 'Dès ¥2 000 / 30 min' },
       },
       {
-        img: '/img/bordeaux.jpg',
+        slot: 'learn_adults', img: '/img/bordeaux.jpg',
         alt: { ja: '旅先の街並み', en: 'A street abroad', fr: 'Une rue à l’étranger' },
         label: { ja: 'ADULTS · 大人', en: 'ADULTS', fr: 'ADULTES' },
         title: { ja: '大人のための語学', en: 'Languages for Adults', fr: 'Langues pour adultes' },
@@ -159,7 +159,7 @@ export const home = {
     },
     cards: [
       {
-        href: '/homestay#kyoto', img: '/img/tatami2.jpg',
+        slot: 'live_homestay', href: '/homestay#kyoto', img: '/img/tatami2.jpg',
         alt: { ja: '和室でくつろぐ生徒たち', en: 'Students relaxing in a tatami room', fr: 'Des élèves détendus dans une pièce en tatami' },
         label: { ja: 'KYOTO · 私たちの家で', en: 'KYOTO · IN OUR HOME', fr: 'KYOTO · CHEZ NOUS' },
         title: { ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' },
@@ -170,7 +170,7 @@ export const home = {
         },
       },
       {
-        href: '/homestay#travel', img: '/img/balipool.jpg',
+        slot: 'live_travel', href: '/homestay#travel', img: '/img/balipool.jpg',
         alt: { ja: 'バリのヴィラのプール', en: 'Pool at a villa in Bali', fr: 'Piscine d’une villa à Bali' },
         label: { ja: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', en: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', fr: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO' },
         title: { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' },
@@ -181,7 +181,7 @@ export const home = {
         },
       },
       {
-        href: '/#contact', img: '/img/bbq.jpg',
+        slot: 'live_camp', href: '/#contact', img: '/img/bbq.jpg',
         alt: { ja: 'キャンプのバーベキュー', en: 'Camp barbecue', fr: 'Barbecue au camp' },
         label: { ja: 'SUMMER CAMP · WINTER CAMP', en: 'SUMMER CAMP · WINTER CAMP', fr: 'CAMP D’ÉTÉ · CAMP D’HIVER' },
         title: { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' },
@@ -203,7 +203,7 @@ export const home = {
       fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure en anglais, français et japonais.',
     },
     events: {
-      img: '/img/crowns.jpg',
+      slot: 'celebrate_events', img: '/img/crowns.jpg',
       alt: { ja: '王冠をかぶってお祝いする子どもたち', en: 'Children celebrating in paper crowns', fr: 'Des enfants font la fête avec des couronnes' },
       label: { ja: 'EVENTS · オーダーメイド', en: 'EVENTS · BESPOKE', fr: 'ÉVÉNEMENTS · SUR MESURE' },
       title: { ja: 'バースデー＆イベント', en: 'Birthdays & Events', fr: 'Anniversaires & événements' },
@@ -214,7 +214,7 @@ export const home = {
       },
     },
     apero: {
-      img: '/img/apero.jpg',
+      slot: 'celebrate_apero', img: '/img/apero.jpg',
       alt: { ja: 'シェフが用意するシャルキュトリーとチーズ', en: 'Charcuterie and cheese prepared by the chef', fr: 'Charcuterie et fromages préparés par le chef' },
       label: { ja: 'L’APÉRO · 2人のシェフ', en: 'L’APÉRO · TWO CHEFS', fr: 'L’APÉRO · DEUX CHEFS' },
       desc: {
@@ -285,6 +285,16 @@ export const home = {
       fr: 'Cours, camps, voyages, repas en famille — les petits moments du quotidien, partagés sur @voilaenglish.',
     },
     follow: { ja: 'Instagramでフォロー', en: 'Follow on Instagram', fr: 'Suivre sur Instagram' },
+  },
+  gallery: {
+    label: { ja: 'MOMENTS　·　ギャラリー', en: 'MOMENTS', fr: 'MOMENTS' },
+    title: { ja: 'ヴォアラの思い出', en: 'Moments at Voilà', fr: 'Moments chez Voilà' },
+    more: { ja: 'もっと見る', en: 'See more', fr: 'Voir plus' },
+    less: { ja: '閉じる', en: 'Show less', fr: 'Voir moins' },
+  },
+  videos: {
+    label: { ja: 'FILMS　·　動画', en: 'FILMS', fr: 'FILMS' },
+    title: { ja: '体験の様子を動画で', en: 'Our experiences on film', fr: 'Nos expériences en vidéo' },
   },
   visit: {
     label: { ja: 'VISIT US　·　見学・無料体験', en: 'VISIT US　·　FREE TRIAL', fr: 'NOUS RENDRE VISITE　·　ESSAI GRATUIT' },

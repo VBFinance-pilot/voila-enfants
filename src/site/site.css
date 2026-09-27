@@ -422,3 +422,24 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
   .vs-info-row { flex-direction: column; gap: 6px; }
   .vs-subnav .vs-wrap strong { display: none; }
 }
+
+/* ── Gallery & videos (admin-managed) ── */
+.vs-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.vs-gallery-item { padding: 0; border: 0; background: var(--stone); border-radius: 18px; overflow: hidden; aspect-ratio: 1 / 1; }
+.vs-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.vs-gallery-item:hover img { transform: scale(1.05); }
+.vs button.vs-btn-outline-btn { align-self: center; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); }
+.vs button.vs-btn-outline-btn:hover { border-color: var(--ink); }
+.vs-lightbox { position: fixed; inset: 0; z-index: 80; background: rgba(15,11,9,.94); display: flex; align-items: center; justify-content: center; padding: 48px 72px; }
+.vs-lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+.vs-lb-btn { position: absolute; width: 48px; height: 48px; border-radius: 999px; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.3); color: #fff; font-size: 22px; display: flex; align-items: center; justify-content: center; }
+.vs-lb-close { top: 16px; right: 16px; font-size: 16px; }
+.vs-lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.vs-lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+.vs-video { display: flex; flex-direction: column; gap: 10px; }
+.vs-video-frame { aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; background: var(--ink); }
+.vs-video-frame iframe, .vs-video-frame video { width: 100%; height: 100%; border: 0; display: block; }
+.vs-video strong { font-size: 16px; }
+.vs-video span { font-size: 14px; color: var(--muted); line-height: 1.7; }
+@media (max-width: 900px) { .vs-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); } .vs-lightbox { padding: 64px 12px; } }
+@media (max-width: 600px) { .vs-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
