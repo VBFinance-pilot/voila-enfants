@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useReveal } from './useReveal';
 import './Media.css';
 
-const DEFAULT_IG_URL = 'https://www.instagram.com/voila_les_enfants/';
+const DEFAULT_IG_URL = 'https://www.instagram.com/voilaenglish/';
 
 export default function Media() {
   const { t } = useLang();

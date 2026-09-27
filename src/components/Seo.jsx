@@ -9,10 +9,11 @@ const OG_IMAGE = `${SITE_URL}/logo.png`;
 // language (ja/en) and come from content.json (no hardcoded copy).
 export default function Seo({ page, path = '/' }) {
   const { lang } = useLang();
-  const seo = content[lang]?.seo?.[page] ?? content.ja.seo[page];
+  const seo = content[lang]?.seo?.[page] ?? content.en?.seo?.[page] ?? content.ja.seo[page];
   const url = `${SITE_URL}${path}`;
-  const ogLocale = lang === 'ja' ? 'ja_JP' : 'en_US';
-  const ogLocaleAlt = lang === 'ja' ? 'en_US' : 'ja_JP';
+  const LOCALES = { ja: 'ja_JP', en: 'en_US', fr: 'fr_FR' };
+  const ogLocale = LOCALES[lang] ?? 'ja_JP';
+  const ogLocaleAlts = Object.values(LOCALES).filter((l) => l !== ogLocale);
 
   return (
     <Helmet>
@@ -21,9 +22,10 @@ export default function Seo({ page, path = '/' }) {
       <meta name="description" content={seo.description} />
       <link rel="canonical" href={url} />
 
-      {/* hreflang — single URL serves both languages */}
+      {/* hreflang — single URL serves all three languages */}
       <link rel="alternate" hrefLang="ja" href={url} />
       <link rel="alternate" hrefLang="en" href={url} />
+      <link rel="alternate" hrefLang="fr" href={url} />
       <link rel="alternate" hrefLang="x-default" href={url} />
 
       {/* Open Graph */}
@@ -34,7 +36,7 @@ export default function Seo({ page, path = '/' }) {
       <meta property="og:url" content={url} />
       <meta property="og:image" content={OG_IMAGE} />
       <meta property="og:locale" content={ogLocale} />
-      <meta property="og:locale:alternate" content={ogLocaleAlt} />
+      {ogLocaleAlts.map((l) => <meta key={l} property="og:locale:alternate" content={l} />)}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

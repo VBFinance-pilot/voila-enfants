@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
-import HomePage from './pages/HomePage';
+import HomePage from './site/HomePage';
+import { HomestayPage, FranchisePage, CareersPage } from './site/SubPages';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Legal from './pages/Legal';
@@ -20,6 +21,9 @@ export default function App() {
         <Analytics />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/homestay" element={<HomestayPage />} />
+          <Route path="/franchise" element={<FranchisePage />} />
+          <Route path="/careers" element={<CareersPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/legal" element={<Legal />} />

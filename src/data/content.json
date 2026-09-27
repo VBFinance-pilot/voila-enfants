@@ -2,8 +2,8 @@
   "ja": {
     "seo": {
       "home": {
-        "title": "京都・西京区の子供英語・フランス語教室｜Voilà les enfants",
-        "description": "京都市西京区の英・仏・日トリリンガル教室。ネイティブ講師と遊びながら学ぶ。0〜12歳対象、無料体験受付中。"
+        "title": "京都・西京区の英語・フランス語アクティビティスクール｜Voilà les enfants",
+        "description": "京都市西京区のアクティビティ・ランゲージスクール。子どもから大人まで、英語・フランス語・日本語を体験で学ぶ。ホームステイ、キャンプ、イベント。無料体験受付中。"
       },
       "privacy": {
         "title": "プライバシーポリシー｜Voilà les enfants 京都",
@@ -16,6 +16,18 @@
       "legal": {
         "title": "法的表示｜Voilà les enfants 京都",
         "description": "京都・西京区の子供英語・フランス語教室 Voilà les enfants の法的表示・運営者情報。"
+      },
+      "homestay": {
+        "title": "ホームステイ（京都・海外）｜Voilà les enfants",
+        "description": "日仏ファミリーの家で暮らす京都のホームステイと、フランス・バリなどへの旅するホームステイ。英語・フランス語・日本語。"
+      },
+      "franchise": {
+        "title": "フランチャイズ｜あなたのことばでアクティビティスクールを｜Voilà les enfants",
+        "description": "教師経験は不要。Voilà のメソッドとブランドで、あなたの言語のアクティビティスクールを開校しませんか。"
+      },
+      "careers": {
+        "title": "採用情報｜Voilà les enfants 京都",
+        "description": "英語講師・フランス語講師・キャンプ／イベントスタッフを募集しています。京都市西京区。"
       }
     },
     "nav": {
@@ -54,12 +66,36 @@
       "body": "<p>私たちの英語アクティビティは、</p><p class=\"hl-pink\">「体験を通して英語を生きたことばとして身につける」</p><p>ことを目的にしています。</p><br/><p>子どもたちは動き、遊び、表現しながら、まるで海外の家庭のような<span class=\"hl-bold\">インターナショナルな空間</span>の中で自然に英語を吸収していきます。</p>",
       "programsHeading": "主なプログラム：",
       "programs": [
-        { "icon": "🎵", "title": "ベビー＆キッズクラス", "desc": "歌・体遊び・絵本を通して楽しく英語にふれる" },
-        { "icon": "🎨", "title": "アフタースクールプログラム", "desc": "アートやサイエンス、遊びを取り入れた英語 immersion 学習法！" },
-        { "icon": "🌸", "title": "季節のワークショップ＆キャンプ", "desc": "文化交流や体験型イベント" },
-        { "icon": "👨‍👩‍👧", "title": "ファミリー英会話", "desc": "親子で学べるやさしい育児英会話レッスン" },
-        { "icon": "💻", "title": "オンラインレッスン", "desc": "どこからでも受けられる柔軟な学習スタイル。英語・算数・数学・英検等対策" },
-        { "icon": "👩‍🏫", "title": "先生向けコーチング", "desc": "現役講師のための実践的サポート、ゲームやワークシートなどの指導も！" }
+        {
+          "icon": "🎵",
+          "title": "ベビー＆キッズクラス",
+          "desc": "歌・体遊び・絵本を通して楽しく英語にふれる"
+        },
+        {
+          "icon": "🎨",
+          "title": "アフタースクールプログラム",
+          "desc": "アートやサイエンス、遊びを取り入れた英語 immersion 学習法！"
+        },
+        {
+          "icon": "🌸",
+          "title": "季節のワークショップ＆キャンプ",
+          "desc": "文化交流や体験型イベント"
+        },
+        {
+          "icon": "👨‍👩‍👧",
+          "title": "ファミリー英会話",
+          "desc": "親子で学べるやさしい育児英会話レッスン"
+        },
+        {
+          "icon": "💻",
+          "title": "オンラインレッスン",
+          "desc": "どこからでも受けられる柔軟な学習スタイル。英語・算数・数学・英検等対策"
+        },
+        {
+          "icon": "👩‍🏫",
+          "title": "先生向けコーチング",
+          "desc": "現役講師のための実践的サポート、ゲームやワークシートなどの指導も！"
+        }
       ],
       "footer": "<p>どのクラスも<span class=\"hl-bold\">「コミュニケーション・創造力・自信」</span>を大切にしています。</p><p>英語だけでなく<span class=\"hl-bold\">「自分を好きになる力」</span>や<span class=\"hl-bold\">「人を幸せにする力」</span>も育てます。</p><p>それは、英語学習を超えた<span class=\"hl-bold\">「人生を豊かにする体験」</span>です。</p>"
     },
@@ -156,8 +192,8 @@
   "en": {
     "seo": {
       "home": {
-        "title": "Kids English & French School in Kyoto｜Voilà les enfants",
-        "description": "Trilingual EN/FR/JP classes for kids in Nishikyo, Kyoto. Native teachers, ages 0–12. Free trial lesson!"
+        "title": "Activity language school in Kyoto — English & French｜Voilà les enfants",
+        "description": "Activity language school in Nishikyo, Kyoto. English, French and Japanese for children and adults, learned through experience. Homestays, camps, events. Free trial."
       },
       "privacy": {
         "title": "Privacy Policy｜Voilà les enfants Kyoto",
@@ -170,6 +206,18 @@
       "legal": {
         "title": "Legal Notice｜Voilà les enfants Kyoto",
         "description": "Legal notice for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "homestay": {
+        "title": "Homestay in Kyoto & abroad｜Voilà les enfants",
+        "description": "Stay with our French-Japanese family in a tatami room in Kyoto, or travel with us to France, Bali and more. English, French, Japanese."
+      },
+      "franchise": {
+        "title": "Franchise — open your activity school｜Voilà les enfants",
+        "description": "No teaching background needed. Open an activity language school in your own language with the Voilà method and brand."
+      },
+      "careers": {
+        "title": "Careers｜Voilà les enfants Kyoto",
+        "description": "Join our team: English and French teachers, camp and event staff in Nishikyo, Kyoto."
       }
     },
     "nav": {
@@ -208,12 +256,36 @@
       "body": "<p>Our English activities are designed so that children</p><p class=\"hl-pink\">acquire English as a living language through real experience.</p><br/><p>Children move, play and express themselves in an <span class=\"hl-bold\">international environment</span> just like a home abroad.</p><p>We prioritise <span class=\"hl-bold\">communication, creativity and self-expression</span> above all.</p>",
       "programsHeading": "Our Programs:",
       "programs": [
-        { "icon": "🎵", "title": "Baby & Kids Class", "desc": "Songs, movement games and picture books for a joyful first English experience" },
-        { "icon": "🎨", "title": "After-school Program", "desc": "English immersion learning through art, science and play!" },
-        { "icon": "🌸", "title": "Seasonal Workshops & Camps", "desc": "Cultural exchange and hands-on events every season" },
-        { "icon": "👨‍👩‍👧", "title": "Family English Conversation", "desc": "Friendly parent-child lessons for everyday English at home" },
-        { "icon": "💻", "title": "Online Lessons", "desc": "Flexible learning from anywhere — English, maths, Eiken prep and more" },
-        { "icon": "👩‍🏫", "title": "Teacher Coaching", "desc": "Practical support for practising teachers, including games and worksheets!" }
+        {
+          "icon": "🎵",
+          "title": "Baby & Kids Class",
+          "desc": "Songs, movement games and picture books for a joyful first English experience"
+        },
+        {
+          "icon": "🎨",
+          "title": "After-school Program",
+          "desc": "English immersion learning through art, science and play!"
+        },
+        {
+          "icon": "🌸",
+          "title": "Seasonal Workshops & Camps",
+          "desc": "Cultural exchange and hands-on events every season"
+        },
+        {
+          "icon": "👨‍👩‍👧",
+          "title": "Family English Conversation",
+          "desc": "Friendly parent-child lessons for everyday English at home"
+        },
+        {
+          "icon": "💻",
+          "title": "Online Lessons",
+          "desc": "Flexible learning from anywhere — English, maths, Eiken prep and more"
+        },
+        {
+          "icon": "👩‍🏫",
+          "title": "Teacher Coaching",
+          "desc": "Practical support for practising teachers, including games and worksheets!"
+        }
       ],
       "footer": "<p>Every class puts <span class=\"hl-bold\">communication, creativity and confidence</span> at the centre.</p><p>We nurture <span class=\"hl-bold\">self-love</span> and <span class=\"hl-bold\">the ability to bring happiness to others</span>.</p><p>It's more than language learning — it's a <span class=\"hl-bold\">life-enriching experience</span>.</p>"
     },
@@ -305,6 +377,38 @@
     "footer": {
       "tagline": "English Activities 💗 〜All different, All good〜",
       "copyright": "© 2025 Voilà les enfants. All rights reserved."
+    }
+  },
+  "fr": {
+    "seo": {
+      "homestay": {
+        "title": "Homestay à Kyoto et à l’étranger｜Voilà les enfants",
+        "description": "Séjournez chez notre famille franco-japonaise à Kyoto, dans une chambre en tatami, ou voyagez avec nous en France, à Bali… Anglais, français, japonais."
+      },
+      "franchise": {
+        "title": "Franchise — ouvrez votre activity school｜Voilà les enfants",
+        "description": "Pas besoin d’être professeur. Ouvrez une école de langues par l’activité dans votre langue, avec la méthode et la marque Voilà."
+      },
+      "careers": {
+        "title": "Recrutement｜Voilà les enfants Kyoto",
+        "description": "Rejoignez notre équipe : professeurs d’anglais et de français, équipe camps et événements à Nishikyo, Kyoto."
+      },
+      "home": {
+        "title": "École de langues par l’activité à Kyoto｜Voilà les enfants",
+        "description": "Activity language school à Nishikyo, Kyoto. Anglais, français et japonais pour enfants et adultes, appris par l’expérience. Homestays, camps, événements. Essai gratuit."
+      },
+      "privacy": {
+        "title": "Politique de confidentialité｜Voilà les enfants Kyoto",
+        "description": "Privacy policy for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "terms": {
+        "title": "Conditions d’utilisation｜Voilà les enfants Kyoto",
+        "description": "Terms of service for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "legal": {
+        "title": "Mentions légales｜Voilà les enfants Kyoto",
+        "description": "Legal notice for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      }
     }
   }
 }
