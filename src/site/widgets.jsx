@@ -261,13 +261,9 @@ const IG_ICON = (
 
 export function InstagramSection() {
   const { tx } = useLang();
-  const [url, setUrl] = useState(CONTACT.instagram);
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase.from('site_settings').select('value').eq('key', 'instagram_url').maybeSingle();
-      if (data?.value) setUrl(data.value);
-    })();
-  }, []);
+  // Official account: @voilaenglish. The old site_settings.instagram_url is
+  // ignored on purpose so a stale admin value can't break the link.
+  const url = CONTACT.instagram;
   const t = home.instagram;
   return (
     <section id="instagram" className="vs-insta">

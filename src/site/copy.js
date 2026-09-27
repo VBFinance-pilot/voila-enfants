@@ -6,8 +6,8 @@ export const CONTACT = {
   phoneHref: 'tel:09060090792',
   email: 'contact-voilaJP@protonmail.com',
   line: 'https://lin.ee/PXNYpdO',
-  instagram: 'https://www.instagram.com/voila_les_enfants/',
-  instagramHandle: '@voila_les_enfants',
+  instagram: 'https://www.instagram.com/voilaenglish/',
+  instagramHandle: '@voilaenglish',
   mapsUrl: 'https://maps.app.goo.gl/?q=Voil%C3%A0+les+enfants+Kyoto',
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Voil%C3%A0+les+enfants%2C+10-122+Oeda+Kutsukake-cho%2C+Nishikyo-ku%2C+Kyoto',
 };
@@ -280,9 +280,9 @@ export const home = {
     label: { ja: 'FOLLOW OUR DAYS', en: 'FOLLOW OUR DAYS', fr: 'SUIVEZ NOS JOURNÉES' },
     title: { ja: 'ヴォアラの日常', en: 'Life at Voilà', fr: 'La vie chez Voilà' },
     sub: {
-      ja: '教室、キャンプ、旅、食卓。毎日の小さな瞬間を @voila_les_enfants でシェアしています。',
-      en: 'Classes, camps, travels and family tables — the small moments of every day, shared on @voila_les_enfants.',
-      fr: 'Cours, camps, voyages, repas en famille — les petits moments du quotidien, partagés sur @voila_les_enfants.',
+      ja: '教室、キャンプ、旅、食卓。毎日の小さな瞬間を @voilaenglish でシェアしています。',
+      en: 'Classes, camps, travels and family tables — the small moments of every day, shared on @voilaenglish.',
+      fr: 'Cours, camps, voyages, repas en famille — les petits moments du quotidien, partagés sur @voilaenglish.',
     },
     follow: { ja: 'Instagramでフォロー', en: 'Follow on Instagram', fr: 'Suivre sur Instagram' },
   },
