@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // Scroll to the top on route change, or to the #anchor when the URL has one
-// (e.g. /#contact from another page). Retries briefly while the page renders.
+// (e.g. /#contact from another page). Runs on every navigation (location.key),
+// so clicking a second card while already at #contact still scrolls there.
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     if (!hash) {
@@ -24,7 +25,7 @@ export default function ScrollToTop() {
     };
     attempt();
     return () => clearTimeout(timer);
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   return null;
 }
