@@ -124,7 +124,7 @@ function Hosts() {
             <div className="vs-label">{tx(h.label)}</div>
             <h2 className="vs-hosts-name"><em>{a?.name || 'Victor'}</em> &amp; <em>{b?.name || 'Maria'}</em></h2>
             <p className="vs-hosts-lead">{tx(h.lead)}</p>
-            <p className="vs-lead">{tx(h.body)}</p>
+            <p className="vs-lead vs-hosts-body">{tx(h.body)}</p>
           </div>
         </div>
         <GoogleReviewsBlock />
