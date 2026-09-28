@@ -527,3 +527,6 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-form select[name='topic'].is-set { border-color: var(--wine); color: var(--wine); font-weight: 600; }
 
 .vs-event-date b.is-year { font-size: 22px; }
+
+/* Hosts text: keep the author's line breaks (poem-like layout) */
+.vs-hosts-body { white-space: pre-line; }
