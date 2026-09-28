@@ -98,7 +98,7 @@ export const home = {
         line: { ja: 'まるで海外の家庭にホームステイするような空間。英語を学ぶ場所ではなく、英語に浸り英語で暮らしてみる場所。', en: 'Like staying with a family abroad. Not a place to study English — a place to live in it.', fr: 'Comme séjourner dans une famille à l’étranger. Pas un lieu où l’on étudie l’anglais : un lieu où l’on vit en anglais.' },
         list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
       { key: 'celebrate', href: '/celebrate', slot: 'home_celebrate', name: { ja: 'Voilà Moments', en: 'Voilà Moments', fr: 'Voilà Moments' },
-        line: { ja: '誕生日会からフランス式アペリティフまで、オーダーメイドのひとときを。', en: 'From birthday parties to French apéritifs — bespoke moments.', fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure.' },
+        line: { ja: '誕生日会からフランス式アペリティフまで、オーダーメイドの至福のひとときを。', en: 'From birthday parties to French apéritifs — bespoke moments.', fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure.' },
         list: [{ ja: 'バースデー＆イベント', en: 'Birthdays & events', fr: 'Anniversaires & événements' }, { ja: 'L’Apéro（2人のシェフ）', en: 'L’Apéro (two chefs)', fr: 'L’Apéro (deux chefs)' }] },
     ],
   },
