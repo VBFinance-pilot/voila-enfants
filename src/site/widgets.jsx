@@ -228,10 +228,30 @@ export function MapBlock() {
 }
 
 /* ───────────── Upcoming events (Supabase events_items) ───────────── */
-function parseDate(v) {
-  if (!v) return null;
-  const d = new Date(v);
-  return Number.isNaN(d.getTime()) ? null : d;
+const MONTHS = {
+  jan: 0, january: 0, janvier: 0, feb: 1, february: 1, fevrier: 1, février: 1, mar: 2, march: 2, mars: 2,
+  apr: 3, april: 3, avril: 3, may: 4, mai: 4, jun: 5, june: 5, juin: 5, jul: 6, july: 6, juillet: 6,
+  aug: 7, august: 7, aout: 7, août: 7, sep: 8, sept: 8, september: 8, septembre: 8, oct: 9, october: 9, octobre: 9,
+  nov: 10, november: 10, novembre: 10, dec: 11, december: 11, decembre: 11, décembre: 11,
+};
+
+// Reads the admin's free-text date: "2026-10-31" → a day; "September 2026",
+// "2026-09" or "2026年9月" → a month. Anything else stays as plain text.
+function parseWhen(v) {
+  const t = String(v || '').trim();
+  if (!t) return null;
+  let m = t.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);
+  if (m) return { date: new Date(+m[1], +m[2] - 1, +m[3]), day: true };
+  m = t.match(/^(\d{4})年\s*(\d{1,2})月(?:\s*(\d{1,2})日)?/);
+  if (m) return { date: new Date(+m[1], +m[2] - 1, +(m[3] || 1)), day: !!m[3] };
+  m = t.match(/^(\d{4})[-/.](\d{1,2})$/);
+  if (m) return { date: new Date(+m[1], +m[2] - 1, 1), day: false };
+  m = t.toLowerCase().match(/^(?:(\d{1,2})\s+)?([a-zéû]+)\.?\s+(?:(\d{1,2}),?\s+)?(\d{4})$/);
+  if (m && MONTHS[m[2]] !== undefined) {
+    const dd = +(m[1] || m[3] || 0);
+    return { date: new Date(+m[4], MONTHS[m[2]], dd || 1), day: !!dd };
+  }
+  return null;
 }
 
 export function UpcomingEvents() {
@@ -262,16 +282,19 @@ export function UpcomingEvents() {
     <div className="vs-grid-3">
       {items.length === 0 && <p className="vs-lead">{tx(t.empty)}</p>}
       {items.map((e) => {
-        const d = parseDate(e.when);
+        const w = parseWhen(e.when);
+        const d = w?.date;
+        const extra = [!w && e.when, e.desc].filter(Boolean).join(' · ');
         return (
           <div key={e.id} className="vs-event">
             <div className="vs-event-date" aria-hidden={!d}>
               <small>{d ? d.toLocaleDateString(locale, { month: 'short' }) : '—'}</small>
-              <b>{d ? d.getDate() : '✦'}</b>
+              <b className={w && !w.day ? 'is-year' : undefined}>{d ? (w.day ? d.getDate() : d.getFullYear()) : '✦'}</b>
             </div>
             <div className="vs-event-body">
               <strong>{e.title}</strong>
-              {(e.desc || (!d && e.when)) && <span>{!d && e.when ? `${e.when} · ` : ''}{e.desc}</span>}
+              {d && <span>{d.toLocaleDateString(locale, w.day ? { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' } : { month: 'long', year: 'numeric' })}</span>}
+              {extra && <span>{extra}</span>}
               <a href={CONTACT.line} target="_blank" rel="noopener noreferrer">{tx(t.signup)} ›</a>
             </div>
           </div>
