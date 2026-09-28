@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { supabase, uploadImage, fetchOrdered, reorder, deleteRow, logAction } from '../../lib/supabase';
+import { IconEdit, IconTrash, IconGrip } from './icons';
 
 export default function AdminEvents() {
   const [items, setItems] = useState([]);
@@ -20,7 +21,7 @@ export default function AdminEvents() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.title.trim()) { alert('Title is required'); return; }
+    if (!form.title.trim()) { alert('Le titre est obligatoire'); return; }
     setSaving(true);
     setSuccess(false);
     try {
@@ -47,7 +48,7 @@ export default function AdminEvents() {
       await load();
     } catch (err) {
       console.error('AdminEvents save error:', err);
-      alert('Save failed: ' + (err.message || JSON.stringify(err)));
+      alert('Échec de l’enregistrement : ' + (err.message || JSON.stringify(err)));
     }
     setSaving(false);
   };
@@ -58,14 +59,14 @@ export default function AdminEvents() {
   };
 
   const handleDelete = async (item) => {
-    if (!confirm(`Delete "${item.title}"?`)) return;
+    if (!confirm(`Supprimer « ${item.title} » ?`)) return;
     try {
       await deleteRow('events_items', item.id);
       await logAction('delete', 'events_items', item.title);
       setItems(prev => prev.filter(i => i.id !== item.id));
     } catch (err) {
       console.error('AdminEvents delete error:', err);
-      alert('Delete failed: ' + (err.message || JSON.stringify(err)));
+      alert('Échec de la suppression : ' + (err.message || JSON.stringify(err)));
     }
   };
 
@@ -75,7 +76,7 @@ export default function AdminEvents() {
     try {
       const url = await uploadImage(file, 'events');
       setForm(f => ({ ...f, image_url: url }));
-    } catch (err) { alert('Upload failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’envoi : ' + err.message); }
   };
 
   const handleDragEnd = async (result) => {
@@ -87,28 +88,28 @@ export default function AdminEvents() {
     try { await reorder('events_items', arr); } catch (err) { console.error('Reorder error:', err); }
   };
 
-  if (loading) return <div className="adm-loading">Loading...</div>;
+  if (loading) return <div className="adm-loading">Chargement…</div>;
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="adm-inline-form">
-        <h3>{editId ? 'Edit Event' : 'Add Event'}</h3>
-        <div className="adm-field"><label>Title *</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required /></div>
+        <h3>{editId ? 'Modifier l’événement' : 'Nouvel événement'}</h3>
+        <div className="adm-field"><label>Titre *</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required /></div>
         <div className="adm-field"><label>Description</label><textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} rows={3} /></div>
         <div className="adm-row">
-          <div className="adm-field"><label>Date</label><input value={form.event_date} onChange={e => setForm(f => ({ ...f, event_date: e.target.value }))} placeholder="e.g. April 2026" /></div>
+          <div className="adm-field"><label>Date</label><input value={form.event_date} onChange={e => setForm(f => ({ ...f, event_date: e.target.value }))} placeholder="ex. 2026-10-31" /></div>
           <div className="adm-field">
-            <label>Active</label>
+            <label>Affiché sur le site</label>
             <select value={form.active ? 'yes' : 'no'} onChange={e => setForm(f => ({ ...f, active: e.target.value === 'yes' }))}>
-              <option value="yes">Yes</option><option value="no">No</option>
+              <option value="yes">Oui</option><option value="no">Non</option>
             </select>
           </div>
         </div>
         <div className="adm-field"><label>Image</label>{form.image_url && <img src={form.image_url} alt="" className="adm-preview-img" />}<input type="file" accept="image/*" onChange={handleImageUpload} /></div>
         <div className="adm-form-actions">
-          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Saving...' : editId ? 'Update' : 'Add Event'}</button>
-          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', event_date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Cancel</button>}
-          {success && <span style={{ color: '#2e7d32', fontWeight: 600, marginLeft: 8 }}>Saved!</span>}
+          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Enregistrement…' : editId ? 'Mettre à jour' : 'Ajouter l’événement'}</button>
+          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', event_date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Annuler</button>}
+          {success && <span className="adm-saved">Enregistré ✓</span>}
         </div>
       </form>
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -119,14 +120,14 @@ export default function AdminEvents() {
                 <Draggable key={item.id} draggableId={item.id} index={i}>
                   {(prov, snap) => (
                     <div ref={prov.innerRef} {...prov.draggableProps} className={`adm-card-row ${snap.isDragging ? 'dragging' : ''}`}>
-                      <span {...prov.dragHandleProps} className="adm-drag">⠿</span>
+                      <span {...prov.dragHandleProps} className="adm-drag" aria-label="Déplacer"><IconGrip /></span>
                       {item.image_url && <img src={item.image_url} alt="" className="adm-thumb" />}
                       <div className="adm-card-info">
                         <strong>{item.title}</strong>
-                        <span className="adm-meta">{item.event_date} {item.active ? '🟢' : '⚪'}</span>
+                        <span className="adm-meta"><span className={`adm-status${item.active ? ' is-on' : ''}`}>{item.active ? 'En ligne' : 'Masqué'}</span>{item.event_date ? ` · ${item.event_date}` : ''}</span>
                       </div>
-                      <button onClick={() => handleEdit(item)} className="adm-btn-edit">✏️</button>
-                      <button onClick={() => handleDelete(item)} className="adm-btn-del">🗑️</button>
+                      <button onClick={() => handleEdit(item)} className="adm-btn-edit" aria-label="Modifier" title="Modifier"><IconEdit /></button>
+                      <button onClick={() => handleDelete(item)} className="adm-btn-del" aria-label="Supprimer" title="Supprimer"><IconTrash /></button>
                     </div>
                   )}
                 </Draggable>

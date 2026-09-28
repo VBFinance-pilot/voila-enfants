@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase, logAction } from '../../lib/supabase';
+import { IconTrash } from './icons';
 
 const DEFAULT_KEYS = [
   { key: 'site_title', label: 'Site Title' },
@@ -40,7 +41,7 @@ export default function AdminSettings() {
       const rows = Object.entries(settings).map(([key, value]) => ({ key, value, updated_at: new Date().toISOString() }));
       await supabase.from('site_settings').upsert(rows, { onConflict: 'key' });
       await logAction('update', 'site_settings', `${rows.length} settings saved`);
-    } catch (err) { alert('Save failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’enregistrement : ' + err.message); }
     setSaving(false);
   };
 
@@ -52,50 +53,56 @@ export default function AdminSettings() {
   };
 
   const handleDeleteKey = async (key) => {
-    if (!confirm(`Delete setting "${key}"?`)) return;
+    if (!confirm(`Supprimer le réglage « ${key} » ?`)) return;
     await supabase.from('site_settings').delete().eq('key', key);
     setSettings(prev => { const n = { ...prev }; delete n[key]; return n; });
     await logAction('delete', 'site_settings', key);
   };
 
-  if (loading) return <div className="adm-loading">Loading...</div>;
+  if (loading) return <div className="adm-loading">Chargement…</div>;
 
+  // Only the Google Maps embed is read by the new site; older keys stay editable, tucked away.
+  const USED = ['google_maps_embed_src'];
   const allKeys = [...new Set([...DEFAULT_KEYS.map(d => d.key), ...Object.keys(settings)])];
+  const legacyKeys = allKeys.filter(k => !USED.includes(k));
+
+  const renderRow = (key) => {
+    const def = DEFAULT_KEYS.find(d => d.key === key);
+    const label = key === 'google_maps_embed_src' ? 'Carte Google Maps — lien d’intégration (src de l’iframe)' : def ? def.label : key;
+    const isCustom = !def;
+    return (
+      <div key={key} className="adm-setting-row">
+        <label>{label}</label>
+        <div className="adm-setting-input">
+          {key.startsWith('google_maps_embed') ? (
+            <textarea value={settings[key] || ''} onChange={e => setSettings(prev => ({ ...prev, [key]: e.target.value }))} rows={2} />
+          ) : (
+            <input value={settings[key] || ''} onChange={e => setSettings(prev => ({ ...prev, [key]: e.target.value }))} />
+          )}
+          {isCustom && <button onClick={() => handleDeleteKey(key)} className="adm-btn-del" aria-label="Supprimer" title="Supprimer"><IconTrash /></button>}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="adm-form-section">
-      <h3>Site Settings</h3>
-      <div className="adm-settings-grid">
-        {allKeys.map(key => {
-          const def = DEFAULT_KEYS.find(d => d.key === key);
-          const label = def ? def.label : key;
-          const isCustom = !def;
-          return (
-            <div key={key} className="adm-setting-row">
-              <label>{label}</label>
-              <div className="adm-setting-input">
-                {key === 'google_maps_embed' ? (
-                  <textarea value={settings[key] || ''} onChange={e => setSettings(prev => ({ ...prev, [key]: e.target.value }))} rows={2} />
-                ) : (
-                  <input value={settings[key] || ''} onChange={e => setSettings(prev => ({ ...prev, [key]: e.target.value }))} />
-                )}
-                {isCustom && <button onClick={() => handleDeleteKey(key)} className="adm-btn-del" title="Remove">🗑️</button>}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="adm-add-custom">
-        <h4>Add Custom Setting</h4>
-        <div className="adm-row">
-          <input value={customKey} onChange={e => setCustomKey(e.target.value)} placeholder="Key" />
-          <input value={customValue} onChange={e => setCustomValue(e.target.value)} placeholder="Value" />
-          <button onClick={handleAddCustom} className="adm-btn-save" type="button">Add</button>
-        </div>
-      </div>
-      <button onClick={handleSave} disabled={saving} className="adm-btn-save" style={{ marginTop: 16 }}>
-        {saving ? 'Saving...' : 'Save All Settings'}
+      <div className="adm-settings-grid">{USED.map(renderRow)}</div>
+      <button onClick={handleSave} disabled={saving} className="adm-btn-save" style={{ marginTop: 8 }}>
+        {saving ? 'Enregistrement…' : 'Enregistrer les réglages'}
       </button>
+      <details className="adm-legacy">
+        <summary>Anciens réglages (non utilisés par le nouveau site)</summary>
+        <div className="adm-settings-grid">{legacyKeys.map(renderRow)}</div>
+        <div className="adm-add-custom">
+          <h4>Ajouter un réglage</h4>
+          <div className="adm-row">
+            <input value={customKey} onChange={e => setCustomKey(e.target.value)} placeholder="Clé" />
+            <input value={customValue} onChange={e => setCustomValue(e.target.value)} placeholder="Valeur" />
+            <button onClick={handleAddCustom} className="adm-btn-save" type="button">Ajouter</button>
+          </div>
+        </div>
+      </details>
     </div>
   );
 }
