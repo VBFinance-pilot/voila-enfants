@@ -387,12 +387,12 @@ export function MomentsSection() {
   const { tx } = useLang();
   const photos = useTable('gallery_items', STATIC_GALLERY);
   const videos = useTable('videos_items', NO_VIDEOS) || NO_VIDEOS;
-  const [tab, setTab] = useState('photos');
+  const [tab, setTab] = useState('instagram');
   const t = home.moments;
   const tabs = [
+    { k: 'instagram', show: true },
     { k: 'photos', show: photos === null || photos.length > 0 },
     { k: 'films', show: videos.length > 0 },
-    { k: 'instagram', show: true },
   ].filter((x) => x.show);
   const active = tabs.some((x) => x.k === tab) ? tab : tabs[0].k;
 
