@@ -53,9 +53,9 @@ export const home = {
       fr: 'École de langues par l’activité — anglais, français, japonais — à Nishikyo, Kyoto',
     },
     sub: {
-      ja: '英語・フランス語・日本語。子どもから大人まで、日仏ファミリーの暮らしの中で、体験しながらことばを身につける京都の学校です。',
-      en: 'English, French and Japanese. From children to adults, a Kyoto school where languages are learned through experience — inside the daily life of a French-Japanese family.',
-      fr: 'Anglais, français et japonais. Des enfants aux adultes, une école à Kyoto où l’on apprend les langues par l’expérience, au cœur du quotidien d’une famille franco-japonaise.',
+      ja: '三か国語が飛び交う、ホームステイのような小さな海外。プチ留学のように、英語だけではなく世界を体感する。英語という彩りを、あなたへ。',
+      en: 'A little corner of abroad where three languages fill the air — like a homestay. Like a short study trip, you experience not just English, but the world. English: a new colour, for you.',
+      fr: 'Un petit bout d’étranger où trois langues se croisent, comme en homestay. Comme un mini-séjour linguistique, on y vit bien plus que l’anglais : le monde. L’anglais, une couleur de plus dans votre vie.',
     },
     ctaAll: { ja: 'すべてのプログラム', en: 'All programmes', fr: 'Tous les programmes' },
     scroll: { ja: 'SCROLL', en: 'SCROLL', fr: 'DÉFILER' },
