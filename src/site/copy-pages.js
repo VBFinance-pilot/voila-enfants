@@ -244,7 +244,7 @@ export const careers = {
     location: { ja: '勤務地：京都（西京区）・オンライン　·　日本での就労資格が必要です', en: 'Location: Kyoto (Nishikyo) · Online　·　Right to work in Japan required', fr: 'Lieu : Kyoto (Nishikyo) · en ligne　·　Autorisation de travail au Japon requise' },
     apply: { ja: '応募する', en: 'Apply', fr: 'Postuler' },
     items: [
-      { t: { ja: '英語講師', en: 'English Teacher', fr: 'Professeur d’anglais' }, d: { ja: '2歳から大人まで。体験型のアクティビティで、生きた英語を伝えます。', en: 'From age 2 to adults. Bring living English through hands-on activities.', fr: 'De 2 ans aux adultes. Transmettre un anglais vivant par des activités concrètes.' }, c: { ja: '業務委託・パート（応相談）', en: 'Freelance or part-time (flexible)', fr: 'Indépendant ou temps partiel (à discuter)' } },
+      { t: { ja: '英語講師', en: 'English Teacher', fr: 'Professeur d’anglais' }, d: { ja: '赤ちゃんから大人まで。体験型のアクティビティで、生きた英語を伝えます。', en: 'From babies to adults. Bring living English through hands-on activities.', fr: 'Des bébés aux adultes. Transmettre un anglais vivant par des activités concrètes.' }, c: { ja: '業務委託・パート（応相談）', en: 'Freelance or part-time (flexible)', fr: 'Indépendant ou temps partiel (à discuter)' } },
       { t: { ja: 'フランス語講師', en: 'French Teacher', fr: 'Professeur de français' }, d: { ja: '子ども・学生・大人に、フランス語とフランスの文化を。', en: 'French language and culture for children, students and adults.', fr: 'La langue et la culture françaises pour enfants, étudiants et adultes.' }, c: { ja: '業務委託・パート（応相談）', en: 'Freelance or part-time (flexible)', fr: 'Indépendant ou temps partiel (à discuter)' } },
       { t: { ja: 'キャンプ・イベントスタッフ', en: 'Camp & Event Staff', fr: 'Équipe camps & événements' }, d: { ja: 'Summer / Winter Camp、誕生日会、L’Apéro の運営をサポート。', en: 'Support Summer / Winter Camps, birthday parties and L’Apéro.', fr: 'Renfort pour les camps d’été et d’hiver, les anniversaires et L’Apéro.' }, c: { ja: 'アルバイト（時給制）', en: 'Part-time (hourly)', fr: 'Temps partiel (à l’heure)' } },
       { t: { ja: '自由応募', en: 'Open application', fr: 'Candidature spontanée' }, d: { ja: 'ほかの言語、料理、アートなど。あなたのスキルを教えてください。', en: 'Other languages, cooking, art… Tell us about your skills.', fr: 'Autres langues, cuisine, art… Parlez-nous de vos talents.' }, c: { ja: '—', en: '—', fr: '—' } },
@@ -292,7 +292,7 @@ export const learnPage = {
     learn_kids: {
       id: 'kids',
       points: [
-        { ja: '2歳クラスから', en: 'Classes from age 2', fr: 'Classes dès 2 ans' },
+        { ja: '赤ちゃんから参加できるクラス', en: 'Classes from babyhood', fr: 'Des classes dès le plus jeune âge' },
         { ja: '料理・絵・カード・ゲームで学ぶ', en: 'Learning through cooking, painting, cards and games', fr: 'On apprend en cuisinant, en peignant, en jouant' },
         { ja: 'グループでも個別でも', en: 'Group or private lessons', fr: 'En groupe ou en individuel' },
       ],
