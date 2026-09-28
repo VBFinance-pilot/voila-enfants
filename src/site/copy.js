@@ -359,7 +359,8 @@ export const form = {
   sending: { ja: '送信中…', en: 'Sending…', fr: 'Envoi…' },
   sent: { ja: '送信しました。ありがとうございます！', en: 'Sent — thank you!', fr: 'Message envoyé — merci !' },
   failed: { ja: '送信に失敗しました。LINEかお電話でご連絡ください。', en: 'Sending failed. Please contact us on LINE or by phone.', fr: 'L’envoi a échoué. Contactez-nous par LINE ou téléphone.' },
-  topic: { ja: 'お問い合わせ内容', en: 'Regarding', fr: 'Au sujet de' },
+  topic: { ja: 'お問い合わせ内容', en: 'Subject', fr: 'Sujet' },
+  topicPick: { ja: '選択してください', en: 'Choose a subject', fr: 'Choisissez un sujet' },
   topicRemove: { ja: '件名を外す', en: 'Remove topic', fr: 'Retirer le sujet' },
 };
 
@@ -390,6 +391,19 @@ export const TOPICS = {
   homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
   franchise: { ja: 'フランチャイズ', en: 'Franchise', fr: 'Franchise' },
   careers: { ja: '採用応募', en: 'Job application', fr: 'Candidature' },
+  other: { ja: 'その他のご質問', en: 'Other question', fr: 'Autre question' },
 };
+
+// Subject menu of the contact forms: every offer, grouped like the site.
+export const TOPIC_GROUPS = [
+  { label: { ja: 'Voilà Experience — レッスン', en: 'Voilà Experience — lessons', fr: 'Voilà Experience — cours' },
+    keys: ['trial', 'learn_kids', 'learn_secondary', 'learn_online', 'learn_adults', 'also_0', 'also_1', 'also_2'] },
+  { label: { ja: 'Voilà Homestay', en: 'Voilà Homestay', fr: 'Voilà Homestay' },
+    keys: ['live_homestay', 'live_travel', 'live_camp'] },
+  { label: { ja: 'Voilà Moments — イベント', en: 'Voilà Moments — events', fr: 'Voilà Moments — événements' },
+    keys: ['celebrate_events', 'celebrate_apero'] },
+  { label: { ja: 'その他', en: 'Other', fr: 'Autre' },
+    keys: ['visit', 'franchise', 'careers', 'other'] },
+];
 
 export const topicHref = (key, path = '/', anchor = 'contact') => `${path}?topic=${key}#${anchor}`;

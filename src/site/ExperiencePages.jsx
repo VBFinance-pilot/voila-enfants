@@ -197,7 +197,6 @@ export function CelebratePage() {
                   subject="Celebrate"
                   placeholder={P.apply.placeholder}
                   extra={[
-                    { name: 'kind', label: P.apply.fields.kind, options: P.apply.fields.kinds },
                     { name: 'date', label: P.apply.fields.date },
                     { name: 'guests', label: P.apply.fields.guests },
                   ]}
