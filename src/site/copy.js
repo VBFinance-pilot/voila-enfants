@@ -92,7 +92,7 @@ export const home = {
     discover: { ja: '詳しく見る', en: 'Discover', fr: 'Découvrir' },
     items: [
       { key: 'learn', href: '/learn', slot: 'home_learn', name: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
-        line: { ja: '2歳から大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From age 2 to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'De 2 ans à l’âge adulte. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
+        line: { ja: '赤ちゃんから大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From babies to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'Des bébés aux adultes. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
         list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
       { key: 'live', href: '/homestay', slot: 'home_live', name: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
         line: { ja: '私たち家族の一員として。京都の家で、旅先で、キャンプで。', en: 'As one of our family — at home in Kyoto, on the road, at camp.', fr: 'Comme un membre de notre famille — chez nous à Kyoto, en voyage, en camp.' },
@@ -120,7 +120,7 @@ export const home = {
       {
         slot: 'learn_kids', img: '/img/slime.jpg',
         alt: { ja: 'スライム作りを楽しむ子どもたち', en: 'Children enjoying making slime', fr: 'Des enfants s’amusent à fabriquer du slime' },
-        label: { ja: 'STUDIO KYOTO · 2–12歳', en: 'STUDIO KYOTO · AGES 2–12', fr: 'STUDIO KYOTO · 2–12 ANS' },
+        label: { ja: 'STUDIO KYOTO · 赤ちゃん〜12歳', en: 'STUDIO KYOTO · BABIES TO 12', fr: 'STUDIO KYOTO · BÉBÉS À 12 ANS' },
         title: { ja: 'キッズ・アクティビティ', en: 'Kids Activities', fr: 'Activités enfants' },
         desc: {
           ja: '料理、絵、カード、ゲーム。「好き・嫌い・したい」を毎日使えることばに。グループでも個別でも。',
@@ -273,7 +273,7 @@ export const home = {
     ],
     tuitionLabel: { ja: 'TUITION　·　料金', en: 'TUITION', fr: 'TARIFS' },
     tuition: [
-      { l: { ja: '2歳クラス', en: 'Age 2 class', fr: 'Classe 2 ans' }, v: { ja: '1時間 ¥2,800〜', en: 'From ¥2,800 / hour', fr: 'Dès ¥2 800 / heure' } },
+      { l: { ja: 'ベビー・2歳クラス', en: 'Baby & age-2 class', fr: 'Classe bébés & 2 ans' }, v: { ja: '1時間 ¥2,800〜', en: 'From ¥2,800 / hour', fr: 'Dès ¥2 800 / heure' } },
       { l: { ja: 'キッズ（3〜12歳）', en: 'Kids (ages 3–12)', fr: 'Enfants (3–12 ans)' }, v: { ja: '1時間 ¥3,200〜', en: 'From ¥3,200 / hour', fr: 'Dès ¥3 200 / heure' } },
       { l: { ja: '中学生・高校生・大学生', en: 'Junior high · High school · University', fr: 'Collège · lycée · université' }, v: { ja: '1時間 ¥3,800〜', en: 'From ¥3,800 / hour', fr: 'Dès ¥3 800 / heure' } },
       { l: { ja: '大人', en: 'Adults', fr: 'Adultes' }, v: { ja: '1時間 ¥4,000〜', en: 'From ¥4,000 / hour', fr: 'Dès ¥4 000 / heure' } },
