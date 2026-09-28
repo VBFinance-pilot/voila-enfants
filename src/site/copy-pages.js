@@ -1,8 +1,8 @@
 // Copy for the secondary pages (Homestay, Franchise, Careers) — { ja, en, fr }.
 
 export const homestay = {
-  crumb: { ja: '暮らす', en: 'Live', fr: 'Vivre' },
-  eyebrow: { ja: 'LIVE　·　HOMESTAY & CAMPS', en: 'LIVE　·　HOMESTAY & CAMPS', fr: 'VIVRE　·　HOMESTAY & CAMPS' },
+  crumb: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
+  eyebrow: { ja: 'HOMESTAY　·　KYOTO · TRAVEL · CAMPS', en: 'HOMESTAY　·　KYOTO · TRAVEL · CAMPS', fr: 'HOMESTAY　·　KYOTO · VOYAGE · CAMPS' },
   title1: { ja: '家族の一員として、', en: 'Live the language', fr: 'Vivre la langue' },
   title2: { ja: 'ことばと暮らす。', en: 'as one of the family.', fr: 'comme un membre de la famille.' },
   sub: {

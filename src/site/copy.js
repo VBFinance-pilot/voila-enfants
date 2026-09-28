@@ -36,7 +36,7 @@ export const nav = {
   ],
   main: [
     { href: '/learn', label: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' }, sub: { ja: 'レッスン', en: 'Lessons', fr: 'Cours' } },
-    { href: '/live', label: { ja: '暮らす', en: 'Live', fr: 'Vivre' }, sub: { ja: 'ホームステイ・キャンプ', en: 'Homestay & camps', fr: 'Homestay & camps' } },
+    { href: '/homestay', label: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' }, sub: { ja: 'ホームステイ・キャンプ', en: 'Homestay & camps', fr: 'Homestay & camps' } },
     { href: '/celebrate', label: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' }, sub: { ja: 'イベント・アペロ', en: 'Events & apéro', fr: 'Événements & apéro' } },
     { href: '/#hosts', label: { ja: '私たちについて', en: 'About us', fr: 'À propos' } },
   ],
@@ -64,15 +64,20 @@ export const home = {
     label: { ja: 'OUR PHILOSOPHY', en: 'OUR PHILOSOPHY', fr: 'NOTRE PHILOSOPHIE' },
     motto: { ja: 'All different, all good.', en: 'All different, all good.', fr: 'All different, all good.' },
     sub: {
-      ja: 'ひとりひとり違う。だから、みんな素晴らしい。',
-      en: 'Every child is different — and that is what makes them wonderful.',
-      fr: 'Chaque enfant est différent — et c’est ce qui le rend merveilleux.',
+      ja: 'ひとりひとり違う。だからこそ、誰もが素晴らしい。',
+      en: 'Every person is different — and that is what makes each of us remarkable.',
+      fr: 'Chaque personne est différente — et c’est précisément ce qui la rend remarquable.',
     },
     body: {
-      ja: '子どもが母語を覚えるように、自然に、楽しく、確実に。動き、遊び、表現する体験を通して、ことばを「生きたことば」として身につけます。大切にしているのは、コミュニケーション、創造力、そして自分を好きになる力です。',
-      en: 'Naturally, joyfully and surely — the way children learn their mother tongue. Through moving, playing and expressing themselves, they make language a living language. What we value most: communication, creativity, and learning to love who you are.',
-      fr: 'Naturellement, joyeusement, sûrement — comme on apprend sa langue maternelle. En bougeant, en jouant, en s’exprimant, les enfants font de la langue une langue vivante. Ce qui compte pour nous : la communication, la créativité et l’amour de soi.',
+      ja: 'ことばは、勉強するものではなく、生きるもの。子どもたちは母語を覚えたときのように、遊び、動き、つくりながら。中高生や大人は、食卓で、旅先で、分かち合うひとときの中で。年齢に関わらず、3つのことばの世界への扉をひらき、そこを「自分の居場所」と感じられる自信を育てます。',
+      en: 'A language is not studied — it is lived. Children learn it the way they learned their mother tongue: by playing, moving and creating. Teenagers and adults find it at the table, on the road, in the moments we share. Whatever your age, we open the door to a world in three languages — and the confidence to feel at home in it.',
+      fr: 'Une langue ne s’étudie pas : elle se vit. Les enfants l’apprennent comme leur langue maternelle — en jouant, en bougeant, en créant. Adolescents et adultes la trouvent à table, en voyage, dans les moments partagés. Quel que soit votre âge, nous ouvrons la porte d’un monde en trois langues — et la confiance de s’y sentir chez soi.',
     },
+    values: [
+      { ja: 'コミュニケーション', en: 'Communication', fr: 'Communication' },
+      { ja: '創造力', en: 'Creativity', fr: 'Créativité' },
+      { ja: '自分を好きになる力', en: 'Self-confidence', fr: 'Confiance en soi' },
+    ],
   },
   facts: [
     { value: '15+', label: { ja: '年の英語教育経験', en: 'years teaching English', fr: 'ans d’enseignement de l’anglais' }, sub: { ja: '日本・ベトナム・フランス', en: 'Japan · Vietnam · France', fr: 'Japon · Vietnam · France' } },
@@ -82,14 +87,14 @@ export const home = {
   ],
   universes: {
     label: { ja: 'THREE WAYS TO JOIN US　·　3つの世界', en: 'THREE WAYS TO JOIN US', fr: 'TROIS FAÇONS DE NOUS REJOINDRE' },
-    title1: { ja: '学ぶ、暮らす、集う。', en: 'Learn, live,', fr: 'Apprendre, vivre,' },
+    title1: { ja: '学ぶ、滞在する、集う。', en: 'Learn, stay,', fr: 'Apprendre, séjourner,' },
     title2: { ja: 'すべて、3つのことばで。', en: 'celebrate.', fr: 'célébrer.' },
     discover: { ja: '詳しく見る', en: 'Discover', fr: 'Découvrir' },
     items: [
       { key: 'learn', href: '/learn', slot: 'home_learn', name: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
         line: { ja: '2歳から大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From age 2 to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'De 2 ans à l’âge adulte. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
         list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
-      { key: 'live', href: '/live', slot: 'home_live', name: { ja: '暮らす', en: 'Live', fr: 'Vivre' },
+      { key: 'live', href: '/homestay', slot: 'home_live', name: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
         line: { ja: '私たち家族の一員として。京都の家で、旅先で、キャンプで。', en: 'As one of our family — at home in Kyoto, on the road, at camp.', fr: 'Comme un membre de notre famille — chez nous à Kyoto, en voyage, en camp.' },
         list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
       { key: 'celebrate', href: '/celebrate', slot: 'home_celebrate', name: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
@@ -179,7 +184,7 @@ export const home = {
     },
     cards: [
       {
-        slot: 'live_homestay', href: '/live#kyoto', img: '/img/tatami2.jpg',
+        slot: 'live_homestay', href: '/homestay#kyoto', img: '/img/tatami2.jpg',
         alt: { ja: '和室でくつろぐ生徒たち', en: 'Students relaxing in a tatami room', fr: 'Des élèves détendus dans une pièce en tatami' },
         label: { ja: 'KYOTO · 私たちの家で', en: 'KYOTO · IN OUR HOME', fr: 'KYOTO · CHEZ NOUS' },
         title: { ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' },
@@ -190,7 +195,7 @@ export const home = {
         },
       },
       {
-        slot: 'live_travel', href: '/live#travel', img: '/img/balipool.jpg',
+        slot: 'live_travel', href: '/homestay#travel', img: '/img/balipool.jpg',
         alt: { ja: 'バリのヴィラのプール', en: 'Pool at a villa in Bali', fr: 'Piscine d’une villa à Bali' },
         label: { ja: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', en: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', fr: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO' },
         title: { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' },
@@ -201,7 +206,7 @@ export const home = {
         },
       },
       {
-        slot: 'live_camp', href: '/live?topic=live_camp#apply', img: '/img/bbq.jpg',
+        slot: 'live_camp', href: '/homestay?topic=live_camp#apply', img: '/img/bbq.jpg',
         alt: { ja: 'キャンプのバーベキュー', en: 'Camp barbecue', fr: 'Barbecue au camp' },
         label: { ja: 'SUMMER CAMP · WINTER CAMP', en: 'SUMMER CAMP · WINTER CAMP', fr: 'CAMP D’ÉTÉ · CAMP D’HIVER' },
         title: { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' },
@@ -360,7 +365,7 @@ export const form = {
 
 export const footer = {
   learn: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
-  live: { ja: '暮らす・集う', en: 'Live · Celebrate', fr: 'Vivre · Célébrer' },
+  live: { ja: 'ホームステイ・集う', en: 'Homestay · Celebrate', fr: 'Homestay · Célébrer' },
   school: { ja: 'スクール', en: 'The school', fr: 'L’école' },
   contact: { ja: 'お問い合わせ', en: 'Contact', fr: 'Contact' },
   follow: { ja: 'フォロー', en: 'Follow', fr: 'Suivre' },

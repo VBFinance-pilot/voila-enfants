@@ -29,9 +29,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/learn" element={<LearnPage />} />
-          <Route path="/live" element={<LivePage />} />
+          <Route path="/homestay" element={<LivePage />} />
           <Route path="/celebrate" element={<CelebratePage />} />
-          <Route path="/homestay" element={<LegacyRedirect to="/live" />} />
+          <Route path="/live" element={<LegacyRedirect to="/homestay" />} />
           <Route path="/franchise" element={<FranchisePage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

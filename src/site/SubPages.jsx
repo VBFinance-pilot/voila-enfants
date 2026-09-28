@@ -39,10 +39,10 @@ export function LivePage() {
   const img = useSiteImages();
   return (
     <Layout>
-      <Seo page="live" path="/live" />
+      <Seo page="live" path="/homestay" />
       <div ref={ref}>
         <PageHero img={img('homestay_hero')} crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
-          <Link to={topicHref('homestay', '/live', 'apply')} className="vs-btn vs-btn-light">{tx(H.ctaBook)}</Link>
+          <Link to={topicHref('homestay', '/homestay', 'apply')} className="vs-btn vs-btn-light">{tx(H.ctaBook)}</Link>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-ghost-light">{tx(H.ctaLine)}</a>
         </PageHero>
         <nav className="vs-subnav" aria-label={tx(H.crumb)}>
@@ -126,7 +126,7 @@ export function LivePage() {
                     <div key={it.t.en}><em>{String(i + 1).padStart(2, '0')}</em><div><strong>{tx(it.t)}</strong><span>{tx(it.d)}</span></div></div>
                   ))}
                 </div>
-                <Link to={topicHref('live_camp', '/live', 'apply')} className="vs-btn vs-btn-wine" style={{ alignSelf: 'flex-start' }}>{tx(H.camp.cta)}</Link>
+                <Link to={topicHref('live_camp', '/homestay', 'apply')} className="vs-btn vs-btn-wine" style={{ alignSelf: 'flex-start' }}>{tx(H.camp.cta)}</Link>
               </div>
             </div>
           </div>

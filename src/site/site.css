@@ -474,7 +474,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs .vs-universe-name { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4vw, 56px); line-height: 1; color: #fff; margin: 0; }
 .vs-universe p { color: #EDE6DC; font-size: 15px; line-height: 1.7; }
 .vs-universe ul { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.22); display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #fff; }
-.vs-universe ul li + li::before { content: '·'; margin-right: 14px; color: var(--champagne); }
+.vs-universe ul li:not(:last-child)::after { content: '·'; margin-left: 14px; color: var(--champagne); }
 .vs-universe .vs-more { font-weight: 700; font-size: 14px; color: var(--champagne); }
 @media (max-width: 1180px) { .vs-universe { min-height: 540px; } .vs-universe-body { padding: 28px; } }
 @media (max-width: 900px) { .vs-universes { grid-template-columns: 1fr; } .vs-universe { min-height: 440px; } }
@@ -492,3 +492,23 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 @media (max-width: 900px) { .vs-prog, .vs-prog:nth-child(even) { flex-direction: column; align-items: stretch; } .vs-prog > img { width: 100%; } }
 
 .vs-dark .vs-chapter b { color: var(--champagne); }
+
+/* Universe cards: subgrid so numbers, titles, texts and lists line up across the 3 cards */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 901px) {
+    .vs-universes { grid-template-rows: minmax(400px, 1fr) repeat(5, auto); row-gap: 0; }
+    .vs-universe { display: grid; grid-template-rows: subgrid; grid-row: span 6; min-height: 0; padding: 0 36px 36px; }
+    .vs-universe-body { display: contents; }
+    .vs-universe-num { grid-row: 2; margin-bottom: 14px; }
+    .vs .vs-universe-name { grid-row: 3; margin-bottom: 14px; }
+    .vs-universe p { grid-row: 4; margin-bottom: 14px; }
+    .vs-universe ul { grid-row: 5; margin-bottom: 18px; align-self: start; }
+    .vs-universe .vs-more { grid-row: 6; }
+  }
+  @media (min-width: 901px) and (max-width: 1180px) { .vs-universe { padding: 0 28px 28px; } }
+}
+
+/* Philosophy values */
+.vs-values { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 0; margin-top: 8px; font: 700 12px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--brass); }
+.vs-values span { padding: 0 22px; }
+.vs-values span + span { border-left: 1px solid var(--line-strong); }

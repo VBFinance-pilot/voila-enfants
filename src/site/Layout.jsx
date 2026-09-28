@@ -120,7 +120,7 @@ function Footer() {
           </div>
           <div className="vs-footer-col">
             <h4>{tx(footer.live)}</h4>
-            {homestay.subnav.filter((s) => ['#kyoto', '#travel', '#camp'].includes(s.href)).map((s) => <Link key={s.href} to={`/live${s.href}`}>{tx(s.l)}</Link>)}
+            {homestay.subnav.filter((s) => ['#kyoto', '#travel', '#camp'].includes(s.href)).map((s) => <Link key={s.href} to={`/homestay${s.href}`}>{tx(s.l)}</Link>)}
             <Link to="/celebrate#events">{tx(home.celebrate.events.title)}</Link>
             <Link to="/celebrate#apero">L’Apéro</Link>
           </div>

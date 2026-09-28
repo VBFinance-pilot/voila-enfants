@@ -43,6 +43,7 @@ function Philosophy() {
         <p className="vs-motto reveal">{tx(p.motto)}</p>
         <p className="vs-philo-sub reveal">{tx(p.sub)}</p>
         <p className="vs-lead reveal">{tx(p.body)}</p>
+        <div className="vs-values reveal">{p.values.map((v) => <span key={v.en}>{tx(v)}</span>)}</div>
       </div>
       <div className="vs-wrap" style={{ marginTop: 'clamp(56px, 7vw, 100px)' }}>
         <div className="vs-facts reveal">
