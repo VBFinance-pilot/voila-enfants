@@ -4,7 +4,7 @@ import BeholdWidget from '@behold/react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import eventsStatic from '../data/events.json';
-import { home, form as formCopy, CONTACT, TOPICS } from './copy';
+import { home, form as formCopy, CONTACT, TOPICS, TOPIC_GROUPS } from './copy';
 
 /* ───────────── Contact form (posts to /api/contact) ───────────── */
 // `extra` = [{ name, label, placeholder, type, options, wide }] rendered after
@@ -15,7 +15,9 @@ export function ContactForm({ subject, extra = [], messageLabel, title, defaultT
   const [status, setStatus] = useState('idle');
   const [params] = useSearchParams();
   const urlTopic = params.get('topic');
-  const wanted = TOPICS[urlTopic] ? urlTopic : defaultTopic || null;
+  // 'homestay' (generic) maps to the Kyoto homestay entry of the subject menu.
+  const norm = (k) => (k === 'homestay' ? 'live_homestay' : k);
+  const wanted = TOPICS[urlTopic] ? norm(urlTopic) : norm(defaultTopic) || null;
   const [topicKey, setTopicKey] = useState(wanted);
   const [prevWanted, setPrevWanted] = useState(wanted);
   if (wanted !== prevWanted) { setPrevWanted(wanted); setTopicKey(wanted); }
@@ -63,14 +65,18 @@ export function ContactForm({ subject, extra = [], messageLabel, title, defaultT
   return (
     <form className="vs-form" onSubmit={onSubmit}>
       {title && <div className="vs-form-title">{title}</div>}
-      {topic && (
-        <div className="vs-form-topic" role="status">
-          <span className="vs-form-topic-k">{tx(formCopy.topic)}</span>
-          <strong>{tx(topic)}</strong>
-          <button type="button" aria-label={tx(formCopy.topicRemove)} title={tx(formCopy.topicRemove)} onClick={() => setTopicKey(null)}>×</button>
-        </div>
-      )}
       <div className="vs-form-grid">
+        <label className="is-wide">
+          {tx(formCopy.topic)}
+          <select name="topic" required value={topicKey || ''} onChange={(e) => setTopicKey(e.target.value || null)} className={topicKey ? 'is-set' : undefined}>
+            <option value="" disabled>{tx(formCopy.topicPick)}</option>
+            {TOPIC_GROUPS.map((g) => (
+              <optgroup key={g.label.en} label={tx(g.label)}>
+                {g.keys.map((k) => <option key={k} value={k}>{tx(TOPICS[k])}</option>)}
+              </optgroup>
+            ))}
+          </select>
+        </label>
         <label>{tx(formCopy.name)}<input name="name" type="text" autoComplete="name" required /></label>
         <label>{tx(formCopy.email)}<input name="email" type="email" autoComplete="email" required /></label>
         {extra.map((x) => (
