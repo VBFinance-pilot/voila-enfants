@@ -3,14 +3,14 @@ import { useLang } from '../contexts/LanguageContext';
 import { useReveal } from '../components/useReveal';
 import Seo from '../components/Seo';
 import Layout from './Layout';
-import { common, CONTACT } from './copy';
+import { common, CONTACT, home as homeCopy, topicHref } from './copy';
 import { homestay as H, franchise as F, careers as C } from './copy-pages';
 import { ContactForm } from './widgets';
 import { useSiteImages } from './siteImages';
 
 const home = { ja: 'ホーム', en: 'Home', fr: 'Accueil' };
 
-function PageHero({ img, crumb, eyebrow, lines, sub, children }) {
+export function PageHero({ img, crumb, eyebrow, lines, sub, children }) {
   const { tx } = useLang();
   return (
     <section className="vs-page-hero">
@@ -28,24 +28,24 @@ function PageHero({ img, crumb, eyebrow, lines, sub, children }) {
   );
 }
 
-function Label({ children }) {
+export function Label({ children }) {
   return <div className="vs-label">{children}</div>;
 }
 
-/* ───────────── Homestay ───────────── */
-export function HomestayPage() {
+/* ───────────── Live: homestay (Kyoto & travel) + English Camp ───────────── */
+export function LivePage() {
   const { tx } = useLang();
   const ref = useReveal();
   const img = useSiteImages();
   return (
     <Layout>
-      <Seo page="homestay" path="/homestay" />
+      <Seo page="live" path="/homestay" />
       <div ref={ref}>
         <PageHero img={img('homestay_hero')} crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
-          <a href="#apply" className="vs-btn vs-btn-light">{tx(H.ctaBook)}</a>
+          <Link to={topicHref('homestay', '/homestay', 'apply')} className="vs-btn vs-btn-light">{tx(H.ctaBook)}</Link>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-ghost-light">{tx(H.ctaLine)}</a>
         </PageHero>
-        <nav className="vs-subnav" aria-label="Homestay">
+        <nav className="vs-subnav" aria-label={tx(H.crumb)}>
           <div className="vs-wrap">
             <strong>{tx(H.crumb)}</strong>
             {H.subnav.map((s) => <a key={s.href} href={s.href}>{tx(s.l)}</a>)}
@@ -109,6 +109,25 @@ export function HomestayPage() {
                 </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section id="camp" className="vs-block">
+          <div className="vs-wrap">
+            <div className="vs-chapter reveal"><b>III</b><Label>{tx(H.camp.label)}</Label></div>
+            <div className="vs-prog">
+              <img src={img('live_camp')} alt={tx(homeCopy.live.cards[2].alt)} loading="lazy" className="reveal" />
+              <div className="vs-prog-copy reveal">
+                <h2 className="vs-h3">{tx(H.camp.title1)}<br />{tx(H.camp.title2)}</h2>
+                <p className="vs-lead">{tx(H.camp.body)}</p>
+                <div className="vs-numbered">
+                  {H.camp.items.map((it, i) => (
+                    <div key={it.t.en}><em>{String(i + 1).padStart(2, '0')}</em><div><strong>{tx(it.t)}</strong><span>{tx(it.d)}</span></div></div>
+                  ))}
+                </div>
+                <Link to={topicHref('live_camp', '/homestay', 'apply')} className="vs-btn vs-btn-wine" style={{ alignSelf: 'flex-start' }}>{tx(H.camp.cta)}</Link>
+              </div>
             </div>
           </div>
         </section>
@@ -179,7 +198,7 @@ export function HomestayPage() {
                   subject="Homestay"
                   defaultTopic="homestay"
                   extra={[
-                    { name: 'plan', label: { ja: 'プラン', en: 'Plan', fr: 'Formule' }, options: [{ ja: 'Family Stay', en: 'Family Stay', fr: 'Family Stay' }, { ja: 'Full Immersion', en: 'Full Immersion', fr: 'Full Immersion' }, { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' }, { ja: '未定', en: 'Not sure yet', fr: 'Je ne sais pas encore' }] },
+                    { name: 'plan', label: { ja: 'プラン', en: 'Plan', fr: 'Formule' }, options: [{ ja: 'Family Stay', en: 'Family Stay', fr: 'Family Stay' }, { ja: 'Full Immersion', en: 'Full Immersion', fr: 'Full Immersion' }, { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }, { ja: '未定', en: 'Not sure yet', fr: 'Je ne sais pas encore' }] },
                     { name: 'dates', label: { ja: 'ご希望の時期・期間', en: 'Preferred dates / length', fr: 'Dates / durée souhaitées' } },
                   ]}
                 />

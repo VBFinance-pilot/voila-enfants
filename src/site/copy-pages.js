@@ -2,7 +2,7 @@
 
 export const homestay = {
   crumb: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
-  eyebrow: { ja: 'SIGNATURE EXPERIENCE　·　HOMESTAY', en: 'SIGNATURE EXPERIENCE　·　HOMESTAY', fr: 'EXPÉRIENCE SIGNATURE　·　HOMESTAY' },
+  eyebrow: { ja: 'HOMESTAY　·　KYOTO · TRAVEL · CAMPS', en: 'HOMESTAY　·　KYOTO · TRAVEL · CAMPS', fr: 'HOMESTAY　·　KYOTO · VOYAGE · CAMPS' },
   title1: { ja: '家族の一員として、', en: 'Live the language', fr: 'Vivre la langue' },
   title2: { ja: 'ことばと暮らす。', en: 'as one of the family.', fr: 'comme un membre de la famille.' },
   sub: {
@@ -16,6 +16,7 @@ export const homestay = {
     { href: '#glance', l: { ja: '概要', en: 'Overview', fr: 'Aperçu' } },
     { href: '#kyoto', l: { ja: '京都の家で', en: 'In Kyoto', fr: 'À Kyoto' } },
     { href: '#travel', l: { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' } },
+    { href: '#camp', l: { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' } },
     { href: '#care', l: { ja: '安心のために', en: 'Peace of mind', fr: 'Sérénité' } },
     { href: '#steps', l: { ja: '参加の流れ', en: 'How it works', fr: 'Déroulement' } },
     { href: '#faq', l: { ja: 'よくある質問', en: 'FAQ', fr: 'FAQ' } },
@@ -72,6 +73,21 @@ export const homestay = {
       { name: 'Okinawa', sub: { ja: '沖縄', en: 'Okinawa', fr: 'Okinawa' }, img: null },
       { name: 'Tokyo', sub: { ja: '東京', en: 'Tokyo', fr: 'Tokyo' }, img: null },
     ],
+  },
+  camp: {
+    label: { ja: 'ENGLISH CAMP　·　SUMMER · WINTER', en: 'ENGLISH CAMP　·　SUMMER · WINTER', fr: 'ENGLISH CAMP　·　ÉTÉ · HIVER' },
+    title1: { ja: '休みの間じゅう、', en: 'A whole holiday', fr: 'Des vacances entières' },
+    title2: { ja: '英語で過ごす。', en: 'lived in English.', fr: 'vécues en anglais.' },
+    body: {
+      ja: '夏休みと冬休みのキャンプ。料理、絵、BBQ、手づくり、文化体験。仲間と一緒に、すべて英語で。日程はLINEと「次のイベント」でお知らせします。',
+      en: 'Summer and winter camps. Cooking, painting, BBQ, crafts and cultural outings — with friends, all in English. Dates are announced on LINE and in “What’s next”.',
+      fr: 'Des camps d’été et d’hiver. Cuisine, peinture, BBQ, bricolage et sorties culturelles — entre amis, tout en anglais. Les dates sont annoncées sur LINE et dans « Prochains rendez-vous ».',
+    },
+    items: [
+      { t: { ja: 'サマーキャンプ', en: 'Summer Camp', fr: 'Camp d’été' }, d: { ja: '外遊び、BBQ、プール。夏の思い出を英語で。', en: 'Outdoor play, BBQ, water fun — summer memories in English.', fr: 'Jeux dehors, BBQ, eau — des souvenirs d’été en anglais.' } },
+      { t: { ja: 'ウィンターキャンプ', en: 'Winter Camp', fr: 'Camp d’hiver' }, d: { ja: '料理、クラフト、季節の行事。冬休みを英語で。', en: 'Cooking, crafts and seasonal traditions — winter break in English.', fr: 'Cuisine, bricolage, traditions de saison — les vacances d’hiver en anglais.' } },
+    ],
+    cta: { ja: '次のキャンプの案内を受け取る', en: 'Hear about the next camp', fr: 'Être informé du prochain camp' },
   },
   care: {
     label: { ja: 'PEACE OF MIND', en: 'PEACE OF MIND', fr: 'SÉRÉNITÉ' },
@@ -257,5 +273,119 @@ export const careers = {
       cv: { ja: '履歴書のリンク（Google ドライブ、LinkedIn など）', en: 'Link to your CV (Google Drive, LinkedIn…)', fr: 'Lien vers votre CV (Google Drive, LinkedIn…)' },
     },
     subject: 'Candidature',
+  },
+};
+
+/* ───────────── Learn (/learn) ───────────── */
+export const learnPage = {
+  crumb: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
+  eyebrow: { ja: 'LEARN　·　LESSONS', en: 'LEARN　·　LESSONS', fr: 'APPRENDRE　·　COURS' },
+  ctaPrices: { ja: '料金を見る', en: 'See tuition', fr: 'Voir les tarifs' },
+  subnav: [
+    { href: '#kids', l: { ja: 'キッズ', en: 'Kids', fr: 'Enfants' } },
+    { href: '#secondary', l: { ja: '中高生・大学生', en: 'Secondary & University', fr: 'Collège – université' } },
+    { href: '#online', l: { ja: 'オンライン', en: 'Online', fr: 'En ligne' } },
+    { href: '#adults', l: { ja: '大人', en: 'Adults', fr: 'Adultes' } },
+    { href: '#tuition', l: { ja: '料金・入会', en: 'Tuition & joining', fr: 'Tarifs & inscription' } },
+  ],
+  programmes: {
+    learn_kids: {
+      id: 'kids',
+      points: [
+        { ja: '2歳クラスから', en: 'Classes from age 2', fr: 'Classes dès 2 ans' },
+        { ja: '料理・絵・カード・ゲームで学ぶ', en: 'Learning through cooking, painting, cards and games', fr: 'On apprend en cuisinant, en peignant, en jouant' },
+        { ja: 'グループでも個別でも', en: 'Group or private lessons', fr: 'En groupe ou en individuel' },
+      ],
+    },
+    learn_secondary: {
+      id: 'secondary',
+      points: [
+        { ja: '学校の目標・試験に合わせて', en: 'Built around school goals and exams', fr: 'Autour des objectifs et examens scolaires' },
+        { ja: '幅広いテーマと課題', en: 'A wide range of topics and themes', fr: 'Un large éventail de sujets et de thèmes' },
+        { ja: '一人ひとりに合わせて着実に', en: 'Steady progress, paced for each student', fr: 'Une progression pas à pas, adaptée à chacun' },
+      ],
+    },
+    learn_online: {
+      id: 'online',
+      points: [
+        { ja: 'TOEIC・TOEFL・学校の試験', en: 'TOEIC, TOEFL and school exams', fr: 'TOEIC, TOEFL et examens scolaires' },
+        { ja: '算数・数学、フランス語', en: 'Maths and French', fr: 'Maths et français' },
+        { ja: 'インター校の宿題・プレゼン', en: 'Homework and presentations for international schools', fr: 'Devoirs et exposés pour écoles internationales' },
+      ],
+    },
+    learn_adults: {
+      id: 'adults',
+      points: [
+        { ja: '仕事・趣味・旅行のために', en: 'For work, pleasure or travel', fr: 'Pour le travail, le plaisir ou le voyage' },
+        { ja: '目的に合わせたカスタマイズ', en: 'Tailored to your goals', fr: 'Adapté à vos objectifs' },
+        { ja: '英語・フランス語', en: 'English or French', fr: 'Anglais ou français' },
+      ],
+    },
+  },
+  ask: { ja: 'このコースについて問い合わせる', en: 'Ask about this course', fr: 'Se renseigner sur ce cours' },
+  apply: {
+    label: { ja: 'FREE TRIAL　·　無料体験', en: 'FREE TRIAL', fr: 'ESSAI GRATUIT' },
+    title1: { ja: 'まずは60分、', en: 'Start with', fr: 'Commencez par' },
+    title2: { ja: '無料で体験を。', en: 'a free 60-minute trial.', fr: '60 minutes d’essai gratuit.' },
+    body: {
+      ja: 'ご兄弟・お友達もご一緒にどうぞ。レベルチェックのあと、最適なクラスとプランをご提案します。',
+      en: 'Siblings and friends are welcome. After a level check, we suggest the right class and plan.',
+      fr: 'Frères, sœurs et amis bienvenus. Après un point sur le niveau, nous proposons la classe et la formule adaptées.',
+    },
+    fields: {
+      age: { ja: '年齢・学年', en: 'Age / school year', fr: 'Âge / classe' },
+    },
+  },
+};
+
+/* ───────────── Celebrate (/celebrate) ───────────── */
+export const celebratePage = {
+  crumb: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
+  eyebrow: { ja: 'CELEBRATE　·　EVENTS & L’APÉRO', en: 'CELEBRATE　·　EVENTS & L’APÉRO', fr: 'CÉLÉBRER　·　ÉVÉNEMENTS & L’APÉRO' },
+  ctaQuote: { ja: 'お見積りを依頼する', en: 'Request a quote', fr: 'Demander un devis' },
+  events: {
+    label: { ja: 'EVENTS　·　オーダーメイド', en: 'EVENTS　·　BESPOKE', fr: 'ÉVÉNEMENTS　·　SUR MESURE' },
+    items: [
+      { t: { ja: '誕生日会', en: 'Birthday parties', fr: 'Anniversaires' }, d: { ja: 'ゲーム、工作、おやつ。3つのことばでお祝いします。', en: 'Games, crafts and treats — celebrated in three languages.', fr: 'Jeux, bricolage et goûter — une fête en trois langues.' } },
+      { t: { ja: 'おやつパーティー', en: 'Afternoon tea parties', fr: 'Goûters' }, d: { ja: 'お友達同士やご家族で、気軽な集まりに。', en: 'Relaxed get-togethers for friends and families.', fr: 'Des moments simples entre amis ou en famille.' } },
+      { t: { ja: '季節のイベント', en: 'Seasonal events', fr: 'Fêtes de saison' }, d: { ja: 'ハロウィン、クリスマスなど、世界の行事を体験。', en: 'Halloween, Christmas and celebrations from around the world.', fr: 'Halloween, Noël et fêtes du monde entier.' } },
+    ],
+  },
+  apero: {
+    label: { ja: 'L’APÉRO　·　2人のシェフ', en: 'L’APÉRO　·　TWO CHEFS', fr: 'L’APÉRO　·　DEUX CHEFS' },
+    title: { ja: '大人のための、日仏の夕べ。', en: 'French-Japanese evenings for grown-ups.', fr: 'Des soirées franco-japonaises pour les grands.' },
+    items: [
+      { t: { ja: 'ディナー', en: 'Dinners', fr: 'Dîners' }, d: { ja: '日仏フュージョンのコース。', en: 'A French-Japanese fusion menu.', fr: 'Un menu de fusion franco-japonaise.' } },
+      { t: { ja: 'アペリティフ', en: 'Apéritifs', fr: 'Apéritifs' }, d: { ja: 'シャルキュトリー、チーズ、ひと皿料理。', en: 'Charcuterie, cheese and small plates.', fr: 'Charcuterie, fromages et petites assiettes.' } },
+      { t: { ja: '保護者・大人の夕べ', en: 'Evenings for parents & adults', fr: 'Soirées parents & adultes' }, d: { ja: 'ご希望に合わせて、特別なひとときを。', en: 'A special evening, tailored to your wishes.', fr: 'Une soirée spéciale, selon vos envies.' } },
+    ],
+  },
+  steps: {
+    label: { ja: 'HOW IT WORKS', en: 'HOW IT WORKS', fr: 'DÉROULEMENT' },
+    title: { ja: 'ご依頼の流れ', en: 'How it works', fr: 'Comment ça se passe' },
+    items: [
+      { t: { ja: 'ご相談', en: 'Tell us your idea', fr: 'Votre idée' }, d: { ja: '日にち、人数、ご希望をお聞かせください。', en: 'Share the date, number of guests and what you have in mind.', fr: 'La date, le nombre d’invités et vos envies.' } },
+      { t: { ja: 'ご提案', en: 'Our proposal', fr: 'Notre proposition' }, d: { ja: '内容とことばの組み合わせをご提案します。', en: 'We suggest a programme and the mix of languages.', fr: 'Nous proposons un programme et le mélange des langues.' } },
+      { t: { ja: 'お見積り', en: 'Your quote', fr: 'Le devis' }, d: { ja: '内容が決まったら、お見積りをお送りします。', en: 'Once the details are set, we send a quote.', fr: 'Une fois tout calé, nous envoyons le devis.' } },
+      { t: { ja: '当日', en: 'The day', fr: 'Le jour J' }, d: { ja: 'あとは楽しむだけ。', en: 'All that’s left is to enjoy it.', fr: 'Il ne reste plus qu’à en profiter.' } },
+    ],
+  },
+  apply: {
+    label: { ja: 'REQUEST A QUOTE　·　お見積り', en: 'REQUEST A QUOTE', fr: 'DEMANDE DE DEVIS' },
+    title1: { ja: 'あなたの特別な日を、', en: 'Let’s plan', fr: 'Préparons' },
+    title2: { ja: '一緒に考えます。', en: 'your special day.', fr: 'votre grand jour.' },
+    placeholder: { ja: 'どんな会にしたいか、お気軽にお書きください', en: 'Tell us about the occasion you have in mind', fr: 'Parlez-nous de l’occasion que vous imaginez' },
+    body: { ja: 'まずはお気軽にご相談ください。生徒さん以外の方も大歓迎です。', en: 'Just ask — everyone is welcome, not only our students.', fr: 'Écrivez-nous — tout le monde est bienvenu, pas seulement nos élèves.' },
+    fields: {
+      kind: { ja: 'ご希望の内容', en: 'Type of event', fr: 'Type d’événement' },
+      kinds: [
+        { ja: '誕生日会', en: 'Birthday party', fr: 'Anniversaire' },
+        { ja: 'イベント・パーティー', en: 'Event / party', fr: 'Événement / fête' },
+        { ja: 'L’Apéro', en: 'L’Apéro', fr: 'L’Apéro' },
+        { ja: 'その他', en: 'Other', fr: 'Autre' },
+      ],
+      date: { ja: 'ご希望日', en: 'Preferred date', fr: 'Date souhaitée' },
+      guests: { ja: '人数', en: 'Number of guests', fr: 'Nombre d’invités' },
+    },
   },
 };

@@ -28,6 +28,18 @@
       "careers": {
         "title": "採用情報｜Voilà les enfants 京都",
         "description": "英語講師・フランス語講師・キャンプ／イベントスタッフを募集しています。京都市西京区。"
+      },
+      "learn": {
+        "title": "レッスン（キッズ・中高生・オンライン・大人）｜Voilà les enfants",
+        "description": "京都・西京区のアクティビティ・ランゲージスクール。2歳から大人まで、英語・フランス語を体験しながら学ぶ。オンライン・TOEIC・TOEFL対策も。60分無料体験。"
+      },
+      "live": {
+        "title": "ホームステイ（京都・海外）・English Camp｜Voilà les enfants",
+        "description": "日仏ファミリーの家で暮らす京都のホームステイ、フランス・バリなどへの旅するホームステイ、夏・冬のEnglish Camp。"
+      },
+      "celebrate": {
+        "title": "誕生日会・イベント・L’Apéro｜Voilà les enfants",
+        "description": "英語・フランス語・日本語で楽しむオーダーメイドの誕生日会やイベント。2人のシェフによる日仏フュージョンのL’Apéro。"
       }
     },
     "nav": {
@@ -218,6 +230,18 @@
       "careers": {
         "title": "Careers｜Voilà les enfants Kyoto",
         "description": "Join our team: English and French teachers, camp and event staff in Nishikyo, Kyoto."
+      },
+      "learn": {
+        "title": "Lessons for kids, teens & adults｜Voilà les enfants",
+        "description": "Learn-by-doing English and French lessons in Nishikyo, Kyoto — from age 2 to adults, plus online and TOEIC/TOEFL prep. Free 60-minute trial."
+      },
+      "live": {
+        "title": "Homestay & English Camps｜Voilà les enfants",
+        "description": "Stay with our French-Japanese family in Kyoto, travel with us to France, Bali and more, or join our summer and winter English Camps."
+      },
+      "celebrate": {
+        "title": "Birthdays, events & L’Apéro｜Voilà les enfants",
+        "description": "Bespoke birthday parties and events in English, French and Japanese — and L’Apéro, French-Japanese fusion by our two chefs."
       }
     },
     "nav": {
@@ -408,6 +432,18 @@
       "legal": {
         "title": "Mentions légales｜Voilà les enfants Kyoto",
         "description": "Legal notice for Voilà les enfants — kids English & French school in Nishikyo, Kyoto."
+      },
+      "learn": {
+        "title": "Cours enfants, ados & adultes｜Voilà les enfants",
+        "description": "Cours d’anglais et de français par l’expérience à Nishikyo, Kyoto — de 2 ans à l’âge adulte, en ligne et préparation TOEIC/TOEFL. 60 min d’essai gratuit."
+      },
+      "live": {
+        "title": "Homestay & English Camps｜Voilà les enfants",
+        "description": "Séjournez chez notre famille franco-japonaise à Kyoto, voyagez avec nous en France, à Bali…, ou rejoignez nos English Camps d’été et d’hiver."
+      },
+      "celebrate": {
+        "title": "Anniversaires, événements & L’Apéro｜Voilà les enfants",
+        "description": "Anniversaires et événements sur mesure en anglais, français et japonais — et L’Apéro, la fusion franco-japonaise de nos deux chefs."
       }
     }
   }
