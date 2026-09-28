@@ -11,7 +11,7 @@ import { home, form as formCopy, CONTACT, TOPICS } from './copy';
 // name/email and folded into the message body, so the existing API is reused.
 // `defaultTopic` = TOPICS key shown when the URL has no ?topic=.
 export function ContactForm({ subject, extra = [], messageLabel, title, defaultTopic }) {
-  const { tx } = useLang();
+  const { tx, lang } = useLang();
   const [status, setStatus] = useState('idle');
   const [params] = useSearchParams();
   const urlTopic = params.get('topic');
@@ -26,21 +26,27 @@ export function ContactForm({ subject, extra = [], messageLabel, title, defaultT
     const f = e.currentTarget;
     if (f.website?.value) return; // honeypot
     setStatus('loading');
-    const lines = extra
+    // Structured payload: the email template lays each part out on its own.
+    const details = extra
       .map((x) => {
         const v = f[x.name]?.value?.trim();
-        return v ? `${tx(x.label)}: ${v}` : null;
+        return v ? { k: x.label.fr || tx(x.label), v } : null;
       })
       .filter(Boolean);
-    const topicText = topic ? `${topic.fr} / ${topic.ja}` : '';
-    const message = [subject ? `[${subject}]` : null, topic ? `Sujet : ${topicText}` : null, ...lines, lines.length || topic ? '' : null, f.message.value]
-      .filter((l) => l !== null)
-      .join('\n');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ from_name: f.name.value.trim(), from_email: f.email.value.trim(), message, topic: topic ? topic.fr : subject || '' }),
+        body: JSON.stringify({
+          from_name: f.name.value.trim(),
+          from_email: f.email.value.trim(),
+          message: f.message.value,
+          topic: topic ? topic.fr : subject || '',
+          topic_ja: topic ? topic.ja : '',
+          form: subject || '',
+          details,
+          lang,
+        }),
       });
       const out = await res.json().catch(() => ({}));
       if (res.ok && out.success) {
