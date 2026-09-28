@@ -471,7 +471,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-universe:hover > img { transform: scale(1.04); }
 .vs-universe-body { display: flex; flex-direction: column; gap: 14px; padding: 36px; }
 .vs-universe-num { font: 600 12px/1 var(--sans); letter-spacing: .32em; color: var(--champagne); }
-.vs .vs-universe-name { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4vw, 56px); line-height: 1; color: #fff; margin: 0; }
+.vs .vs-universe-name { font-family: 'Cormorant Garamond', var(--serif); font-weight: 600; font-size: clamp(34px, 3.1vw, 46px); line-height: 1.05; color: #fff; margin: 0; letter-spacing: -.01em; }
 .vs-universe p { color: #EDE6DC; font-size: 15px; line-height: 1.7; }
 .vs-universe ul { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.22); display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #fff; }
 .vs-universe ul li:not(:last-child)::after { content: '·'; margin-left: 14px; color: var(--champagne); }
@@ -512,3 +512,8 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-values { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 0; margin-top: 8px; font: 700 12px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--brass); }
 .vs-values span { padding: 0 22px; }
 .vs-values span + span { border-left: 1px solid var(--line-strong); }
+
+/* Universe names: « Voilà » signature above, the name on one unbroken line */
+.vs-universe-brand { display: block; font-style: italic; font-weight: 500; font-size: .52em; line-height: 1.15; color: var(--champagne); margin-bottom: 2px; }
+.vs-universe-word { display: block; white-space: nowrap; }
+:root[data-lang='ja'] .vs-universe-word { font-size: .78em; letter-spacing: .02em; }
