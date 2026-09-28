@@ -452,3 +452,43 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-form-topic button:hover { background: rgba(107,18,56,.08); color: var(--wine); }
 @keyframes vsTopicIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .vs-form-topic { animation: none; } }
+
+/* ── Moments (photos · films · Instagram) ── */
+.vs-moments-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.vs-moments-head > div:first-child { display: flex; flex-direction: column; gap: 14px; }
+.vs-segment { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--stone); border: 1px solid var(--line); }
+.vs-segment button { border: 0; background: transparent; color: var(--muted); font: 600 14px/1 var(--sans); padding: 11px 20px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s; }
+.vs-segment button[aria-selected='true'] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(31,26,23,.12); }
+.vs-segment button:hover { color: var(--ink); }
+[role='tabpanel'] { display: flex; flex-direction: column; gap: 28px; }
+.vs-moments-ig { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+
+/* ── Universes (home) ── */
+.vs-universes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.vs-universe { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 640px; border-radius: 32px; overflow: hidden; color: #fff; background: var(--ink); isolation: isolate; }
+.vs-universe > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.vs-universe::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,14,11,0) 25%, rgba(20,14,11,.55) 55%, rgba(20,14,11,.9) 100%); }
+.vs-universe:hover > img { transform: scale(1.04); }
+.vs-universe-body { display: flex; flex-direction: column; gap: 14px; padding: 36px; }
+.vs-universe-num { font: 600 12px/1 var(--sans); letter-spacing: .32em; color: var(--champagne); }
+.vs .vs-universe-name { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4vw, 56px); line-height: 1; color: #fff; margin: 0; }
+.vs-universe p { color: #EDE6DC; font-size: 15px; line-height: 1.7; }
+.vs-universe ul { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.22); display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #fff; }
+.vs-universe ul li + li::before { content: '·'; margin-right: 14px; color: var(--champagne); }
+.vs-universe .vs-more { font-weight: 700; font-size: 14px; color: var(--champagne); }
+@media (max-width: 1180px) { .vs-universe { min-height: 540px; } .vs-universe-body { padding: 28px; } }
+@media (max-width: 900px) { .vs-universes { grid-template-columns: 1fr; } .vs-universe { min-height: 440px; } }
+
+/* ── Programme rows (/learn) ── */
+.vs-prog { display: flex; align-items: center; gap: clamp(32px, 6vw, 96px); }
+.vs-prog:nth-child(even) { flex-direction: row-reverse; }
+.vs-prog > img { width: min(560px, 48%); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 32px; flex-shrink: 0; }
+.vs-prog-copy { display: flex; flex-direction: column; gap: 18px; flex: 1; }
+.vs-prog-copy ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.vs-prog-copy li { padding: 14px 0; border-top: 1px solid var(--line); display: flex; gap: 14px; align-items: baseline; }
+.vs-prog-copy li::before { content: '—'; color: var(--brass); }
+.vs-prog-price { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--wine); }
+.vs-prog-list { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 120px); }
+@media (max-width: 900px) { .vs-prog, .vs-prog:nth-child(even) { flex-direction: column; align-items: stretch; } .vs-prog > img { width: 100%; } }
+
+.vs-dark .vs-chapter b { color: var(--champagne); }

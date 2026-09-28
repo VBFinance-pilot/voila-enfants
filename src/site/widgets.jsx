@@ -10,7 +10,7 @@ import { home, form as formCopy, CONTACT, TOPICS } from './copy';
 // `extra` = [{ name, label, placeholder, type, options, wide }] rendered after
 // name/email and folded into the message body, so the existing API is reused.
 // `defaultTopic` = TOPICS key shown when the URL has no ?topic=.
-export function ContactForm({ subject, extra = [], messageLabel, title, defaultTopic }) {
+export function ContactForm({ subject, extra = [], messageLabel, title, defaultTopic, placeholder }) {
   const { tx, lang } = useLang();
   const [status, setStatus] = useState('idle');
   const [params] = useSearchParams();
@@ -88,7 +88,7 @@ export function ContactForm({ subject, extra = [], messageLabel, title, defaultT
         ))}
         <label className="is-wide">
           {messageLabel ? tx(messageLabel) : tx(formCopy.message)}
-          <textarea name="message" required placeholder={tx(formCopy.messagePh)} />
+          <textarea name="message" required placeholder={tx(placeholder || formCopy.messagePh)} />
         </label>
         <label className="vs-hp" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
@@ -275,54 +275,40 @@ export function UpcomingEvents() {
   );
 }
 
-/* ───────────── Instagram (Behold feed, edge to edge — hotel style) ───────────── */
+/* ───────────── Moments: photos · films · Instagram in one section ───────────── */
+// Photos = gallery_items, films = videos_items (both managed in /admin),
+// Instagram = Behold feed of @voilaenglish. One header, a segmented control.
 const IG_ICON = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
     <rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
   </svg>
 );
 
-export function InstagramSection() {
-  const { tx } = useLang();
-  // Official account: @voilaenglish. The old site_settings.instagram_url is
-  // ignored on purpose so a stale admin value can't break the link.
-  const url = CONTACT.instagram;
-  const t = home.instagram;
-  return (
-    <section id="instagram" className="vs-insta">
-      <div className="vs-insta-head">
-        <div className="vs-label">{tx(t.label)}</div>
-        <h2 className="vs-insta-title">{tx(t.title)}</h2>
-        <a className="vs-insta-handle" href={url} target="_blank" rel="noopener noreferrer">{CONTACT.instagramHandle}</a>
-        <p className="vs-lead" style={{ maxWidth: 620 }}>{tx(t.sub)}</p>
-      </div>
-      <div className="vs-insta-feed"><BeholdWidget feedId="Xe8UQ4p51BeYWRRGQ9N6" /></div>
-      <a className="vs-btn vs-btn-outline" style={{ borderColor: 'var(--ink)' }} href={url} target="_blank" rel="noopener noreferrer">{IG_ICON}{tx(t.follow)}</a>
-    </section>
-  );
-}
-
-/* ───────────── Gallery (Supabase gallery_items, managed in /admin) ───────────── */
 const STATIC_GALLERY = Array.from({ length: 24 }, (_, i) => ({ id: `s-${i}`, image_url: `/gallery/Photo ${i + 1}.jpeg`, title: null }));
 
-export function GallerySection() {
-  const { tx } = useLang();
-  const [items, setItems] = useState(null);
-  const [open, setOpen] = useState(null);
-  const [all, setAll] = useState(false);
-
+function useTable(table, fallback) {
+  const [rows, setRows] = useState(null);
   useEffect(() => {
     (async () => {
       try {
-        const { data, error } = await supabase.from('gallery_items').select('*').order('order_index', { ascending: true });
+        const { data, error } = await supabase.from(table).select('*').order('order_index', { ascending: true });
         if (error) throw error;
-        setItems(data?.length ? data : STATIC_GALLERY);
+        setRows(data?.length ? data : fallback);
       } catch (err) {
-        console.error('[Gallery] fetch failed', err);
-        setItems(STATIC_GALLERY);
+        console.error(`[Moments] ${table} fetch failed`, err);
+        setRows(fallback);
       }
     })();
-  }, []);
+  }, [table, fallback]);
+  return rows;
+}
+
+const NO_VIDEOS = [];
+
+function PhotoGrid({ items }) {
+  const { tx } = useLang();
+  const [open, setOpen] = useState(null);
+  const [all, setAll] = useState(false);
 
   useEffect(() => {
     if (open === null) return undefined;
@@ -336,29 +322,22 @@ export function GallerySection() {
     return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
   }, [open, items]);
 
-  if (!items?.length) return null;
   const t = home.gallery;
   const shown = all ? items : items.slice(0, 8);
-
   return (
-    <section id="gallery" className="vs-block">
-      <div className="vs-wrap" style={{ gap: 36 }}>
-        <div className="vs-head">
-          <div><div className="vs-label">{tx(t.label)}</div><h2 className="vs-h3">{tx(t.title)}</h2></div>
-        </div>
-        <div className="vs-gallery">
-          {shown.map((g, i) => (
-            <button key={g.id} type="button" className="vs-gallery-item" onClick={() => setOpen(i)} aria-label={g.title || `Photo ${i + 1}`}>
-              <img src={g.image_url} alt={g.title || ''} loading="lazy" />
-            </button>
-          ))}
-        </div>
-        {items.length > 8 && (
-          <button type="button" className="vs-btn vs-btn-outline-btn" onClick={() => setAll((v) => !v)}>
-            {all ? tx(t.less) : `${tx(t.more)} (${items.length})`}
+    <>
+      <div className="vs-gallery">
+        {shown.map((g, i) => (
+          <button key={g.id} type="button" className="vs-gallery-item" onClick={() => setOpen(i)} aria-label={g.title || `Photo ${i + 1}`}>
+            <img src={g.image_url} alt={g.title || ''} loading="lazy" />
           </button>
-        )}
+        ))}
       </div>
+      {items.length > 8 && (
+        <button type="button" className="vs-btn vs-btn-outline-btn" onClick={() => setAll((v) => !v)}>
+          {all ? tx(t.less) : `${tx(t.more)} (${items.length})`}
+        </button>
+      )}
       {open !== null && (
         <div className="vs-lightbox" role="dialog" aria-modal="true" onClick={() => setOpen(null)}>
           <button type="button" className="vs-lb-btn vs-lb-close" aria-label="Close" onClick={() => setOpen(null)}>✕</button>
@@ -367,45 +346,76 @@ export function GallerySection() {
           <button type="button" className="vs-lb-btn vs-lb-next" aria-label="Next" onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % items.length); }}>›</button>
         </div>
       )}
-    </section>
+    </>
   );
 }
 
-/* ───────────── Videos (Supabase videos_items, managed in /admin) ───────────── */
-export function VideosSection() {
-  const { tx } = useLang();
-  const [videos, setVideos] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data, error } = await supabase.from('videos_items').select('*').order('order_index', { ascending: true });
-        if (error) throw error;
-        setVideos(data || []);
-      } catch (err) {
-        console.error('[Videos] fetch failed', err);
-      }
-    })();
-  }, []);
-  if (!videos.length) return null;
-  const t = home.videos;
+function FilmGrid({ videos }) {
   return (
-    <section id="videos" className="vs-block">
+    <div className="vs-grid-3">
+      {videos.map((v) => (
+        <div key={v.id} className="vs-video">
+          <div className="vs-video-frame">
+            {v.youtube_id ? (
+              <iframe src={`https://www.youtube.com/embed/${v.youtube_id}`} title={v.title || 'Video'} loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            ) : v.video_url ? (
+              <video src={v.video_url} controls preload="metadata" playsInline />
+            ) : null}
+          </div>
+          {v.title && <strong>{v.title}</strong>}
+          {v.description && <span>{v.description}</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function InstagramFeed() {
+  const { tx } = useLang();
+  // Official account: @voilaenglish. site_settings.instagram_url is ignored on purpose.
+  const t = home.instagram;
+  return (
+    <div className="vs-moments-ig">
+      <p className="vs-lead" style={{ maxWidth: 620, textAlign: 'center' }}>{tx(t.sub)}</p>
+      <div className="vs-insta-feed"><BeholdWidget feedId="Xe8UQ4p51BeYWRRGQ9N6" /></div>
+      <a className="vs-btn vs-btn-outline" style={{ borderColor: 'var(--ink)' }} href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">{IG_ICON}{tx(t.follow)}</a>
+    </div>
+  );
+}
+
+export function MomentsSection() {
+  const { tx } = useLang();
+  const photos = useTable('gallery_items', STATIC_GALLERY);
+  const videos = useTable('videos_items', NO_VIDEOS) || NO_VIDEOS;
+  const [tab, setTab] = useState('photos');
+  const t = home.moments;
+  const tabs = [
+    { k: 'photos', show: photos === null || photos.length > 0 },
+    { k: 'films', show: videos.length > 0 },
+    { k: 'instagram', show: true },
+  ].filter((x) => x.show);
+  const active = tabs.some((x) => x.k === tab) ? tab : tabs[0].k;
+
+  return (
+    <section id="moments" className="vs-block">
       <div className="vs-wrap" style={{ gap: 36 }}>
-        <div className="vs-head"><div><div className="vs-label">{tx(t.label)}</div><h2 className="vs-h3">{tx(t.title)}</h2></div></div>
-        <div className="vs-grid-3">
-          {videos.map((v) => (
-            <div key={v.id} className="vs-video">
-              <div className="vs-video-frame">
-                {v.youtube_id ? (
-                  <iframe src={`https://www.youtube.com/embed/${v.youtube_id}`} title={v.title || 'Video'} loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                ) : v.video_url ? (
-                  <video src={v.video_url} controls preload="metadata" playsInline />
-                ) : null}
-              </div>
-              {v.title && <strong>{v.title}</strong>}
-              {v.description && <span>{v.description}</span>}
-            </div>
-          ))}
+        <div className="vs-moments-head">
+          <div>
+            <div className="vs-label">{tx(t.label)}</div>
+            <h2 className="vs-h3">{tx(t.title)}</h2>
+          </div>
+          <div className="vs-segment" role="tablist" aria-label={tx(t.title)}>
+            {tabs.map((x) => (
+              <button key={x.k} type="button" role="tab" aria-selected={active === x.k} onClick={() => setTab(x.k)}>
+                {tx(t.tabs[x.k])}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div role="tabpanel">
+          {active === 'photos' && photos && <PhotoGrid items={photos} />}
+          {active === 'films' && <FilmGrid videos={videos} />}
+          {active === 'instagram' && <InstagramFeed />}
         </div>
       </div>
     </section>

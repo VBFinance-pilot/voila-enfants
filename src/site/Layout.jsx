@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang, LANGS } from '../contexts/LanguageContext';
 import { nav, common, footer, home, CONTACT, topicHref } from './copy';
+import { learnPage, homestay } from './copy-pages';
 import './site.css';
 
 const LANG_LABEL = { ja: 'JA', en: 'EN', fr: 'FR' };
@@ -63,7 +64,7 @@ function Header() {
           </Link>
           <nav className="vs-nav" aria-label="Main">
             {nav.main.map((i) => (
-              <SmartLink key={i.href} to={i.href} aria-current={pathname === i.href ? 'page' : undefined}>
+              <SmartLink key={i.href} to={i.href} aria-current={pathname !== '/' && pathname === i.href ? 'page' : undefined}>
                 {tx(i.label)}
               </SmartLink>
             ))}
@@ -108,25 +109,27 @@ function Footer() {
             <div>{tx(common.address)}</div>
             <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
             <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            <div style={{ display: 'flex', gap: 18 }}>
+              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href={CONTACT.line} target="_blank" rel="noopener noreferrer">LINE</a>
+            </div>
           </div>
           <div className="vs-footer-col">
-            <h4>{tx(footer.learn)}</h4>
-            {home.learn.cards.map((c) => <Link key={c.img} to="/#learn">{tx(c.title)}</Link>)}
+            <h4><Link to="/learn">{tx(footer.learn)}</Link></h4>
+            {learnPage.subnav.map((s) => <Link key={s.href} to={`/learn${s.href}`}>{tx(s.l)}</Link>)}
           </div>
           <div className="vs-footer-col">
             <h4>{tx(footer.live)}</h4>
-            <Link to="/homestay">{tx(footer.homestay)}</Link>
-            <Link to="/#live">English Camp</Link>
-            <Link to="/#celebrate">{tx(footer.events)}</Link>
-            <Link to="/#celebrate">L’Apéro</Link>
-            <Link to="/franchise">{tx(nav.util[2].label)}</Link>
-            <Link to="/careers">{tx(nav.util[3].label)}</Link>
+            {homestay.subnav.filter((s) => ['#kyoto', '#travel', '#camp'].includes(s.href)).map((s) => <Link key={s.href} to={`/live${s.href}`}>{tx(s.l)}</Link>)}
+            <Link to="/celebrate#events">{tx(home.celebrate.events.title)}</Link>
+            <Link to="/celebrate#apero">L’Apéro</Link>
           </div>
           <div className="vs-footer-col">
-            <h4>{tx(footer.follow)}</h4>
-            <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={CONTACT.line} target="_blank" rel="noopener noreferrer">{tx(footer.lineAccount)}</a>
-            <Link to="/#contact">Google Maps</Link>
+            <h4>{tx(footer.school)}</h4>
+            <Link to="/#hosts">{tx(nav.main[3].label)}</Link>
+            <Link to="/franchise">{tx(nav.util[1].label)}</Link>
+            <Link to="/careers">{tx(nav.util[2].label)}</Link>
+            <Link to="/#contact">{tx(footer.contact)}</Link>
           </div>
         </div>
         <div className="vs-footer-bottom">

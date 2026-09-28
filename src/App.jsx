@@ -1,13 +1,20 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import Analytics from './components/Analytics';
 import HomePage from './site/HomePage';
-import { HomestayPage, FranchisePage, CareersPage } from './site/SubPages';
+import { LivePage, FranchisePage, CareersPage } from './site/SubPages';
+import { LearnPage, CelebratePage } from './site/ExperiencePages';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Legal from './pages/Legal';
+
+// Old URLs keep working (links shared on LINE, Google, business cards).
+function LegacyRedirect({ to }) {
+  const { search, hash } = useLocation();
+  return <Navigate to={`${to}${search}${hash}`} replace />;
+}
 
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const QRCode = lazy(() => import('./pages/QRCode'));
@@ -21,7 +28,10 @@ export default function App() {
         <Analytics />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/homestay" element={<HomestayPage />} />
+          <Route path="/learn" element={<LearnPage />} />
+          <Route path="/live" element={<LivePage />} />
+          <Route path="/celebrate" element={<CelebratePage />} />
+          <Route path="/homestay" element={<LegacyRedirect to="/live" />} />
           <Route path="/franchise" element={<FranchisePage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

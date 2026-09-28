@@ -30,16 +30,14 @@ export const common = {
 
 export const nav = {
   util: [
-    { href: '/#admissions', label: { ja: '入会案内', en: 'Admissions', fr: 'Inscriptions' } },
-    { href: '/#contact', label: { ja: '見学・アクセス', en: 'Visit & Access', fr: 'Visite & accès' } },
+    { href: '/#contact', label: { ja: 'アクセス', en: 'Access', fr: 'Accès' } },
     { href: '/franchise', label: { ja: 'フランチャイズ', en: 'Franchise', fr: 'Franchise' } },
     { href: '/careers', label: { ja: '採用情報', en: 'Careers', fr: 'Recrutement' } },
   ],
   main: [
-    { href: '/#learn', label: { ja: 'レッスン', en: 'Lessons', fr: 'Cours' } },
-    { href: '/homestay', label: { ja: 'ホームステイ・キャンプ', en: 'Homestay & Camps', fr: 'Homestay & camps' } },
-    { href: '/#celebrate', label: { ja: 'イベント・アペロ', en: 'Events & Apéro', fr: 'Événements & Apéro' } },
-    { href: '/#admissions', label: { ja: '入会案内', en: 'Admissions', fr: 'Inscriptions' } },
+    { href: '/learn', label: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' }, sub: { ja: 'レッスン', en: 'Lessons', fr: 'Cours' } },
+    { href: '/live', label: { ja: '暮らす', en: 'Live', fr: 'Vivre' }, sub: { ja: 'ホームステイ・キャンプ', en: 'Homestay & camps', fr: 'Homestay & camps' } },
+    { href: '/celebrate', label: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' }, sub: { ja: 'イベント・アペロ', en: 'Events & apéro', fr: 'Événements & apéro' } },
     { href: '/#hosts', label: { ja: '私たちについて', en: 'About us', fr: 'À propos' } },
   ],
 };
@@ -82,6 +80,28 @@ export const home = {
     { value: '¥0', label: { ja: '教材費・無料体験', en: 'Free trial · no materials fee', fr: 'Essai gratuit · aucun frais de matériel' }, sub: { ja: 'テキストの購入は不要', en: 'No textbooks to buy', fr: 'Aucun manuel à acheter' } },
     { value: '∞', label: { ja: '振替レッスン無制限', en: 'Unlimited make-up lessons', fr: 'Rattrapages illimités' }, sub: { ja: '京都エリアでは珍しい仕組み', en: 'Rare in the Kyoto area', fr: 'Rare dans la région de Kyoto' } },
   ],
+  universes: {
+    label: { ja: 'THREE WAYS TO JOIN US　·　3つの世界', en: 'THREE WAYS TO JOIN US', fr: 'TROIS FAÇONS DE NOUS REJOINDRE' },
+    title1: { ja: '学ぶ、暮らす、集う。', en: 'Learn, live,', fr: 'Apprendre, vivre,' },
+    title2: { ja: 'すべて、3つのことばで。', en: 'celebrate.', fr: 'célébrer.' },
+    discover: { ja: '詳しく見る', en: 'Discover', fr: 'Découvrir' },
+    items: [
+      { key: 'learn', href: '/learn', slot: 'home_learn', name: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
+        line: { ja: '2歳から大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From age 2 to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'De 2 ans à l’âge adulte. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
+        list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
+      { key: 'live', href: '/live', slot: 'home_live', name: { ja: '暮らす', en: 'Live', fr: 'Vivre' },
+        line: { ja: '私たち家族の一員として。京都の家で、旅先で、キャンプで。', en: 'As one of our family — at home in Kyoto, on the road, at camp.', fr: 'Comme un membre de notre famille — chez nous à Kyoto, en voyage, en camp.' },
+        list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
+      { key: 'celebrate', href: '/celebrate', slot: 'home_celebrate', name: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
+        line: { ja: '誕生日会からフランス式アペリティフまで、オーダーメイドのひとときを。', en: 'From birthday parties to French apéritifs — bespoke moments.', fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure.' },
+        list: [{ ja: 'バースデー＆イベント', en: 'Birthdays & events', fr: 'Anniversaires & événements' }, { ja: 'L’Apéro（2人のシェフ）', en: 'L’Apéro (two chefs)', fr: 'L’Apéro (deux chefs)' }] },
+    ],
+  },
+  moments: {
+    label: { ja: 'MOMENTS　·　ヴォアラの日常', en: 'MOMENTS', fr: 'MOMENTS' },
+    title: { ja: 'ヴォアラの毎日', en: 'Life at Voilà', fr: 'La vie chez Voilà' },
+    tabs: { photos: { ja: '写真', en: 'Photos', fr: 'Photos' }, films: { ja: '動画', en: 'Films', fr: 'Films' }, instagram: { ja: 'Instagram', en: 'Instagram', fr: 'Instagram' } },
+  },
   learn: {
     label: { ja: 'LEARN　·　学ぶ', en: 'LEARN　·　学ぶ', fr: 'APPRENDRE　·　学ぶ' },
     title1: { ja: '教科書ではなく、', en: 'Not from textbooks —', fr: 'Pas dans les manuels —' },
@@ -159,7 +179,7 @@ export const home = {
     },
     cards: [
       {
-        slot: 'live_homestay', href: '/homestay#kyoto', img: '/img/tatami2.jpg',
+        slot: 'live_homestay', href: '/live#kyoto', img: '/img/tatami2.jpg',
         alt: { ja: '和室でくつろぐ生徒たち', en: 'Students relaxing in a tatami room', fr: 'Des élèves détendus dans une pièce en tatami' },
         label: { ja: 'KYOTO · 私たちの家で', en: 'KYOTO · IN OUR HOME', fr: 'KYOTO · CHEZ NOUS' },
         title: { ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' },
@@ -170,7 +190,7 @@ export const home = {
         },
       },
       {
-        slot: 'live_travel', href: '/homestay#travel', img: '/img/balipool.jpg',
+        slot: 'live_travel', href: '/live#travel', img: '/img/balipool.jpg',
         alt: { ja: 'バリのヴィラのプール', en: 'Pool at a villa in Bali', fr: 'Piscine d’une villa à Bali' },
         label: { ja: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', en: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO', fr: 'FRANCE · BALI · VIETNAM · OKINAWA · TOKYO' },
         title: { ja: '旅するホームステイ', en: 'Travelling Homestay', fr: 'Homestay en voyage' },
@@ -181,7 +201,7 @@ export const home = {
         },
       },
       {
-        slot: 'live_camp', href: '/?topic=live_camp#contact', img: '/img/bbq.jpg',
+        slot: 'live_camp', href: '/live?topic=live_camp#apply', img: '/img/bbq.jpg',
         alt: { ja: 'キャンプのバーベキュー', en: 'Camp barbecue', fr: 'Barbecue au camp' },
         label: { ja: 'SUMMER CAMP · WINTER CAMP', en: 'SUMMER CAMP · WINTER CAMP', fr: 'CAMP D’ÉTÉ · CAMP D’HIVER' },
         title: { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' },
@@ -341,6 +361,8 @@ export const form = {
 export const footer = {
   learn: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' },
   live: { ja: '暮らす・集う', en: 'Live · Celebrate', fr: 'Vivre · Célébrer' },
+  school: { ja: 'スクール', en: 'The school', fr: 'L’école' },
+  contact: { ja: 'お問い合わせ', en: 'Contact', fr: 'Contact' },
   follow: { ja: 'フォロー', en: 'Follow', fr: 'Suivre' },
   lineAccount: { ja: 'LINE公式アカウント', en: 'LINE Official Account', fr: 'Compte officiel LINE' },
   privacy: { ja: 'プライバシーポリシー', en: 'Privacy policy', fr: 'Politique de confidentialité' },
