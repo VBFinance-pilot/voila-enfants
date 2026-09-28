@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { supabase, uploadImage, removeImage, fetchOrdered, reorder, deleteRow, logAction } from '../../lib/supabase';
+import { IconTrash, IconGrip, IconUpload } from './icons';
 
 export default function AdminGalleryTab() {
   const [items, setItems] = useState([]);
@@ -26,19 +27,19 @@ export default function AdminGalleryTab() {
       const { data } = await supabase.from('gallery_items').insert({ image_url: url, order_index: maxOrder }).select().single();
       setItems(prev => [...prev, data]);
       await logAction('upload', 'gallery_items', file.name);
-    } catch (err) { alert('Upload failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’envoi : ' + err.message); }
     setUploading(false);
     e.target.value = '';
   };
 
   const handleDelete = async (item) => {
-    if (!confirm('Delete this image?')) return;
+    if (!confirm('Supprimer cette photo ?')) return;
     try {
       await removeImage(item.image_url);
       await deleteRow('gallery_items', item.id);
       setItems(prev => prev.filter(i => i.id !== item.id));
       await logAction('delete', 'gallery_items', item.image_url);
-    } catch (err) { alert('Delete failed: ' + err.message); }
+    } catch (err) { alert('Échec de la suppression : ' + err.message); }
   };
 
   const handleDragEnd = async (result) => {
@@ -52,14 +53,14 @@ export default function AdminGalleryTab() {
     setSaving(false);
   };
 
-  if (loading) return <div className="adm-loading">Loading...</div>;
+  if (loading) return <div className="adm-loading">Chargement…</div>;
 
   return (
     <div>
       <div className="adm-toolbar">
-        <span className="adm-count">{items.length} images {saving && '— Saving...'}</span>
+        <span className="adm-count">{items.length} photos {saving && '— enregistrement…'}</span>
         <label className="adm-upload-btn">
-          {uploading ? 'Uploading...' : '📷 Upload Image'}
+          {uploading ? 'Envoi…' : <><IconUpload /> Ajouter une photo</>}
           <input type="file" accept="image/*" onChange={handleUpload} hidden disabled={uploading} />
         </label>
       </div>
@@ -71,10 +72,10 @@ export default function AdminGalleryTab() {
                 <Draggable key={item.id} draggableId={item.id} index={i}>
                   {(prov, snap) => (
                     <div ref={prov.innerRef} {...prov.draggableProps} className={`adm-card-row ${snap.isDragging ? 'dragging' : ''}`}>
-                      <span {...prov.dragHandleProps} className="adm-drag">⠿</span>
+                      <span {...prov.dragHandleProps} className="adm-drag" aria-label="Déplacer"><IconGrip /></span>
                       <img src={item.image_url} alt="" className="adm-thumb" />
-                      <span className="adm-order">#{i + 1}</span>
-                      <button onClick={() => handleDelete(item)} className="adm-btn-del">🗑️</button>
+                      <span className="adm-order">N° {i + 1}</span>
+                      <button onClick={() => handleDelete(item)} className="adm-btn-del" aria-label="Supprimer" title="Supprimer"><IconTrash /></button>
                     </div>
                   )}
                 </Draggable>

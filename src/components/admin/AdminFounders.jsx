@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { supabase, uploadImage, fetchOrdered, reorder, deleteRow, logAction } from '../../lib/supabase';
+import { IconEdit, IconTrash, IconGrip } from './icons';
 
 export default function AdminFounders() {
   const [items, setItems] = useState([]);
@@ -32,7 +33,7 @@ export default function AdminFounders() {
       setForm({ name: '', title: '', bio: '', lang_label: '', image_url: '' });
       setEditId(null);
       await load();
-    } catch (err) { alert('Save failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’enregistrement : ' + err.message); }
     setSaving(false);
   };
 
@@ -42,7 +43,7 @@ export default function AdminFounders() {
   };
 
   const handleDelete = async (item) => {
-    if (!confirm(`Delete "${item.name}"?`)) return;
+    if (!confirm(`Supprimer « ${item.name} » ?`)) return;
     await deleteRow('founders_items', item.id);
     await logAction('delete', 'founders_items', item.name);
     setItems(prev => prev.filter(i => i.id !== item.id));
@@ -54,7 +55,7 @@ export default function AdminFounders() {
     try {
       const url = await uploadImage(file, 'founders');
       setForm(f => ({ ...f, image_url: url }));
-    } catch (err) { alert('Upload failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’envoi : ' + err.message); }
   };
 
   const handleDragEnd = async (result) => {
@@ -66,17 +67,17 @@ export default function AdminFounders() {
     try { await reorder('founders_items', arr); } catch {}
   };
 
-  if (loading) return <div className="adm-loading">Loading...</div>;
+  if (loading) return <div className="adm-loading">Chargement…</div>;
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="adm-inline-form">
-        <h3>{editId ? 'Edit Founder' : 'Add Founder'}</h3>
-        <div className="adm-field"><label>Name *</label><input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} required /></div>
-        <div className="adm-field"><label>Title / Role</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="e.g. Co-founder" /></div>
-        <div className="adm-field"><label>Bio (HTML ok)</label><textarea value={form.bio} onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} rows={4} /></div>
+        <h3>{editId ? 'Modifier' : 'Ajouter une personne'}</h3>
+        <div className="adm-field"><label>Nom *</label><input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} required /></div>
+        <div className="adm-field"><label>Rôle</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="e.g. Co-founder" /></div>
+        <div className="adm-field"><label>Bio</label><textarea value={form.bio} onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} rows={4} /></div>
         <div className="adm-row">
-          <div className="adm-field"><label>Language Label</label><input value={form.lang_label} onChange={e => setForm(f => ({ ...f, lang_label: e.target.value }))} placeholder="e.g. 🇫🇷 French" /></div>
+          <div className="adm-field"><label>Langue</label><input value={form.lang_label} onChange={e => setForm(f => ({ ...f, lang_label: e.target.value }))} placeholder="e.g. 🇫🇷 French" /></div>
         </div>
         <div className="adm-field">
           <label>Photo</label>
@@ -84,8 +85,8 @@ export default function AdminFounders() {
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
         <div className="adm-form-actions">
-          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Saving...' : editId ? 'Update' : 'Add Founder'}</button>
-          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ name: '', title: '', bio: '', lang_label: '', image_url: '' }); }} className="adm-btn-cancel">Cancel</button>}
+          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Enregistrement…' : editId ? 'Mettre à jour' : 'Ajouter'}</button>
+          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ name: '', title: '', bio: '', lang_label: '', image_url: '' }); }} className="adm-btn-cancel">Annuler</button>}
         </div>
       </form>
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -96,14 +97,14 @@ export default function AdminFounders() {
                 <Draggable key={item.id} draggableId={item.id} index={i}>
                   {(prov, snap) => (
                     <div ref={prov.innerRef} {...prov.draggableProps} className={`adm-card-row ${snap.isDragging ? 'dragging' : ''}`}>
-                      <span {...prov.dragHandleProps} className="adm-drag">⠿</span>
+                      <span {...prov.dragHandleProps} className="adm-drag" aria-label="Déplacer"><IconGrip /></span>
                       {item.image_url && <img src={item.image_url} alt="" className="adm-thumb" />}
                       <div className="adm-card-info">
                         <strong>{item.name}</strong>
                         <span className="adm-meta">{item.title} {item.lang_label}</span>
                       </div>
-                      <button onClick={() => handleEdit(item)} className="adm-btn-edit">✏️</button>
-                      <button onClick={() => handleDelete(item)} className="adm-btn-del">🗑️</button>
+                      <button onClick={() => handleEdit(item)} className="adm-btn-edit" aria-label="Modifier" title="Modifier"><IconEdit /></button>
+                      <button onClick={() => handleDelete(item)} className="adm-btn-del" aria-label="Supprimer" title="Supprimer"><IconTrash /></button>
                     </div>
                   )}
                 </Draggable>

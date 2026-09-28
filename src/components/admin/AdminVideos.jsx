@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { supabase, fetchOrdered, reorder, deleteRow, logAction } from '../../lib/supabase';
+import { IconEdit, IconTrash, IconGrip } from './icons';
 
 export default function AdminVideos() {
   const [items, setItems] = useState([]);
@@ -32,7 +33,7 @@ export default function AdminVideos() {
       setForm({ title: '', youtube_id: '', video_url: '', description: '' });
       setEditId(null);
       await load();
-    } catch (err) { alert('Save failed: ' + err.message); }
+    } catch (err) { alert('Échec de l’enregistrement : ' + err.message); }
     setSaving(false);
   };
 
@@ -42,7 +43,7 @@ export default function AdminVideos() {
   };
 
   const handleDelete = async (item) => {
-    if (!confirm(`Delete "${item.title}"?`)) return;
+    if (!confirm(`Supprimer « ${item.title} » ?`)) return;
     await deleteRow('videos_items', item.id);
     await logAction('delete', 'videos_items', item.title);
     setItems(prev => prev.filter(i => i.id !== item.id));
@@ -64,23 +65,23 @@ export default function AdminVideos() {
     return match ? match[1] : input;
   };
 
-  if (loading) return <div className="adm-loading">Loading...</div>;
+  if (loading) return <div className="adm-loading">Chargement…</div>;
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="adm-inline-form">
-        <h3>{editId ? 'Edit Video' : 'Add Video'}</h3>
-        <div className="adm-field"><label>Title *</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required /></div>
+        <h3>{editId ? 'Modifier la vidéo' : 'Nouvelle vidéo'}</h3>
+        <div className="adm-field"><label>Titre *</label><input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required /></div>
         <div className="adm-field">
-          <label>YouTube ID or URL</label>
-          <input value={form.youtube_id} onChange={e => setForm(f => ({ ...f, youtube_id: extractYouTubeId(e.target.value) }))} placeholder="e.g. dQw4w9WgXcQ or full YouTube URL" />
+          <label>Lien YouTube</label>
+          <input value={form.youtube_id} onChange={e => setForm(f => ({ ...f, youtube_id: extractYouTubeId(e.target.value) }))} placeholder="Collez le lien YouTube (ex. https://youtu.be/…)" />
           {form.youtube_id && <img src={`https://img.youtube.com/vi/${form.youtube_id}/mqdefault.jpg`} alt="" className="adm-preview-img" style={{ marginTop: 8 }} />}
         </div>
-        <div className="adm-field"><label>Video URL (alternative)</label><input value={form.video_url} onChange={e => setForm(f => ({ ...f, video_url: e.target.value }))} placeholder="Direct video URL if not YouTube" /></div>
+        <div className="adm-field"><label>Ou lien direct vers une vidéo</label><input value={form.video_url} onChange={e => setForm(f => ({ ...f, video_url: e.target.value }))} placeholder="Direct video URL if not YouTube" /></div>
         <div className="adm-field"><label>Description</label><textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} rows={3} /></div>
         <div className="adm-form-actions">
-          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Saving...' : editId ? 'Update' : 'Add Video'}</button>
-          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', youtube_id: '', video_url: '', description: '' }); }} className="adm-btn-cancel">Cancel</button>}
+          <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Enregistrement…' : editId ? 'Mettre à jour' : 'Ajouter la vidéo'}</button>
+          {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', youtube_id: '', video_url: '', description: '' }); }} className="adm-btn-cancel">Annuler</button>}
         </div>
       </form>
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -91,14 +92,14 @@ export default function AdminVideos() {
                 <Draggable key={item.id} draggableId={item.id} index={i}>
                   {(prov, snap) => (
                     <div ref={prov.innerRef} {...prov.draggableProps} className={`adm-card-row ${snap.isDragging ? 'dragging' : ''}`}>
-                      <span {...prov.dragHandleProps} className="adm-drag">⠿</span>
+                      <span {...prov.dragHandleProps} className="adm-drag" aria-label="Déplacer"><IconGrip /></span>
                       {item.youtube_id && <img src={`https://img.youtube.com/vi/${item.youtube_id}/mqdefault.jpg`} alt="" className="adm-thumb" />}
                       <div className="adm-card-info">
                         <strong>{item.title}</strong>
-                        <span className="adm-meta">{item.youtube_id ? `YT: ${item.youtube_id}` : item.video_url || 'No source'}</span>
+                        <span className="adm-meta">{item.youtube_id ? `YouTube · ${item.youtube_id}` : item.video_url || 'Aucune source'}</span>
                       </div>
-                      <button onClick={() => handleEdit(item)} className="adm-btn-edit">✏️</button>
-                      <button onClick={() => handleDelete(item)} className="adm-btn-del">🗑️</button>
+                      <button onClick={() => handleEdit(item)} className="adm-btn-edit" aria-label="Modifier" title="Modifier"><IconEdit /></button>
+                      <button onClick={() => handleDelete(item)} className="adm-btn-del" aria-label="Supprimer" title="Supprimer"><IconTrash /></button>
                     </div>
                   )}
                 </Draggable>
