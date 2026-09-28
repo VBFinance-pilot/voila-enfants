@@ -95,7 +95,7 @@ export const home = {
         line: { ja: '赤ちゃんから大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From babies to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'Des bébés aux adultes. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
         list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
       { key: 'live', href: '/homestay', slot: 'home_live', name: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
-        line: { ja: '私たち家族の一員として。京都の家で、旅先で、キャンプで。', en: 'As one of our family — at home in Kyoto, on the road, at camp.', fr: 'Comme un membre de notre famille — chez nous à Kyoto, en voyage, en camp.' },
+        line: { ja: 'まるで海外の家庭にホームステイするような空間。英語を学ぶ場所ではなく、英語に浸り英語で暮らしてみる場所。', en: 'Like staying with a family abroad. Not a place to study English — a place to live in it.', fr: 'Comme séjourner dans une famille à l’étranger. Pas un lieu où l’on étudie l’anglais : un lieu où l’on vit en anglais.' },
         list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
       { key: 'celebrate', href: '/celebrate', slot: 'home_celebrate', name: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
         line: { ja: '誕生日会からフランス式アペリティフまで、オーダーメイドのひとときを。', en: 'From birthday parties to French apéritifs — bespoke moments.', fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure.' },
