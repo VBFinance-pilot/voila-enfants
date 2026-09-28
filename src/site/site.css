@@ -525,3 +525,5 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-form select[name='topic'] { appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237D6235' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 18px center; }
 .vs-form select[name='topic']:invalid { color: var(--muted); }
 .vs-form select[name='topic'].is-set { border-color: var(--wine); color: var(--wine); font-weight: 600; }
+
+.vs-event-date b.is-year { font-size: 22px; }

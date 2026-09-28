@@ -45,8 +45,8 @@ export const nav = {
 export const home = {
   hero: {
     eyebrow: { ja: 'BIENVENUE　·　WELCOME　·　ようこそ', en: 'BIENVENUE　·　WELCOME　·　ようこそ', fr: 'BIENVENUE　·　WELCOME　·　ようこそ' },
-    title1: { ja: '英語は翼、', en: 'A doorway', fr: 'Une porte' },
-    title2: { ja: '飛ぶのはあなた。', en: 'to the world.', fr: 'sur le monde.' },
+    title1: { ja: '英語は翼、', en: 'English gives you wings —', fr: 'L’anglais vous donne des ailes —' },
+    title2: { ja: '飛ぶのはあなた。', en: 'you do the flying.', fr: 'à vous de voler.' },
     h1seo: {
       ja: '京都・西京区の英語・フランス語・日本語 アクティビティ・ランゲージスクール',
       en: 'English, French & Japanese activity language school in Nishikyo, Kyoto',
