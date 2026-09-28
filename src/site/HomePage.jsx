@@ -80,7 +80,7 @@ function Universes() {
               <img src={img(it.slot)} alt="" loading="lazy" />
               <div className="vs-universe-body">
                 <div className="vs-universe-num">{ROMAN[i]}</div>
-                <h3 className="vs-universe-name">
+                <h3 className="vs-universe-name" lang="en">
                   <span className="vs-universe-brand">{tx(it.name).split(' ')[0]}</span>
                   <span className="vs-universe-word">{tx(it.name).split(' ').slice(1).join(' ')}</span>
                 </h3>
