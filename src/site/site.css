@@ -108,7 +108,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 /* ── Hero ── */
 .vs-hero { position: relative; min-height: clamp(600px, 88vh, 860px); background: var(--ink); overflow: hidden; display: flex; align-items: flex-end; }
 .vs-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; animation: vs-kenburns 22s ease-out both; }
-@keyframes vs-kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }
+@keyframes vs-kenburns { from { transform: scale(calc(var(--z, 1) * 1.08)); } to { transform: scale(var(--z, 1)); } }
 @media (prefers-reduced-motion: reduce) { .vs-hero > img { animation: none; } }
 .vs-hero::after { content: ''; position: absolute; inset: 0; background: rgba(24,16,12,.42); }
 .vs-hero-inner { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(56px, 9vw, 112px); display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
@@ -145,7 +145,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs a.vs-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(31,26,23,.08); color: var(--ink); }
 .vs-card-img { aspect-ratio: 4 / 3; overflow: hidden; }
 .vs-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-.vs a.vs-card:hover .vs-card-img img { transform: scale(1.04); }
+.vs a.vs-card:hover .vs-card-img img { transform: scale(calc(var(--z, 1) * 1.04)); }
 .vs-card-body { padding: 28px 30px 30px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .vs-card-label { font-size: 11px; letter-spacing: .24em; font-weight: 700; color: var(--brass); }
 .vs-card-title { font-family: var(--mincho); font-size: 24px; font-weight: 700; line-height: 1.4; }
@@ -329,8 +329,9 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-numbered strong { display: block; }
 .vs-numbered span { color: var(--muted); line-height: 1.8; }
 .vs-mosaic { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.vs-mosaic img { width: 100%; height: 260px; object-fit: cover; border-radius: 24px; }
-.vs-mosaic img:first-child { grid-column: 1 / -1; height: 420px; border-radius: 28px; }
+.vs-mosaic > .vs-frame { height: 260px; border-radius: 24px; overflow: hidden; }
+.vs-mosaic > .vs-frame:first-child { grid-column: 1 / -1; height: 420px; border-radius: 28px; }
+.vs-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .vs-places { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .vs-place { display: flex; flex-direction: column; gap: 12px; }
 .vs-place-img { aspect-ratio: 3 / 4; border-radius: 24px; overflow: hidden; background: var(--stone); display: flex; align-items: center; justify-content: center; }
@@ -418,7 +419,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
   .vs-brand-sep, .vs-brand-tag { display: none; }
   .vs-hero-ctas .vs-btn, .vs-panel-side .vs-btn { width: 100%; }
   .vs-places { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .vs-mosaic img, .vs-mosaic img:first-child { height: 220px; }
+  .vs-mosaic > .vs-frame, .vs-mosaic > .vs-frame:first-child { height: 220px; }
   .vs-info-row { flex-direction: column; gap: 6px; }
   .vs-subnav .vs-wrap strong { display: none; }
 }
@@ -468,7 +469,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-universe { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 640px; border-radius: 32px; overflow: hidden; color: #fff; background: var(--ink); isolation: isolate; }
 .vs-universe > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
 .vs-universe::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,14,11,0) 25%, rgba(20,14,11,.55) 55%, rgba(20,14,11,.9) 100%); }
-.vs-universe:hover > img { transform: scale(1.04); }
+.vs-universe:hover > img { transform: scale(calc(var(--z, 1) * 1.04)); }
 .vs-universe-body { display: flex; flex-direction: column; gap: 14px; padding: 36px; }
 .vs-universe-num { font: 600 12px/1 var(--sans); letter-spacing: .32em; color: var(--champagne); }
 .vs .vs-universe-name { font-family: 'Cormorant Garamond', var(--serif); font-weight: 600; font-size: clamp(34px, 3.1vw, 46px); line-height: 1.05; color: #fff; margin: 0; letter-spacing: -.01em; }
@@ -482,14 +483,15 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 /* ── Programme rows (/learn) ── */
 .vs-prog { display: flex; align-items: center; gap: clamp(32px, 6vw, 96px); }
 .vs-prog:nth-child(even) { flex-direction: row-reverse; }
-.vs-prog > img { width: min(560px, 48%); aspect-ratio: 4 / 3; object-fit: cover; border-radius: 32px; flex-shrink: 0; }
+.vs-prog > .vs-prog-img { width: min(560px, 48%); aspect-ratio: 4 / 3; border-radius: 32px; overflow: hidden; flex-shrink: 0; }
+.vs-prog-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .vs-prog-copy { display: flex; flex-direction: column; gap: 18px; flex: 1; }
 .vs-prog-copy ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .vs-prog-copy li { padding: 14px 0; border-top: 1px solid var(--line); display: flex; gap: 14px; align-items: baseline; }
 .vs-prog-copy li::before { content: '—'; color: var(--brass); }
 .vs-prog-price { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--wine); }
 .vs-prog-list { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 120px); }
-@media (max-width: 900px) { .vs-prog, .vs-prog:nth-child(even) { flex-direction: column; align-items: stretch; } .vs-prog > img { width: 100%; } }
+@media (max-width: 900px) { .vs-prog, .vs-prog:nth-child(even) { flex-direction: column; align-items: stretch; } .vs-prog > .vs-prog-img { width: 100%; } }
 
 .vs-dark .vs-chapter b { color: var(--champagne); }
 
@@ -530,3 +532,8 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 
 /* Hosts text: keep the author's line breaks (poem-like layout) */
 .vs-hosts-body { white-space: pre-line; }
+
+/* Photos reframed in /admin (« Recadrer »): focal point + zoom.
+   The parent always clips (overflow hidden), so zoom never spills out. */
+.vs img[data-framed] { object-position: var(--ox, 50%) var(--oy, 50%); transform-origin: var(--ox, 50%) var(--oy, 50%); transform: scale(var(--z, 1)); }
+.vs-universe:hover > img[data-framed], .vs a.vs-card:hover .vs-card-img img[data-framed] { transform: scale(calc(var(--z, 1) * 1.04)); }

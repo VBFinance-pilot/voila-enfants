@@ -37,7 +37,7 @@ export function LearnPage() {
     <Layout>
       <Seo page="learn" path="/learn" />
       <div ref={ref}>
-        <PageHero img={img('learn_hero')} crumb={L.crumb} eyebrow={L.eyebrow} lines={[l.title1, l.title2]} sub={l.intro}>
+        <PageHero img={img('learn_hero')} imgProps={img.props('learn_hero')} crumb={L.crumb} eyebrow={L.eyebrow} lines={[l.title1, l.title2]} sub={l.intro}>
           <Link to={topicHref('trial', '/learn', 'apply')} className="vs-btn vs-btn-light">{tx(common.bookTrial60)}</Link>
           <a href="#tuition" className="vs-btn vs-btn-ghost-light">{tx(L.ctaPrices)}</a>
         </PageHero>
@@ -55,7 +55,7 @@ export function LearnPage() {
                 const p = L.programmes[c.slot];
                 return (
                   <article key={c.slot} id={p.id} className="vs-prog">
-                    <img src={img(c.slot)} alt={tx(c.alt)} loading="lazy" className="reveal" />
+                    <div className="vs-prog-img reveal"><img src={img(c.slot)} alt={tx(c.alt)} loading="lazy" {...img.props(c.slot)} /></div>
                     <div className="vs-prog-copy reveal">
                       <Label>{tx(c.label)}</Label>
                       <h2 className="vs-h3">{tx(c.title)}</h2>
@@ -139,7 +139,7 @@ export function CelebratePage() {
     <Layout>
       <Seo page="celebrate" path="/celebrate" />
       <div ref={ref}>
-        <PageHero img={img('celebrate_hero')} crumb={P.crumb} eyebrow={P.eyebrow} lines={[c.title1, c.title2]} sub={c.intro}>
+        <PageHero img={img('celebrate_hero')} imgProps={img.props('celebrate_hero')} crumb={P.crumb} eyebrow={P.eyebrow} lines={[c.title1, c.title2]} sub={c.intro}>
           <Link to={topicHref('celebrate_events', '/celebrate', 'apply')} className="vs-btn vs-btn-light">{tx(P.ctaQuote)}</Link>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-ghost-light">{tx(common.chatLine)}</a>
         </PageHero>
@@ -148,7 +148,7 @@ export function CelebratePage() {
           <div className="vs-wrap">
             <div className="vs-chapter reveal"><b>I</b><Label>{tx(P.events.label)}</Label></div>
             <div className="vs-prog">
-              <img src={img('celebrate_events')} alt={tx(c.events.alt)} loading="lazy" className="reveal" />
+              <div className="vs-prog-img reveal"><img src={img('celebrate_events')} alt={tx(c.events.alt)} loading="lazy" {...img.props('celebrate_events')} /></div>
               <div className="vs-prog-copy reveal">
                 <h2 className="vs-h3">{tx(c.events.title)}</h2>
                 <p className="vs-lead">{tx(c.events.desc)}</p>
@@ -167,7 +167,7 @@ export function CelebratePage() {
           <div className="vs-wrap">
             <div className="vs-chapter reveal"><b>II</b><Label>{tx(P.apero.label)}</Label></div>
             <div className="vs-prog">
-              <img src={img('celebrate_apero')} alt={tx(c.apero.alt)} loading="lazy" className="reveal" />
+              <div className="vs-prog-img reveal"><img src={img('celebrate_apero')} alt={tx(c.apero.alt)} loading="lazy" {...img.props('celebrate_apero')} /></div>
               <div className="vs-prog-copy reveal">
                 <h2 className="vs-apero-title">L’Apéro</h2>
                 <p className="vs-lead" style={{ color: '#EDE6DC' }}>{tx(P.apero.title)}</p>
