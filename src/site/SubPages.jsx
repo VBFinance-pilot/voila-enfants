@@ -10,11 +10,11 @@ import { useSiteImages } from './siteImages';
 
 const home = { ja: 'ホーム', en: 'Home', fr: 'Accueil' };
 
-export function PageHero({ img, crumb, eyebrow, lines, sub, children }) {
+export function PageHero({ img, imgProps, crumb, eyebrow, lines, sub, children }) {
   const { tx } = useLang();
   return (
     <section className="vs-page-hero">
-      <img src={img} alt="" fetchPriority="high" />
+      <img src={img} alt="" fetchPriority="high" {...imgProps} />
       <div className="vs-wrap">
         <div className="vs-crumb"><Link to="/">{tx(home)}</Link>{'\u3000›\u3000'}{tx(crumb)}</div>
         <div className="vs-label">{tx(eyebrow)}</div>
@@ -41,7 +41,7 @@ export function LivePage() {
     <Layout>
       <Seo page="live" path="/homestay" />
       <div ref={ref}>
-        <PageHero img={img('homestay_hero')} crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
+        <PageHero img={img('homestay_hero')} imgProps={img.props('homestay_hero')} crumb={H.crumb} eyebrow={H.eyebrow} lines={[H.title1, H.title2]} sub={H.sub}>
           <Link to={topicHref('homestay', '/homestay', 'apply')} className="vs-btn vs-btn-light">{tx(H.ctaBook)}</Link>
           <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-ghost-light">{tx(H.ctaLine)}</a>
         </PageHero>
@@ -72,9 +72,9 @@ export function LivePage() {
             <div className="vs-chapter reveal"><b>I</b><Label>{tx(H.kyoto.label)}</Label></div>
             <div className="vs-split">
               <div className="vs-mosaic reveal" style={{ width: 'min(720px, 52%)' }}>
-                <img src={img('homestay_room')} alt={tx({ ja: '和室', en: 'Tatami room', fr: 'Chambre en tatami' })} loading="lazy" />
-                <img src={img('homestay_meal1')} alt={tx({ ja: 'みんなで料理とおやつの時間', en: 'Cooking and snack time together', fr: 'Cuisine et goûter ensemble' })} loading="lazy" />
-                <img src={img('homestay_meal2')} alt={tx({ ja: '家族で囲む食卓', en: 'Family dinner table', fr: 'Repas en famille' })} loading="lazy" />
+                <div className="vs-frame"><img src={img('homestay_room')} alt={tx({ ja: '和室', en: 'Tatami room', fr: 'Chambre en tatami' })} loading="lazy" {...img.props('homestay_room')} /></div>
+                <div className="vs-frame"><img src={img('homestay_meal1')} alt={tx({ ja: 'みんなで料理とおやつの時間', en: 'Cooking and snack time together', fr: 'Cuisine et goûter ensemble' })} loading="lazy" {...img.props('homestay_meal1')} /></div>
+                <div className="vs-frame"><img src={img('homestay_meal2')} alt={tx({ ja: '家族で囲む食卓', en: 'Family dinner table', fr: 'Repas en famille' })} loading="lazy" {...img.props('homestay_meal2')} /></div>
               </div>
               <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 <h2 className="vs-h3">{tx(H.kyoto.title1)}<br />{tx(H.kyoto.title2)}</h2>
@@ -101,10 +101,11 @@ export function LivePage() {
             </div>
             <div className="vs-places">
               {H.travel.places.map((p) => {
-                const src = img(`travel_${p.name.toLowerCase()}`);
+                const slot = `travel_${p.name.toLowerCase()}`;
+                const src = img(slot);
                 return (
                 <div key={p.name} className="vs-place reveal">
-                  <div className="vs-place-img">{src ? <img src={src} alt={p.name} loading="lazy" /> : <span>{p.name}</span>}</div>
+                  <div className="vs-place-img">{src ? <img src={src} alt={p.name} loading="lazy" {...img.props(slot)} /> : <span>{p.name}</span>}</div>
                   <b>{p.name}</b><small>{tx(p.sub)}</small>
                 </div>
                 );
@@ -117,7 +118,7 @@ export function LivePage() {
           <div className="vs-wrap">
             <div className="vs-chapter reveal"><b>III</b><Label>{tx(H.camp.label)}</Label></div>
             <div className="vs-prog">
-              <img src={img('live_camp')} alt={tx(homeCopy.live.cards[2].alt)} loading="lazy" className="reveal" />
+              <div className="vs-prog-img reveal"><img src={img('live_camp')} alt={tx(homeCopy.live.cards[2].alt)} loading="lazy" {...img.props('live_camp')} /></div>
               <div className="vs-prog-copy reveal">
                 <h2 className="vs-h3">{tx(H.camp.title1)}<br />{tx(H.camp.title2)}</h2>
                 <p className="vs-lead">{tx(H.camp.body)}</p>
@@ -220,7 +221,7 @@ export function FranchisePage() {
     <Layout>
       <Seo page="franchise" path="/franchise" />
       <div ref={ref}>
-        <PageHero img={img('franchise_hero')} crumb={F.crumb} eyebrow={F.eyebrow} lines={[F.title1, F.title2]} sub={F.sub}>
+        <PageHero img={img('franchise_hero')} imgProps={img.props('franchise_hero')} crumb={F.crumb} eyebrow={F.eyebrow} lines={[F.title1, F.title2]} sub={F.sub}>
           <a href="#contact" className="vs-btn vs-btn-light">{tx(F.ctaContact)}</a>
           <a href="#journey" className="vs-btn vs-btn-ghost-light">{tx(F.ctaJourney)}</a>
         </PageHero>
@@ -321,7 +322,7 @@ export function CareersPage() {
     <Layout>
       <Seo page="careers" path="/careers" />
       <div ref={ref}>
-        <PageHero img={img('careers_hero')} crumb={C.crumb} eyebrow={C.eyebrow} lines={[C.title1, C.title2, C.title3]} sub={C.sub}>
+        <PageHero img={img('careers_hero')} imgProps={img.props('careers_hero')} crumb={C.crumb} eyebrow={C.eyebrow} lines={[C.title1, C.title2, C.title3]} sub={C.sub}>
           <a href="#roles" className="vs-btn vs-btn-light">{tx(C.ctaRoles)}</a>
           <a href="#apply" className="vs-btn vs-btn-ghost-light">{tx(C.ctaApply)}</a>
         </PageHero>

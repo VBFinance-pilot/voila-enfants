@@ -15,7 +15,7 @@ function Hero() {
   const img = useSiteImages();
   return (
     <section className="vs-hero" id="top">
-      <img src={img('home_hero')} alt="" fetchPriority="high" />
+      <img src={img('home_hero')} alt="" fetchPriority="high" {...img.props('home_hero')} />
       <div className="vs-wrap vs-hero-inner">
         <div className="vs-hero-copy">
           <h1 className="sr-only">{tx(h.h1seo)}</h1>
@@ -77,7 +77,7 @@ function Universes() {
         <div className="vs-universes">
           {u.items.map((it, i) => (
             <Link key={it.key} to={it.href} className="vs-universe reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-              <img src={img(it.slot)} alt="" loading="lazy" />
+              <img src={img(it.slot)} alt="" loading="lazy" {...img.props(it.slot)} />
               <div className="vs-universe-body">
                 <div className="vs-universe-num">{ROMAN[i]}</div>
                 <h3 className="vs-universe-name" lang="en">
