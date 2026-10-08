@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang, LANGS } from '../contexts/LanguageContext';
-import { nav, common, footer, home, CONTACT, topicHref } from './copy';
+import { nav, common, footer, home, CONTACT, VOILA_CHEF_URL, topicHref } from './copy';
 import { learnPage, homestay } from './copy-pages';
 import './site.css';
 
@@ -122,7 +122,7 @@ function Footer() {
             <h4>{tx(footer.live)}</h4>
             {homestay.subnav.filter((s) => ['#kyoto', '#travel', '#camp'].includes(s.href)).map((s) => <Link key={s.href} to={`/homestay${s.href}`}>{tx(s.l)}</Link>)}
             <Link to="/celebrate#events">{tx(home.celebrate.events.title)}</Link>
-            <Link to="/celebrate#apero">L’Apéro</Link>
+            <a href={VOILA_CHEF_URL} target="_blank" rel="noopener noreferrer">{tx(footer.chef)}</a>
           </div>
           <div className="vs-footer-col">
             <h4>{tx(footer.school)}</h4>

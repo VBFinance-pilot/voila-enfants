@@ -95,7 +95,7 @@ export function LearnPage() {
               <div className="vs-tuition">
                 <Label>{tx(a.tuitionLabel)}</Label>
                 <div className="vs-rows">
-                  {a.tuition.filter((r) => !['Homestay', 'Events · L’Apéro'].includes(r.l.en)).map((r) => (
+                  {a.tuition.filter((r) => !['Homestay', 'Events · Voilà chef'].includes(r.l.en)).map((r) => (
                     <div key={r.l.en} className={r.accent ? 'is-accent' : undefined}><span>{tx(r.l)}</span><strong>{tx(r.v)}</strong></div>
                   ))}
                 </div>
