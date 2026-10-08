@@ -352,7 +352,14 @@ export const celebratePage = {
     ],
   },
   chef: {
-    label: { ja: 'VOILÀ CHEF　·　出張シェフ', en: 'VOILÀ CHEF　·　TWO CHEFS', fr: 'VOILÀ CHEF　·　DEUX CHEFS' },
+    label: { ja: 'VOILÀ CHEF　·　出張シェフ', en: 'VOILÀ CHEF　·　PRIVATE CHEFS', fr: 'VOILÀ CHEF　·　CHEFS PRIVÉS' },
+    lead: { ja: 'もてなしの芸術を、二人のシェフの手で。', en: 'The art of hosting, four hands at the table.', fr: 'L’art de recevoir, à quatre mains.' },
+    items: [
+      { t: { ja: 'フランスのテーブル', en: 'The French Table', fr: 'La Table française' }, d: { ja: 'テリーヌ、家禽、ソース、パティスリー。フランス流のアペリティフ。— Kazu', en: 'Terrines, poultry, sauces, pastry. The French apéritif. — Kazu', fr: 'Terrines, volailles, sauces, pâtisserie. L’apéritif à la française. — Kazu' } },
+      { t: { ja: '日本のテーブル', en: 'The Japanese Table', fr: 'La Table japonaise' }, d: { ja: '旬の魚、京野菜、出汁、発酵。日本流に解釈したアペリティフ。— Yuichiro', en: 'Seasonal fish, Kyoto vegetables, dashi, fermentations. Apéritifs the Japanese way. — Yuichiro', fr: 'Poissons de saison, légumes de Kyoto, dashi, fermentations. L’apéritif revisité. — Yuichiro' } },
+      { t: { ja: '四手のテーブル', en: 'Four Hands', fr: 'À quatre mains' }, d: { ja: '二人のシェフが同じ食卓に。フランスと日本が対話するコース — シグネチャー。', en: 'Both chefs at the same table. A menu where France and Japan converse — our signature.', fr: 'Les deux chefs à la même table. Un menu où la France et le Japon dialoguent — la signature.' } },
+    ],
+    occasions: { ja: 'お誕生日 · ご婚約 · ご結婚式 · 法人 · ご自宅への出張シェフ　—　お見積り', en: 'Birthdays · Engagements · Weddings · Corporate · Chef at home — by quote', fr: 'Anniversaires · Fiançailles · Mariages · Entreprises · Chef à domicile — sur devis' },
   },
   steps: {
     label: { ja: 'HOW IT WORKS', en: 'HOW IT WORKS', fr: 'DÉROULEMENT' },
