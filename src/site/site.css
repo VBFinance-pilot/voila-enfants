@@ -180,7 +180,7 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-duo-body p { font-size: 15px; line-height: 1.85; color: var(--muted); flex: 1; }
 .vs-duo.vs-dark .vs-duo-body p { color: var(--muted-dark); }
 .vs-duo.vs-dark .vs-card-label { color: var(--brass-light); }
-.vs-apero-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 44px; line-height: 1.1; }
+.vs-chef-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 44px; line-height: 1.1; }
 .vs-duo .vs-more { font-size: 14px; font-weight: 700; color: var(--wine); }
 .vs-duo.vs-dark .vs-more { color: var(--champagne); }
 

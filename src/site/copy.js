@@ -12,6 +12,9 @@ export const CONTACT = {
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Voil%C3%A0+les+enfants%2C+10-122+Oeda+Kutsukake-cho%2C+Nishikyo-ku%2C+Kyoto',
 };
 
+// « Voilà chef » (ex-L’Apéro) lives on its own site; every link to it is outbound.
+export const VOILA_CHEF_URL = 'https://voila-chef.vercel.app';
+
 export const common = {
   tagline: { ja: 'ACTIVITY LANGUAGE SCHOOL · KYOTO', en: 'ACTIVITY LANGUAGE SCHOOL · KYOTO', fr: 'ACTIVITY LANGUAGE SCHOOL · KYOTO' },
   addressShort: { ja: '京都市西京区大枝沓掛町', en: 'Oeda Kutsukake-cho, Nishikyo-ku, Kyoto', fr: 'Oeda Kutsukake-cho, Nishikyo-ku, Kyoto' },
@@ -37,7 +40,7 @@ export const nav = {
   main: [
     { href: '/learn', label: { ja: '学ぶ', en: 'Learn', fr: 'Apprendre' }, sub: { ja: 'レッスン', en: 'Lessons', fr: 'Cours' } },
     { href: '/homestay', label: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' }, sub: { ja: 'ホームステイ・キャンプ', en: 'Homestay & camps', fr: 'Homestay & camps' } },
-    { href: '/celebrate', label: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' }, sub: { ja: 'イベント・アペロ', en: 'Events & apéro', fr: 'Événements & apéro' } },
+    { href: '/celebrate', label: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' }, sub: { ja: 'イベント・Voilà chef', en: 'Events & Voilà chef', fr: 'Événements & Voilà chef' } },
     { href: '/#hosts', label: { ja: '私たちについて', en: 'About us', fr: 'À propos' } },
   ],
 };
@@ -99,7 +102,7 @@ export const home = {
         list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
       { key: 'celebrate', href: '/celebrate', slot: 'home_celebrate', name: { ja: 'Voilà Moments', en: 'Voilà Moments', fr: 'Voilà Moments' },
         line: { ja: '誕生日会からフランス式アペリティフまで、オーダーメイドの至福のひとときを。', en: 'From birthday parties to French apéritifs — bespoke moments.', fr: 'De l’anniversaire à l’apéritif à la française — des moments sur mesure.' },
-        list: [{ ja: 'バースデー＆イベント', en: 'Birthdays & events', fr: 'Anniversaires & événements' }, { ja: 'L’Apéro（2人のシェフ）', en: 'L’Apéro (two chefs)', fr: 'L’Apéro (deux chefs)' }] },
+        list: [{ ja: 'バースデー＆イベント', en: 'Birthdays & events', fr: 'Anniversaires & événements' }, { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' }] },
     ],
   },
   moments: {
@@ -238,15 +241,18 @@ export const home = {
         fr: 'Anniversaires, goûters, fêtes de saison — organisés selon vos envies en anglais, français et japonais. Ouvert à tous, pas seulement à nos élèves.',
       },
     },
-    apero: {
+    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. The image
+    // slot keeps its historical name `celebrate_apero` (stored in Supabase).
+    chef: {
       slot: 'celebrate_apero', img: '/img/apero.jpg',
       alt: { ja: 'シェフが用意するシャルキュトリーとチーズ', en: 'Charcuterie and cheese prepared by the chef', fr: 'Charcuterie et fromages préparés par le chef' },
-      label: { ja: 'L’APÉRO · 2人のシェフ', en: 'L’APÉRO · TWO CHEFS', fr: 'L’APÉRO · DEUX CHEFS' },
+      label: { ja: 'VOILÀ CHEF · 出張シェフ', en: 'VOILÀ CHEF · TWO CHEFS', fr: 'VOILÀ CHEF · DEUX CHEFS' },
       desc: {
-        ja: '2人のシェフによる、フランスと日本のフュージョン。ディナー、アペリティフ、保護者や大人の方のための特別な夕べを、ご希望に合わせてオーダーメイドで。',
-        en: 'French-Japanese fusion by our two chefs. Dinners, apéritifs and special evenings for parents and adults — tailored to your wishes.',
-        fr: 'La fusion franco-japonaise de nos deux chefs. Dîners, apéritifs et soirées pour parents et adultes — sur mesure.',
+        ja: 'フランス料理のKazuと日本料理のYuichiro、二人のシェフ。プライベートディナー、アペリティフ、ご自宅への出張シェフ。',
+        en: 'Two chefs — Kazu (French) and Yuichiro (Japanese). Private dinners, apéritifs and chef at home.',
+        fr: 'Deux chefs — Kazu (française) et Yuichiro (japonaise). Dîners privés, apéritifs et chef à domicile.',
       },
+      cta: { ja: 'Voilà chef を見る', en: 'Discover Voilà chef', fr: 'Découvrir Voilà chef' },
     },
     quote: { ja: 'オーダーメイド・お見積り', en: 'Bespoke · request a quote', fr: 'Sur mesure · demander un devis' },
   },
@@ -280,7 +286,7 @@ export const home = {
       { l: { ja: 'オンライン', en: 'Online', fr: 'En ligne' }, v: { ja: '30分 ¥2,000〜', en: 'From ¥2,000 / 30 min', fr: 'Dès ¥2 000 / 30 min' } },
       { l: { ja: '学童・VIP・コーチング', en: 'After-school · VIP · Coaching', fr: 'Garderie · VIP · coaching' }, v: { ja: '1時間 ¥4,000〜', en: 'From ¥4,000 / hour', fr: 'Dès ¥4 000 / heure' } },
       { l: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' }, v: { ja: '1泊 ¥15,000〜', en: 'From ¥15,000 / night', fr: 'Dès ¥15 000 / nuit' } },
-      { l: { ja: 'イベント・L’Apéro', en: 'Events · L’Apéro', fr: 'Événements · L’Apéro' }, v: { ja: 'オーダーメイド', en: 'Bespoke', fr: 'Sur mesure' } },
+      { l: { ja: 'イベント・Voilà chef', en: 'Events · Voilà chef', fr: 'Événements · Voilà chef' }, v: { ja: 'オーダーメイド', en: 'Bespoke', fr: 'Sur mesure' } },
       { l: { ja: '無料体験・教材費', en: 'Free trial · materials', fr: 'Essai gratuit · matériel' }, v: { ja: '無料', en: 'Free', fr: 'Gratuit' }, accent: true },
       { l: { ja: '振替レッスン', en: 'Make-up lessons', fr: 'Rattrapages' }, v: { ja: '無制限', en: 'Unlimited', fr: 'Illimités' }, accent: true },
     ],
@@ -376,10 +382,12 @@ export const footer = {
   legal: { ja: '特定商取引法に基づく表記', en: 'Legal notice', fr: 'Mentions légales' },
   homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
   events: { ja: 'イベント', en: 'Events', fr: 'Événements' },
+  chef: { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' },
 };
 
 // Topic shown on the contact form when a visitor arrives from a specific card
-// (e.g. /?topic=celebrate_apero#contact → « Au sujet de : L’Apéro »).
+// (e.g. /?topic=celebrate_apero#contact → « Au sujet de : Voilà chef »).
+// `celebrate_apero` keeps its historical key: it is what old shared links carry.
 export const TOPICS = {
   trial: { ja: '無料体験レッスン', en: 'Free trial lesson', fr: 'Cours d’essai gratuit' },
   visit: { ja: 'スクール見学', en: 'School visit', fr: 'Visite de l’école' },
@@ -387,7 +395,7 @@ export const TOPICS = {
   ...Object.fromEntries(home.learn.also.map((a, i) => [`also_${i}`, a])),
   ...Object.fromEntries(home.live.cards.map((c) => [c.slot, c.title])),
   celebrate_events: home.celebrate.events.title,
-  celebrate_apero: { ja: 'L’Apéro（2人のシェフ）', en: 'L’Apéro (two chefs)', fr: 'L’Apéro (deux chefs)' },
+  celebrate_apero: { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' },
   homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
   franchise: { ja: 'フランチャイズ', en: 'Franchise', fr: 'Franchise' },
   careers: { ja: '採用応募', en: 'Job application', fr: 'Candidature' },

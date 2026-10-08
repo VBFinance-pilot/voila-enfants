@@ -38,8 +38,8 @@
         "description": "日仏ファミリーの家で暮らす京都のホームステイ、フランス・バリなどへの旅するホームステイ、夏・冬のEnglish Camp。"
       },
       "celebrate": {
-        "title": "誕生日会・イベント・L’Apéro｜Voilà les enfants",
-        "description": "英語・フランス語・日本語で楽しむオーダーメイドの誕生日会やイベント。2人のシェフによる日仏フュージョンのL’Apéro。"
+        "title": "誕生日会・イベント・Voilà chef｜Voilà les enfants",
+        "description": "英語・フランス語・日本語で楽しむオーダーメイドの誕生日会やイベント。二人のシェフによる出張シェフ・プライベートディナー「Voilà chef」。"
       }
     },
     "nav": {
@@ -240,8 +240,8 @@
         "description": "Stay with our French-Japanese family in Kyoto, travel with us to France, Bali and more, or join our summer and winter English Camps."
       },
       "celebrate": {
-        "title": "Birthdays, events & L’Apéro｜Voilà les enfants",
-        "description": "Bespoke birthday parties and events in English, French and Japanese — and L’Apéro, French-Japanese fusion by our two chefs."
+        "title": "Birthdays, events & Voilà chef｜Voilà les enfants",
+        "description": "Bespoke birthday parties and events in English, French and Japanese — and Voilà chef, private dinners and chef at home by our two chefs."
       }
     },
     "nav": {
@@ -442,8 +442,8 @@
         "description": "Séjournez chez notre famille franco-japonaise à Kyoto, voyagez avec nous en France, à Bali…, ou rejoignez nos English Camps d’été et d’hiver."
       },
       "celebrate": {
-        "title": "Anniversaires, événements & L’Apéro｜Voilà les enfants",
-        "description": "Anniversaires et événements sur mesure en anglais, français et japonais — et L’Apéro, la fusion franco-japonaise de nos deux chefs."
+        "title": "Anniversaires, événements & Voilà chef｜Voilà les enfants",
+        "description": "Anniversaires et événements sur mesure en anglais, français et japonais — et Voilà chef, dîners privés et chef à domicile par nos deux chefs."
       }
     }
   }

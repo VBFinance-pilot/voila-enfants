@@ -148,7 +148,7 @@ export const franchise = {
     body: { ja: 'Voilà はアクティビティスクールであり、家族であり、体験の場です。京都で育ててきたこのモデルを、あなたの言語と街に合わせて届けます。', en: 'Voilà is an activity school, a family and a place of experiences. We bring the model we grew in Kyoto to your language and your city.', fr: 'Voilà est une activity school, une famille et un lieu d’expériences. Nous adaptons le modèle né à Kyoto à votre langue et à votre ville.' },
     items: [
       { t: { ja: '体験で学ぶメソッド', en: 'A learn-by-doing method', fr: 'Une méthode par l’expérience' }, d: { ja: '料理、絵、カード、遊び。毎日使えることばを、体験を通して身につける独自の教え方。', en: 'Cooking, painting, cards, play. Our own way of teaching everyday language through experience.', fr: 'Cuisine, peinture, cartes, jeux. Notre façon d’enseigner la langue du quotidien par l’expérience.' } },
-      { t: { ja: '多彩な事業の柱', en: 'Multiple revenue streams', fr: 'Plusieurs sources de revenus' }, d: { ja: 'レッスンに加え、ホームステイ、キャンプ、イベント、L’Apéro。ひとつの拠点から複数の収益を。', en: 'Lessons plus homestays, camps, events and L’Apéro — several revenue streams from one location.', fr: 'Cours, homestays, camps, événements et L’Apéro — plusieurs revenus depuis un seul lieu.' } },
+      { t: { ja: '多彩な事業の柱', en: 'Multiple revenue streams', fr: 'Plusieurs sources de revenus' }, d: { ja: 'レッスンに加え、ホームステイ、キャンプ、イベント、Voilà chef。ひとつの拠点から複数の収益を。', en: 'Lessons plus homestays, camps, events and Voilà chef — several revenue streams from one location.', fr: 'Cours, homestays, camps, événements et Voilà chef — plusieurs revenus depuis un seul lieu.' } },
       { t: { ja: 'ブランドと集客の仕組み', en: 'Brand & client acquisition', fr: 'Marque & acquisition clients' }, d: { ja: 'ウェブサイト、LINE、Googleでの集客ノウハウと、統一されたブランドをご提供します。', en: 'A unified brand, plus our know-how for attracting families via website, LINE and Google.', fr: 'Une marque unifiée et notre savoir-faire pour attirer les familles via le site, LINE et Google.' } },
       { t: { ja: '国際的なネットワーク', en: 'An international network', fr: 'Un réseau international' }, d: { ja: '各地の Voilà がつながり、生徒の交流やホームステイ、共同イベントが生まれます。', en: 'Voilà schools connect with each other — student exchanges, homestays and joint events.', fr: 'Les écoles Voilà sont reliées entre elles — échanges d’élèves, homestays, événements communs.' } },
     ],
@@ -163,7 +163,7 @@ export const franchise = {
       { t: { ja: 'メソッドと教材', en: 'Method & materials', fr: 'Méthode & supports' }, d: { ja: '年齢別アクティビティ、カード、レッスン設計', en: 'Activities by age, cards, lesson design', fr: 'Activités par âge, cartes, conception des cours' } },
       { t: { ja: '京都でのイマージョン研修', en: 'Immersion training in Kyoto', fr: 'Formation en immersion à Kyoto' }, d: { ja: '私たちの教室と家で、実際の運営を体験', en: 'Experience real operations in our school and home', fr: 'Vivre le fonctionnement réel de notre école et de notre maison' } },
       { t: { ja: '集客とデジタル', en: 'Marketing & digital', fr: 'Marketing & digital' }, d: { ja: 'ウェブサイト、LINE、Googleビジネスの立ち上げ', en: 'Website, LINE and Google Business setup', fr: 'Mise en place du site, de LINE et de Google Business' } },
-      { t: { ja: 'イベント・キャンプのノウハウ', en: 'Events & camps know-how', fr: 'Savoir-faire événements & camps' }, d: { ja: 'ホームステイ、キャンプ、L’Apéro の企画', en: 'Planning homestays, camps and L’Apéro', fr: 'Organisation des homestays, camps et L’Apéro' } },
+      { t: { ja: 'イベント・キャンプのノウハウ', en: 'Events & camps know-how', fr: 'Savoir-faire événements & camps' }, d: { ja: 'ホームステイ、キャンプ、Voilà chef の企画', en: 'Planning homestays, camps and Voilà chef', fr: 'Organisation des homestays, camps et Voilà chef' } },
       { t: { ja: '継続的なサポート', en: 'Ongoing support', fr: 'Accompagnement continu' }, d: { ja: '定期的な面談、ネットワーク内での共有', en: 'Regular check-ins, sharing across the network', fr: 'Points réguliers, partage au sein du réseau' } },
     ],
   },
@@ -246,7 +246,7 @@ export const careers = {
     items: [
       { t: { ja: '英語講師', en: 'English Teacher', fr: 'Professeur d’anglais' }, d: { ja: '赤ちゃんから大人まで。体験型のアクティビティで、生きた英語を伝えます。', en: 'From babies to adults. Bring living English through hands-on activities.', fr: 'Des bébés aux adultes. Transmettre un anglais vivant par des activités concrètes.' }, c: { ja: '業務委託・パート（応相談）', en: 'Freelance or part-time (flexible)', fr: 'Indépendant ou temps partiel (à discuter)' } },
       { t: { ja: 'フランス語講師', en: 'French Teacher', fr: 'Professeur de français' }, d: { ja: '子ども・学生・大人に、フランス語とフランスの文化を。', en: 'French language and culture for children, students and adults.', fr: 'La langue et la culture françaises pour enfants, étudiants et adultes.' }, c: { ja: '業務委託・パート（応相談）', en: 'Freelance or part-time (flexible)', fr: 'Indépendant ou temps partiel (à discuter)' } },
-      { t: { ja: 'キャンプ・イベントスタッフ', en: 'Camp & Event Staff', fr: 'Équipe camps & événements' }, d: { ja: 'Summer / Winter Camp、誕生日会、L’Apéro の運営をサポート。', en: 'Support Summer / Winter Camps, birthday parties and L’Apéro.', fr: 'Renfort pour les camps d’été et d’hiver, les anniversaires et L’Apéro.' }, c: { ja: 'アルバイト（時給制）', en: 'Part-time (hourly)', fr: 'Temps partiel (à l’heure)' } },
+      { t: { ja: 'キャンプ・イベントスタッフ', en: 'Camp & Event Staff', fr: 'Équipe camps & événements' }, d: { ja: 'Summer / Winter Camp、誕生日会、Voilà chef の運営をサポート。', en: 'Support Summer / Winter Camps, birthday parties and Voilà chef.', fr: 'Renfort pour les camps d’été et d’hiver, les anniversaires et Voilà chef.' }, c: { ja: 'アルバイト（時給制）', en: 'Part-time (hourly)', fr: 'Temps partiel (à l’heure)' } },
       { t: { ja: '自由応募', en: 'Open application', fr: 'Candidature spontanée' }, d: { ja: 'ほかの言語、料理、アートなど。あなたのスキルを教えてください。', en: 'Other languages, cooking, art… Tell us about your skills.', fr: 'Autres langues, cuisine, art… Parlez-nous de vos talents.' }, c: { ja: '—', en: '—', fr: '—' } },
     ],
   },
@@ -341,7 +341,7 @@ export const learnPage = {
 /* ───────────── Celebrate (/celebrate) ───────────── */
 export const celebratePage = {
   crumb: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
-  eyebrow: { ja: 'CELEBRATE　·　EVENTS & L’APÉRO', en: 'CELEBRATE　·　EVENTS & L’APÉRO', fr: 'CÉLÉBRER　·　ÉVÉNEMENTS & L’APÉRO' },
+  eyebrow: { ja: 'CELEBRATE　·　EVENTS & VOILÀ CHEF', en: 'CELEBRATE　·　EVENTS & VOILÀ CHEF', fr: 'CÉLÉBRER　·　ÉVÉNEMENTS & VOILÀ CHEF' },
   ctaQuote: { ja: 'お見積りを依頼する', en: 'Request a quote', fr: 'Demander un devis' },
   events: {
     label: { ja: 'EVENTS　·　オーダーメイド', en: 'EVENTS　·　BESPOKE', fr: 'ÉVÉNEMENTS　·　SUR MESURE' },
@@ -351,14 +351,8 @@ export const celebratePage = {
       { t: { ja: '季節のイベント', en: 'Seasonal events', fr: 'Fêtes de saison' }, d: { ja: 'ハロウィン、クリスマスなど、世界の行事を体験。', en: 'Halloween, Christmas and celebrations from around the world.', fr: 'Halloween, Noël et fêtes du monde entier.' } },
     ],
   },
-  apero: {
-    label: { ja: 'L’APÉRO　·　2人のシェフ', en: 'L’APÉRO　·　TWO CHEFS', fr: 'L’APÉRO　·　DEUX CHEFS' },
-    title: { ja: '大人のための、日仏の夕べ。', en: 'French-Japanese evenings for grown-ups.', fr: 'Des soirées franco-japonaises pour les grands.' },
-    items: [
-      { t: { ja: 'ディナー', en: 'Dinners', fr: 'Dîners' }, d: { ja: '日仏フュージョンのコース。', en: 'A French-Japanese fusion menu.', fr: 'Un menu de fusion franco-japonaise.' } },
-      { t: { ja: 'アペリティフ', en: 'Apéritifs', fr: 'Apéritifs' }, d: { ja: 'シャルキュトリー、チーズ、ひと皿料理。', en: 'Charcuterie, cheese and small plates.', fr: 'Charcuterie, fromages et petites assiettes.' } },
-      { t: { ja: '保護者・大人の夕べ', en: 'Evenings for parents & adults', fr: 'Soirées parents & adultes' }, d: { ja: 'ご希望に合わせて、特別なひとときを。', en: 'A special evening, tailored to your wishes.', fr: 'Une soirée spéciale, selon vos envies.' } },
-    ],
+  chef: {
+    label: { ja: 'VOILÀ CHEF　·　出張シェフ', en: 'VOILÀ CHEF　·　TWO CHEFS', fr: 'VOILÀ CHEF　·　DEUX CHEFS' },
   },
   steps: {
     label: { ja: 'HOW IT WORKS', en: 'HOW IT WORKS', fr: 'DÉROULEMENT' },
@@ -381,7 +375,7 @@ export const celebratePage = {
       kinds: [
         { ja: '誕生日会', en: 'Birthday party', fr: 'Anniversaire' },
         { ja: 'イベント・パーティー', en: 'Event / party', fr: 'Événement / fête' },
-        { ja: 'L’Apéro', en: 'L’Apéro', fr: 'L’Apéro' },
+        { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' },
         { ja: 'その他', en: 'Other', fr: 'Autre' },
       ],
       date: { ja: 'ご希望日', en: 'Preferred date', fr: 'Date souhaitée' },
