@@ -12,6 +12,9 @@ export const CONTACT = {
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Voil%C3%A0+les+enfants%2C+10-122+Oeda+Kutsukake-cho%2C+Nishikyo-ku%2C+Kyoto',
 };
 
+// « Voilà chef » (ex-L’Apéro) lives on its own site; every link to it is outbound.
+export const VOILA_CHEF_URL = 'https://voila-chef.vercel.app';
+
 export const common = {
   tagline: { ja: 'ACTIVITY LANGUAGE SCHOOL · KYOTO', en: 'ACTIVITY LANGUAGE SCHOOL · KYOTO', fr: 'ACTIVITY LANGUAGE SCHOOL · KYOTO' },
   addressShort: { ja: '京都市西京区大枝沓掛町', en: 'Oeda Kutsukake-cho, Nishikyo-ku, Kyoto', fr: 'Oeda Kutsukake-cho, Nishikyo-ku, Kyoto' },
