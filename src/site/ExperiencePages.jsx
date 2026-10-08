@@ -3,7 +3,7 @@ import { useLang } from '../contexts/LanguageContext';
 import { useReveal } from '../components/useReveal';
 import Seo from '../components/Seo';
 import Layout from './Layout';
-import { home, common, CONTACT, topicHref } from './copy';
+import { home, common, CONTACT, VOILA_CHEF_URL, topicHref } from './copy';
 import { learnPage as L, celebratePage as P } from './copy-pages';
 import { ContactForm } from './widgets';
 import { useSiteImages } from './siteImages';
@@ -163,19 +163,16 @@ export function CelebratePage() {
           </div>
         </section>
 
-        <section id="apero" className="vs-dark vs-live">
+        {/* Voilà chef is a separate site: short card + outbound link, no internal page. */}
+        <section id="voila-chef" className="vs-dark vs-live">
           <div className="vs-wrap">
-            <div className="vs-chapter reveal"><b>II</b><Label>{tx(P.apero.label)}</Label></div>
+            <div className="vs-chapter reveal"><b>II</b><Label>{tx(P.chef.label)}</Label></div>
             <div className="vs-prog">
-              <div className="vs-prog-img reveal"><img src={img('celebrate_apero')} alt={tx(c.apero.alt)} loading="lazy" {...img.props('celebrate_apero')} /></div>
+              <div className="vs-prog-img reveal"><img src={img(c.chef.slot)} alt={tx(c.chef.alt)} loading="lazy" {...img.props(c.chef.slot)} /></div>
               <div className="vs-prog-copy reveal">
-                <h2 className="vs-apero-title">L’Apéro</h2>
-                <p className="vs-lead" style={{ color: '#EDE6DC' }}>{tx(P.apero.title)}</p>
-                <p className="vs-lead">{tx(c.apero.desc)}</p>
-                <div className="vs-cols" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
-                  {P.apero.items.map((it) => <div key={it.t.en}><strong style={{ fontFamily: 'var(--sans)', fontSize: 17 }}>{tx(it.t)}</strong><p>{tx(it.d)}</p></div>)}
-                </div>
-                <Link to={topicHref('celebrate_apero', '/celebrate', 'apply')} className="vs-btn vs-btn-light" style={{ alignSelf: 'flex-start' }}>{tx(c.quote)}</Link>
+                <h2 className="vs-chef-title">Voilà chef</h2>
+                <p className="vs-lead">{tx(c.chef.desc)}</p>
+                <a href={VOILA_CHEF_URL} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-light" style={{ alignSelf: 'flex-start' }}>{tx(c.chef.cta)}</a>
               </div>
             </div>
           </div>

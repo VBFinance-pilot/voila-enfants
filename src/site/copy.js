@@ -241,15 +241,18 @@ export const home = {
         fr: 'Anniversaires, goûters, fêtes de saison — organisés selon vos envies en anglais, français et japonais. Ouvert à tous, pas seulement à nos élèves.',
       },
     },
-    apero: {
+    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. The image
+    // slot keeps its historical name `celebrate_apero` (stored in Supabase).
+    chef: {
       slot: 'celebrate_apero', img: '/img/apero.jpg',
       alt: { ja: 'シェフが用意するシャルキュトリーとチーズ', en: 'Charcuterie and cheese prepared by the chef', fr: 'Charcuterie et fromages préparés par le chef' },
-      label: { ja: 'L’APÉRO · 2人のシェフ', en: 'L’APÉRO · TWO CHEFS', fr: 'L’APÉRO · DEUX CHEFS' },
+      label: { ja: 'VOILÀ CHEF · 出張シェフ', en: 'VOILÀ CHEF · TWO CHEFS', fr: 'VOILÀ CHEF · DEUX CHEFS' },
       desc: {
-        ja: '2人のシェフによる、フランスと日本のフュージョン。ディナー、アペリティフ、保護者や大人の方のための特別な夕べを、ご希望に合わせてオーダーメイドで。',
-        en: 'French-Japanese fusion by our two chefs. Dinners, apéritifs and special evenings for parents and adults — tailored to your wishes.',
-        fr: 'La fusion franco-japonaise de nos deux chefs. Dîners, apéritifs et soirées pour parents et adultes — sur mesure.',
+        ja: 'フランス料理のKazuと日本料理のYuichiro、二人のシェフ。プライベートディナー、アペリティフ、ご自宅への出張シェフ。',
+        en: 'Two chefs — Kazu (French) and Yuichiro (Japanese). Private dinners, apéritifs and chef at home.',
+        fr: 'Deux chefs — Kazu (française) et Yuichiro (japonaise). Dîners privés, apéritifs et chef à domicile.',
       },
+      cta: { ja: 'Voilà chef を見る', en: 'Discover Voilà chef', fr: 'Découvrir Voilà chef' },
     },
     quote: { ja: 'オーダーメイド・お見積り', en: 'Bespoke · request a quote', fr: 'Sur mesure · demander un devis' },
   },

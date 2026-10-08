@@ -341,7 +341,7 @@ export const learnPage = {
 /* ───────────── Celebrate (/celebrate) ───────────── */
 export const celebratePage = {
   crumb: { ja: '集う', en: 'Celebrate', fr: 'Célébrer' },
-  eyebrow: { ja: 'CELEBRATE　·　EVENTS & L’APÉRO', en: 'CELEBRATE　·　EVENTS & L’APÉRO', fr: 'CÉLÉBRER　·　ÉVÉNEMENTS & L’APÉRO' },
+  eyebrow: { ja: 'CELEBRATE　·　EVENTS & VOILÀ CHEF', en: 'CELEBRATE　·　EVENTS & VOILÀ CHEF', fr: 'CÉLÉBRER　·　ÉVÉNEMENTS & VOILÀ CHEF' },
   ctaQuote: { ja: 'お見積りを依頼する', en: 'Request a quote', fr: 'Demander un devis' },
   events: {
     label: { ja: 'EVENTS　·　オーダーメイド', en: 'EVENTS　·　BESPOKE', fr: 'ÉVÉNEMENTS　·　SUR MESURE' },
@@ -351,14 +351,8 @@ export const celebratePage = {
       { t: { ja: '季節のイベント', en: 'Seasonal events', fr: 'Fêtes de saison' }, d: { ja: 'ハロウィン、クリスマスなど、世界の行事を体験。', en: 'Halloween, Christmas and celebrations from around the world.', fr: 'Halloween, Noël et fêtes du monde entier.' } },
     ],
   },
-  apero: {
-    label: { ja: 'L’APÉRO　·　2人のシェフ', en: 'L’APÉRO　·　TWO CHEFS', fr: 'L’APÉRO　·　DEUX CHEFS' },
-    title: { ja: '大人のための、日仏の夕べ。', en: 'French-Japanese evenings for grown-ups.', fr: 'Des soirées franco-japonaises pour les grands.' },
-    items: [
-      { t: { ja: 'ディナー', en: 'Dinners', fr: 'Dîners' }, d: { ja: '日仏フュージョンのコース。', en: 'A French-Japanese fusion menu.', fr: 'Un menu de fusion franco-japonaise.' } },
-      { t: { ja: 'アペリティフ', en: 'Apéritifs', fr: 'Apéritifs' }, d: { ja: 'シャルキュトリー、チーズ、ひと皿料理。', en: 'Charcuterie, cheese and small plates.', fr: 'Charcuterie, fromages et petites assiettes.' } },
-      { t: { ja: '保護者・大人の夕べ', en: 'Evenings for parents & adults', fr: 'Soirées parents & adultes' }, d: { ja: 'ご希望に合わせて、特別なひとときを。', en: 'A special evening, tailored to your wishes.', fr: 'Une soirée spéciale, selon vos envies.' } },
-    ],
+  chef: {
+    label: { ja: 'VOILÀ CHEF　·　出張シェフ', en: 'VOILÀ CHEF　·　TWO CHEFS', fr: 'VOILÀ CHEF　·　DEUX CHEFS' },
   },
   steps: {
     label: { ja: 'HOW IT WORKS', en: 'HOW IT WORKS', fr: 'DÉROULEMENT' },
@@ -381,7 +375,7 @@ export const celebratePage = {
       kinds: [
         { ja: '誕生日会', en: 'Birthday party', fr: 'Anniversaire' },
         { ja: 'イベント・パーティー', en: 'Event / party', fr: 'Événement / fête' },
-        { ja: 'L’Apéro', en: 'L’Apéro', fr: 'L’Apéro' },
+        { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' },
         { ja: 'その他', en: 'Other', fr: 'Autre' },
       ],
       date: { ja: 'ご希望日', en: 'Preferred date', fr: 'Date souhaitée' },
