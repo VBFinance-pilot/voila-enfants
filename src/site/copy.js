@@ -241,11 +241,11 @@ export const home = {
         fr: 'Anniversaires, goûters, fêtes de saison — organisés selon vos envies en anglais, français et japonais. Ouvert à tous, pas seulement à nos élèves.',
       },
     },
-    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. The image
-    // slot keeps its historical name `celebrate_apero` (stored in Supabase).
+    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. Image slot
+    // `celebrate_chef` (the old `celebrate_apero` slot still exists in Supabase, unused).
     chef: {
-      slot: 'celebrate_apero', img: '/img/apero.jpg',
-      alt: { ja: 'シェフが用意するシャルキュトリーとチーズ', en: 'Charcuterie and cheese prepared by the chef', fr: 'Charcuterie et fromages préparés par le chef' },
+      slot: 'celebrate_chef', img: '/img/voila-chef.jpg',
+      alt: { ja: '京都の町家に整えられた食卓', en: 'A table set in a Kyoto townhouse', fr: 'Table dressée dans une maison de Kyoto' },
       label: { ja: 'VOILÀ CHEF · 出張シェフ', en: 'VOILÀ CHEF · TWO CHEFS', fr: 'VOILÀ CHEF · DEUX CHEFS' },
       desc: {
         ja: 'フランス料理のKazuと日本料理のYuichiro、二人のシェフ。プライベートディナー、アペリティフ、ご自宅への出張シェフ。',
