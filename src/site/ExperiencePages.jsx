@@ -131,7 +131,7 @@ export function LearnPage() {
 
 /* ───────────── Celebrate ───────────── */
 export function CelebratePage() {
-  const { tx } = useLang();
+  const { tx, lang } = useLang();
   const ref = useReveal();
   const img = useSiteImages();
   const c = home.celebrate;
@@ -171,8 +171,16 @@ export function CelebratePage() {
               <div className="vs-prog-img reveal"><img src={img(c.chef.slot)} alt={tx(c.chef.alt)} loading="lazy" {...img.props(c.chef.slot)} /></div>
               <div className="vs-prog-copy reveal">
                 <h2 className="vs-chef-title">Voilà chef</h2>
+                <p className="vs-lead" style={{ color: '#EDE6DC' }}>{tx(P.chef.lead)}</p>
                 <p className="vs-lead">{tx(c.chef.desc)}</p>
-                <a href={VOILA_CHEF_URL} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-light" style={{ alignSelf: 'flex-start' }}>{tx(c.chef.cta)}</a>
+                <div className="vs-cols" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+                  {P.chef.items.map((it, i) => <div key={it.t.en}><b>{['I', 'II', 'III'][i]}</b><strong style={{ fontFamily: 'var(--sans)', fontSize: 17 }}>{tx(it.t)}</strong><p>{tx(it.d)}</p></div>)}
+                </div>
+                <p className="vs-chef-occasions">{tx(P.chef.occasions)}</p>
+                <div className="vs-chef-actions">
+                  <a href={VOILA_CHEF_URL} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-light">{tx(c.chef.cta)}</a>
+                  <a href={`${VOILA_CHEF_URL}/${lang === 'fr' ? 'fr/demande' : `${lang}/request`}`} target="_blank" rel="noopener noreferrer" className="vs-more">{tx(c.chef.enquire)}</a>
+                </div>
               </div>
             </div>
           </div>

@@ -25,7 +25,10 @@ export const IMAGE_SLOTS = [
   { name: 'live_camp', label: 'Page Homestay — chapitre III « English Camp »', fallback: '/img/bbq.jpg', aspect: '4 / 3' },
   { name: 'celebrate_hero', label: 'Page Célébrer (Voilà Moments) — grande photo', fallback: '/img/party.jpg', aspect: '16 / 7' },
   { name: 'celebrate_events', label: 'Page Célébrer — « Anniversaires & événements »', fallback: '/img/crowns.jpg', aspect: '4 / 3' },
-  { name: 'celebrate_apero', label: 'Page Célébrer — « Voilà chef »', fallback: '/img/apero.jpg', aspect: '4 / 3' },
+  // `celebrate_apero` is no longer displayed (kept: rows exist in Supabase); the Voilà chef
+  // chapter now reads `celebrate_chef`.
+  { name: 'celebrate_apero', label: 'Page Célébrer — ancienne photo « L’Apéro » (non affichée)', fallback: '/img/apero.jpg', aspect: '4 / 3' },
+  { name: 'celebrate_chef', label: 'Page Célébrer — « Voilà chef »', fallback: '/img/voila-chef.jpg', aspect: '4 / 3' },
   { name: 'franchise_hero', label: 'Page Franchise — grande photo', fallback: '/img/ronde.jpg', aspect: '16 / 7' },
   { name: 'careers_hero', label: 'Page Recrutement — grande photo', fallback: '/img/hero.jpg', aspect: '16 / 7' },
 ];

@@ -241,18 +241,20 @@ export const home = {
         fr: 'Anniversaires, goûters, fêtes de saison — organisés selon vos envies en anglais, français et japonais. Ouvert à tous, pas seulement à nos élèves.',
       },
     },
-    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. The image
-    // slot keeps its historical name `celebrate_apero` (stored in Supabase).
+    // Voilà chef (ex-L’Apéro): a separate site, see VOILA_CHEF_URL. Image slot
+    // `celebrate_chef` (the old `celebrate_apero` slot still exists in Supabase, unused).
     chef: {
-      slot: 'celebrate_apero', img: '/img/apero.jpg',
-      alt: { ja: 'シェフが用意するシャルキュトリーとチーズ', en: 'Charcuterie and cheese prepared by the chef', fr: 'Charcuterie et fromages préparés par le chef' },
-      label: { ja: 'VOILÀ CHEF · 出張シェフ', en: 'VOILÀ CHEF · TWO CHEFS', fr: 'VOILÀ CHEF · DEUX CHEFS' },
+      slot: 'celebrate_chef', img: '/img/voila-chef.jpg',
+      alt: { ja: '京都の町家に整えられた食卓', en: 'A table set in a Kyoto townhouse', fr: 'Table dressée dans une maison de Kyoto' },
+      label: { ja: 'VOILÀ CHEF · 出張シェフ', en: 'VOILÀ CHEF · PRIVATE CHEFS', fr: 'VOILÀ CHEF · CHEFS PRIVÉS' },
       desc: {
-        ja: 'フランス料理のKazuと日本料理のYuichiro、二人のシェフ。プライベートディナー、アペリティフ、ご自宅への出張シェフ。',
-        en: 'Two chefs — Kazu (French) and Yuichiro (Japanese). Private dinners, apéritifs and chef at home.',
-        fr: 'Deux chefs — Kazu (française) et Yuichiro (japonaise). Dîners privés, apéritifs et chef à domicile.',
+        ja: 'フランス料理のKazuと日本料理のYuichiro。プライベートディナー、アペリティフ、ご自宅への出張シェフ。ご自宅でも、お好みの会場でも、京都から日本全国、バリ、フランスへ。',
+        en: 'Kazu for French cuisine, Yuichiro for Japanese. Private dinners, apéritifs and a chef at home — at your place or the venue of your choice, from Kyoto to all of Japan, Bali and France.',
+        fr: 'Kazu pour la cuisine française, Yuichiro pour la japonaise. Dîners privés, apéritifs et chef à domicile — chez vous ou dans le lieu de votre choix, de Kyoto à tout le Japon, Bali et la France.',
       },
       cta: { ja: 'Voilà chef を見る', en: 'Discover Voilà chef', fr: 'Découvrir Voilà chef' },
+      // Outbound too: the request form on the Voilà chef site (/{lang}/request, /fr/demande).
+      enquire: { ja: 'お問い合わせ →', en: 'Enquire →', fr: 'Faire une demande →' },
     },
     quote: { ja: 'オーダーメイド・お見積り', en: 'Bespoke · request a quote', fr: 'Sur mesure · demander un devis' },
   },
