@@ -26,6 +26,50 @@ function Steps({ label, title, items, dark }) {
   );
 }
 
+/* Voilà HOME WORK — teen space. The photo comes from the `learn_homework` admin slot;
+   until one is uploaded, the 🌿 tile stands in. */
+function HomeWork() {
+  const { tx } = useLang();
+  const img = useSiteImages();
+  const h = L.homework;
+  const photo = img('learn_homework');
+  return (
+    <section id="homework" className="vs-block vs-hw">
+      <div className="vs-wrap">
+        <div className="vs-prog">
+          <div className="vs-prog-img reveal">
+            {photo
+              ? <img src={photo} alt={tx(h.alt)} loading="lazy" {...img.props('learn_homework')} />
+              : <div className="vs-hw-tile" role="img" aria-label={tx(h.alt)}>🌿</div>}
+          </div>
+          <div className="vs-prog-copy reveal">
+            <Label>{tx(h.label)}</Label>
+            <h2 className="vs-h3" lang="en">Voilà HOME WORK</h2>
+            <p className="vs-hw-sub">{tx(h.subtitle)}</p>
+            <p className="vs-hw-hook">{tx(h.hook)}</p>
+            <p className="vs-lead">{tx(h.audience)}</p>
+            <ul className="vs-hw-list">
+              {h.activities.map((a) => <li key={a.t.en}><span aria-hidden="true">{a.icon}</span>{tx(a.t)}</li>)}
+            </ul>
+            <p className="vs-lead">{tx(h.together)}</p>
+            <p className="vs-hw-key">{tx(h.key)}</p>
+          </div>
+        </div>
+        <div className="vs-hw-open reveal">
+          <Label>{tx(h.openLabel)}</Label>
+          <p className="vs-lead">{tx(h.open)}</p>
+          <p className="vs-hw-cta">{tx(h.cta)}</p>
+          <div className="vs-hw-actions">
+            <a href={CONTACT.line} target="_blank" rel="noopener noreferrer" className="vs-btn vs-btn-line">{tx(h.line)}</a>
+            <Link to={topicHref('homework', '/learn', 'apply')} className="vs-more">{tx(h.form)} ›</Link>
+          </div>
+          <p className="vs-hw-motto"><span lang="en">Voilà HOME WORK</span> — {tx(h.motto)}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ───────────── Learn ───────────── */
 export function LearnPage() {
   const { tx } = useLang();
@@ -74,6 +118,8 @@ export function LearnPage() {
             </div>
           </div>
         </section>
+
+        <HomeWork />
 
         <section id="tuition" className="vs-block">
           <div className="vs-wrap">
