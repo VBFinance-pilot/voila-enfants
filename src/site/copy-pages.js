@@ -284,6 +284,7 @@ export const learnPage = {
   subnav: [
     { href: '#kids', l: { ja: 'キッズ', en: 'Kids', fr: 'Enfants' } },
     { href: '#secondary', l: { ja: '中高生・大学生', en: 'Secondary & University', fr: 'Collège – université' } },
+    { href: '#homework', l: { ja: 'HOME WORK', en: 'HOME WORK', fr: 'HOME WORK' } },
     { href: '#online', l: { ja: 'オンライン', en: 'Online', fr: 'En ligne' } },
     { href: '#adults', l: { ja: '大人', en: 'Adults', fr: 'Adultes' } },
     { href: '#tuition', l: { ja: '料金・入会', en: 'Tuition & joining', fr: 'Tarifs & inscription' } },
@@ -321,6 +322,44 @@ export const learnPage = {
         { ja: '英語・フランス語', en: 'English or French', fr: 'Anglais ou français' },
       ],
     },
+  },
+  // Voilà HOME WORK — a space for secondary-school students (中学生・高校生).
+  homework: {
+    label: { ja: 'HOME WORK　·　中学生・高校生', en: 'HOME WORK　·　AGES 12–18', fr: 'HOME WORK　·　COLLÈGE & LYCÉE' },
+    subtitle: { ja: '中学生・高校生のための、もうひとつの居場所', en: 'Another place to belong, for junior and senior high school students', fr: 'Un autre lieu à soi, pour les collégiens et les lycéens' },
+    alt: { ja: 'Voilà HOME WORK 中学生・高校生の居場所 京都西京区', en: 'Voilà HOME WORK — a space for teens in Nishikyo, Kyoto', fr: 'Voilà HOME WORK — un lieu pour les ados à Nishikyo, Kyoto' },
+    hook: {
+      ja: '勉強したい日も、誰かと話したい日も。仲間とつながる、もうひとつの居場所。',
+      en: 'Days you want to study, days you just want to talk. Another place to belong, where you connect with friends.',
+      fr: 'Les jours où l’on veut travailler, les jours où l’on a envie de parler. Un autre lieu à soi, pour se retrouver entre amis.',
+    },
+    audience: {
+      ja: '中学生・高校生のみなさんへ。オンラインで学校に通っている子も、日中落ち着いて勉強できる場所がほしい子も、誰かと一緒に学びたい子も、仲間とつながりたい子も。',
+      en: 'For junior and senior high school students. Whether you go to school online, want a calm place to study during the day, would rather learn alongside someone, or simply want to connect with friends.',
+      fr: 'Pour les collégiens et les lycéens. Que tu suives l’école en ligne, que tu cherches un endroit calme pour travailler en journée, que tu préfères apprendre avec quelqu’un ou que tu aies simplement envie de te faire des amis.',
+    },
+    activities: [
+      { icon: '📚', t: { ja: '数学や英語を一緒に勉強したり。', en: 'Studying maths or English together.', fr: 'Réviser les maths ou l’anglais ensemble.' } },
+      { icon: '🍪', t: { ja: 'みんなでクッキーを焼いたり。', en: 'Baking cookies as a group.', fr: 'Faire des cookies tous ensemble.' } },
+      { icon: '☕', t: { ja: '好きなことを語り合ったり。', en: 'Talking about the things you love.', fr: 'Parler de ce qu’on aime.' } },
+      { icon: '🌱', t: { ja: '何かを頑張る日も、のんびり過ごす日も。', en: 'Days to push yourself, days to take it easy.', fr: 'Des jours pour se dépasser, des jours pour souffler.' } },
+    ],
+    together: {
+      ja: 'ひとりで頑張るのもいいけれど、一緒に頑張れる仲間がいるって、いいね。',
+      en: 'Working hard on your own is fine — but having friends to work hard with is even better.',
+      fr: 'Avancer seul, c’est bien — mais avoir des amis avec qui avancer, c’est encore mieux.',
+    },
+    key: { ja: '「ここに来れば、誰かがいる。」', en: '“Come here, and someone will be here.”', fr: '« Ici, il y a toujours quelqu’un. »' },
+    openLabel: { ja: 'LET’S BUILD IT TOGETHER　·　一緒につくろう', en: 'LET’S BUILD IT TOGETHER', fr: 'CONSTRUISONS-LE ENSEMBLE' },
+    open: {
+      ja: 'まだ、すべてが決まっているわけではありません。どんな場所だったら通いたい？何をして過ごしたい？どんなことを一緒にやってみたい？みんなの声を聞きながら、一緒にこの場所をつくっていきたいと思っています。',
+      en: 'Not everything is decided yet. What kind of place would make you want to come? How would you like to spend your time? What would you like to try together? We want to build this place with you, listening to what you have to say.',
+      fr: 'Tout n’est pas encore décidé. Quel lieu te donnerait envie de venir ? Qu’aimerais-tu y faire ? Qu’aimerais-tu essayer avec les autres ? Nous voulons construire ce lieu avec vous, à l’écoute de vos idées.',
+    },
+    cta: { ja: 'まずは、お気軽にご連絡ください。', en: 'Feel free to get in touch — just say hello.', fr: 'N’hésite pas à nous écrire, tout simplement.' },
+    line: { ja: 'LINEで連絡する', en: 'Message us on LINE', fr: 'Nous écrire sur LINE' },
+    form: { ja: 'フォームで問い合わせる', en: 'Or use the form', fr: 'Ou passer par le formulaire' },
+    motto: { ja: '学ぶことも、つながることも、自分らしく。', en: 'Learning and connecting — your own way.', fr: 'Apprendre et se lier — à sa façon.' },
   },
   ask: { ja: 'このコースについて問い合わせる', en: 'Ask about this course', fr: 'Se renseigner sur ce cours' },
   apply: {

@@ -496,6 +496,24 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 .vs-prog-list { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 120px); }
 @media (max-width: 900px) { .vs-prog, .vs-prog:nth-child(even) { flex-direction: column; align-items: stretch; } .vs-prog > .vs-prog-img { width: 100%; } }
 
+/* Voilà HOME WORK — the teen branch gets a soft sage accent. */
+.vs-hw { --hw: #4F7A5A; --hw-soft: #EEF3EA; --hw-line: #D5E2D0; }
+.vs-hw .vs-wrap { background: var(--hw-soft); border-radius: 40px; padding-top: clamp(40px, 6vw, 88px); padding-bottom: clamp(40px, 6vw, 88px); display: flex; flex-direction: column; gap: clamp(40px, 5vw, 72px); }
+.vs-hw .vs-label { color: var(--hw); }
+.vs-hw-tile { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: clamp(72px, 10vw, 120px); background: #fff; }
+.vs-hw-sub { font-family: var(--mincho); font-size: 18px; line-height: 1.7; color: var(--hw); }
+.vs-hw-hook { font-family: var(--mincho); font-size: clamp(19px, 1.8vw, 23px); line-height: 1.75; color: var(--ink); }
+.vs-hw-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.vs-hw-list li { padding: 13px 0; border-top: 1px solid var(--hw-line); display: flex; gap: 14px; align-items: baseline; }
+.vs-hw-list li::before { content: none; }
+.vs-hw-key { font-family: var(--mincho); font-size: clamp(20px, 2vw, 26px); color: var(--hw); }
+.vs-hw-open { max-width: 760px; display: flex; flex-direction: column; gap: 18px; padding-top: clamp(32px, 4vw, 56px); border-top: 1px solid var(--hw-line); }
+.vs-hw-cta { font-weight: 700; font-size: 16px; }
+.vs-hw-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.vs-hw-actions .vs-more { font-size: 14px; font-weight: 700; color: var(--hw); }
+.vs-hw-motto { font-family: var(--mincho); font-size: 15px; color: var(--muted); }
+@media (max-width: 600px) { .vs-hw .vs-wrap { border-radius: 0; } .vs-hw-actions .vs-btn { width: 100%; } }
+
 .vs-dark .vs-chapter b { color: var(--champagne); }
 
 /* Universe cards: subgrid so numbers, titles, texts and lists line up across the 3 cards */

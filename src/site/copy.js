@@ -96,7 +96,7 @@ export const home = {
     items: [
       { key: 'learn', href: '/learn', slot: 'home_learn', name: { ja: 'Voilà Experience', en: 'Voilà Experience', fr: 'Voilà Experience' },
         line: { ja: '赤ちゃんから大人まで。スタジオとオンラインで、体験しながら学ぶレッスン。', en: 'From babies to adults. Learn-by-doing lessons, in our Kyoto studio and online.', fr: 'Des bébés aux adultes. Des cours par l’expérience, au studio de Kyoto et en ligne.' },
-        list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
+        list: [{ ja: 'キッズ', en: 'Kids', fr: 'Enfants' }, { ja: '中高生・大学生', en: 'Secondary & university', fr: 'Collège – université' }, { ja: '中高生の居場所 HOME WORK', en: 'HOME WORK teen space', fr: 'Espace ados HOME WORK' }, { ja: 'オンライン・受験', en: 'Online & exams', fr: 'En ligne & examens' }, { ja: '大人', en: 'Adults', fr: 'Adultes' }] },
       { key: 'live', href: '/homestay', slot: 'home_live', name: { ja: 'Voilà Homestay', en: 'Voilà Homestay', fr: 'Voilà Homestay' },
         line: { ja: 'まるで海外の家庭にホームステイするような空間。英語を学ぶ場所ではなく、英語に浸り英語で暮らしてみる場所。', en: 'Like staying with a family abroad. Not a place to study English — a place to live in it.', fr: 'Comme séjourner dans une famille à l’étranger. Pas un lieu où l’on étudie l’anglais : un lieu où l’on vit en anglais.' },
         list: [{ ja: 'ホームステイ in 京都', en: 'Homestay in Kyoto', fr: 'Homestay à Kyoto' }, { ja: '旅するホームステイ', en: 'Travelling homestay', fr: 'Homestay en voyage' }, { ja: 'English Camp', en: 'English Camp', fr: 'English Camp' }] },
@@ -396,6 +396,7 @@ export const TOPICS = {
   ...Object.fromEntries(home.learn.cards.map((c) => [c.slot, c.title])),
   ...Object.fromEntries(home.learn.also.map((a, i) => [`also_${i}`, a])),
   ...Object.fromEntries(home.live.cards.map((c) => [c.slot, c.title])),
+  homework: { ja: 'Voilà HOME WORK（中高生の居場所）', en: 'Voilà HOME WORK (teen space)', fr: 'Voilà HOME WORK (espace ados)' },
   celebrate_events: home.celebrate.events.title,
   celebrate_apero: { ja: 'Voilà chef（出張シェフ）', en: 'Voilà chef', fr: 'Voilà chef' },
   homestay: { ja: 'ホームステイ', en: 'Homestay', fr: 'Homestay' },
@@ -407,7 +408,7 @@ export const TOPICS = {
 // Subject menu of the contact forms: every offer, grouped like the site.
 export const TOPIC_GROUPS = [
   { label: { ja: 'Voilà Experience — レッスン', en: 'Voilà Experience — lessons', fr: 'Voilà Experience — cours' },
-    keys: ['trial', 'learn_kids', 'learn_secondary', 'learn_online', 'learn_adults', 'also_0', 'also_1', 'also_2'] },
+    keys: ['trial', 'learn_kids', 'learn_secondary', 'homework', 'learn_online', 'learn_adults', 'also_0', 'also_1', 'also_2'] },
   { label: { ja: 'Voilà Homestay', en: 'Voilà Homestay', fr: 'Voilà Homestay' },
     keys: ['live_homestay', 'live_travel', 'live_camp'] },
   { label: { ja: 'Voilà Moments — イベント', en: 'Voilà Moments — events', fr: 'Voilà Moments — événements' },

@@ -11,6 +11,8 @@ export const IMAGE_SLOTS = [
   { name: 'learn_hero', label: 'Page Apprendre (Voilà Experience) — grande photo', fallback: '/img/classroom.jpg', aspect: '16 / 7' },
   { name: 'learn_kids', label: 'Page Apprendre — cours « Activités enfants »', fallback: '/img/slime.jpg', aspect: '4 / 3' },
   { name: 'learn_secondary', label: 'Page Apprendre — cours « Collège, lycée & université »', fallback: '/img/tatami2.jpg', aspect: '4 / 3' },
+  // Empty fallback: the section shows the 🌿 tile until a photo is uploaded.
+  { name: 'learn_homework', label: 'Page Apprendre — « Voilà HOME WORK » (collégiens & lycéens)', fallback: '', aspect: '4 / 3' },
   { name: 'learn_online', label: 'Page Apprendre — cours « En ligne & examens »', fallback: '/img/classroom.jpg', aspect: '4 / 3' },
   { name: 'learn_adults', label: 'Page Apprendre — cours « Langues pour adultes »', fallback: '/img/bordeaux.jpg', aspect: '4 / 3' },
   { name: 'homestay_hero', label: 'Page Homestay (Voilà Homestay) — grande photo', fallback: '/img/tatami2.jpg', aspect: '16 / 7' },
