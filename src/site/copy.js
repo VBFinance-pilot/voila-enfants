@@ -307,6 +307,7 @@ export const home = {
     label: { ja: 'UPCOMING　·　今後の予定', en: 'UPCOMING', fr: 'À VENIR' },
     title: { ja: '次のイベント', en: 'What’s next', fr: 'Prochains rendez-vous' },
     signup: { ja: '申込', en: 'Sign up', fr: 'S’inscrire' },
+    zoom: { ja: '拡大', en: 'Enlarge', fr: 'Agrandir' },
     empty: { ja: '次回のイベントは近日公開。LINEでお知らせします。', en: 'Next events coming soon — we announce them on LINE.', fr: 'Prochains événements bientôt annoncés — suivez-nous sur LINE.' },
   },
   instagram: {

@@ -553,8 +553,13 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 
 /* Upcoming event photo (events_items.image_url): full-bleed band on top of the card */
 .vs-event.has-img { flex-wrap: wrap; overflow: hidden; }
-.vs-event-img { flex: 0 0 calc(100% + 56px); margin: -28px -28px 0; aspect-ratio: 16 / 10; background: var(--line); }
-.vs-event-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vs-event-img { flex: 0 0 calc(100% + 56px); margin: -28px -28px 0; aspect-ratio: 16 / 10; background: var(--line); position: relative; display: block; padding: 0; border: 0; cursor: zoom-in; overflow: hidden; font: inherit; }
+.vs-event-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.vs-event-img:hover img { transform: scale(1.03); }
+.vs-event-img:focus-visible { outline: 2px solid var(--wine); outline-offset: -4px; }
+.vs-event-zoom { position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(15,11,9,.62); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .02em; opacity: 0; transition: opacity .25s ease; pointer-events: none; }
+.vs-event-img:hover .vs-event-zoom, .vs-event-img:focus-visible .vs-event-zoom { opacity: 1; }
+@media (hover: none) { .vs-event-zoom { opacity: 1; } }
 
 /* Hosts text: keep the author's line breaks (poem-like layout) */
 .vs-hosts-body { white-space: pre-line; }
