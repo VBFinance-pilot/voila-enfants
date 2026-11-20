@@ -35,11 +35,11 @@ export default function News() {
           console.error('News: Supabase fetch error', error);
         }
 
-        console.log('News: Supabase response', { data, error });
+        console.log('News: Supabase response', { data, error, image_url: data?.[0]?.image_url ?? null });
 
         if (data && data.length > 0) {
           const db = data[0];
-          console.log('News: loaded event from Supabase', db);
+          console.log('News: loaded event from Supabase', { id: db.id, title: db.title, image_url: db.image_url });
           setEvent({ title: db.title, description: db.description, date: db.event_date, image_url: db.image_url, fromDb: true });
           setReady(true);
           return;

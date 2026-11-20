@@ -26,18 +26,26 @@ export default function AdminEvents() {
     setSuccess(false);
     try {
       if (editId) {
-        const { error } = await supabase.from('events_items').update({
+        const payload = {
           title: form.title, description: form.description, event_date: form.event_date,
-          image_url: form.image_url, active: form.active,
-        }).eq('id', editId);
+          image_url: form.image_url || null, active: form.active,
+        };
+        console.log('AdminEvents update payload', { id: editId, ...payload });
+        const { data, error } = await supabase.from('events_items').update(payload).eq('id', editId).select();
+        console.log('AdminEvents update response', { data, error });
         if (error) throw error;
+        // RLS can silently match 0 rows: make sure the row really changed
+        if (!data?.length) throw new Error('Aucune ligne mise à jour (droits Supabase / RLS ?)');
         await logAction('update', 'events_items', form.title);
       } else {
         const maxOrder = items.length > 0 ? Math.max(...items.map(i => i.order_index)) + 1 : 0;
-        const { error } = await supabase.from('events_items').insert({
+        const payload = {
           title: form.title, description: form.description, event_date: form.event_date,
-          image_url: form.image_url, active: form.active, order_index: maxOrder,
-        });
+          image_url: form.image_url || null, active: form.active, order_index: maxOrder,
+        };
+        console.log('AdminEvents insert payload', payload);
+        const { data, error } = await supabase.from('events_items').insert(payload).select();
+        console.log('AdminEvents insert response', { data, error });
         if (error) throw error;
         await logAction('create', 'events_items', form.title);
       }
@@ -75,6 +83,7 @@ export default function AdminEvents() {
     if (!file) return;
     try {
       const url = await uploadImage(file, 'events');
+      console.log('AdminEvents image uploaded', url);
       setForm(f => ({ ...f, image_url: url }));
     } catch (err) { alert('Échec de l’envoi : ' + err.message); }
   };
@@ -105,7 +114,7 @@ export default function AdminEvents() {
             </select>
           </div>
         </div>
-        <div className="adm-field"><label>Image</label>{form.image_url && <img src={form.image_url} alt="" className="adm-preview-img" />}<input type="file" accept="image/*" onChange={handleImageUpload} /></div>
+        <div className="adm-field"><label>Image</label>{form.image_url && <img src={form.image_url} alt="" className="adm-preview-img" />}<input type="file" accept="image/*" onChange={handleImageUpload} />{editId && form.image_url !== (items.find(i => i.id === editId)?.image_url || '') && <small className="adm-meta">Nouvelle image : cliquez sur « Mettre à jour » pour l’enregistrer.</small>}</div>
         <div className="adm-form-actions">
           <button type="submit" disabled={saving} className="adm-btn-save">{saving ? 'Enregistrement…' : editId ? 'Mettre à jour' : 'Ajouter l’événement'}</button>
           {editId && <button type="button" onClick={() => { setEditId(null); setForm({ title: '', description: '', event_date: '', image_url: '', active: true }); setSuccess(false); }} className="adm-btn-cancel">Annuler</button>}
