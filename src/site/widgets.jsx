@@ -263,8 +263,9 @@ export function UpcomingEvents() {
       try {
         const { data, error } = await supabase.from('events_items').select('*').eq('active', true).order('order_index').limit(3);
         if (error) throw error;
+        console.log('[Events] Supabase rows', data?.map((e) => ({ id: e.id, title: e.title, image_url: e.image_url })));
         if (data?.length) {
-          setItems(data.map((e) => ({ id: e.id, title: e.title, desc: e.description, when: e.event_date || e.date || '' })));
+          setItems(data.map((e) => ({ id: e.id, title: e.title, desc: e.description, when: e.event_date || e.date || '', image: e.image_url || '' })));
           return;
         }
       } catch (err) {
@@ -286,7 +287,12 @@ export function UpcomingEvents() {
         const d = w?.date;
         const extra = [!w && e.when, e.desc].filter(Boolean).join(' · ');
         return (
-          <div key={e.id} className="vs-event">
+          <div key={e.id} className={`vs-event${e.image ? ' has-img' : ''}`}>
+            {e.image && (
+              <div className="vs-event-img">
+                <img src={e.image} alt={`${e.title} — Voilà les enfants, Kyoto`} loading="lazy" decoding="async" />
+              </div>
+            )}
             <div className="vs-event-date" aria-hidden={!d}>
               <small>{d ? d.toLocaleDateString(locale, { month: 'short' }) : '—'}</small>
               <b className={w && !w.day ? 'is-year' : undefined}>{d ? (w.day ? d.getDate() : d.getFullYear()) : '✦'}</b>

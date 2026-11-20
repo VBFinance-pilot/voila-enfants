@@ -551,6 +551,11 @@ html[data-lang='en'] .vs, html[data-lang='fr'] .vs { --mincho: 'Cormorant Garamo
 
 .vs-event-date b.is-year { font-size: 22px; }
 
+/* Upcoming event photo (events_items.image_url): full-bleed band on top of the card */
+.vs-event.has-img { flex-wrap: wrap; overflow: hidden; }
+.vs-event-img { flex: 0 0 calc(100% + 56px); margin: -28px -28px 0; aspect-ratio: 16 / 10; background: var(--line); }
+.vs-event-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
 /* Hosts text: keep the author's line breaks (poem-like layout) */
 .vs-hosts-body { white-space: pre-line; }
 
