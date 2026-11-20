@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import BeholdWidget from '@behold/react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
+import Lightbox from '../components/Lightbox';
 import eventsStatic from '../data/events.json';
 import { home, form as formCopy, CONTACT, TOPICS, TOPIC_GROUPS } from './copy';
 
@@ -257,6 +258,8 @@ function parseWhen(v) {
 export function UpcomingEvents() {
   const { lang, tx } = useLang();
   const [items, setItems] = useState(null);
+  const [zoom, setZoom] = useState(null);
+  const closeZoom = useCallback(() => setZoom(null), []);
 
   useEffect(() => {
     (async () => {
@@ -289,9 +292,13 @@ export function UpcomingEvents() {
         return (
           <div key={e.id} className={`vs-event${e.image ? ' has-img' : ''}`}>
             {e.image && (
-              <div className="vs-event-img">
+              <button type="button" className="vs-event-img" onClick={() => setZoom(e)} aria-label={`${tx(t.zoom)} : ${e.title}`}>
                 <img src={e.image} alt={`${e.title} — Voilà les enfants, Kyoto`} loading="lazy" decoding="async" />
-              </div>
+                <span className="vs-event-zoom" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4M11 8v6M8 11h6" /></svg>
+                  {tx(t.zoom)}
+                </span>
+              </button>
             )}
             <div className="vs-event-date" aria-hidden={!d}>
               <small>{d ? d.toLocaleDateString(locale, { month: 'short' }) : '—'}</small>
@@ -306,6 +313,7 @@ export function UpcomingEvents() {
           </div>
         );
       })}
+      <Lightbox src={zoom?.image} alt={zoom?.title || ''} onClose={closeZoom} />
     </div>
   );
 }

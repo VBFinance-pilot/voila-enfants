@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLang } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
 import eventsStatic from '../data/events.json';
 import { useReveal } from './useReveal';
+import Lightbox from './Lightbox';
 import './News.css';
 
 export default function News() {
@@ -12,13 +13,7 @@ export default function News() {
   const [lightbox, setLightbox] = useState(false);
   const ref = useReveal([ready]);
 
-  useEffect(() => {
-    if (!lightbox) return;
-    document.body.style.overflow = 'hidden';
-    const onKey = (e) => { if (e.key === 'Escape') setLightbox(false); };
-    window.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
-  }, [lightbox]);
+  const closeLightbox = useCallback(() => setLightbox(false), []);
 
   useEffect(() => {
     (async () => {
@@ -78,12 +73,7 @@ export default function News() {
             )}
           </div>
         </div>
-        {lightbox && event.image_url && (
-          <div className="news-lb" onClick={() => setLightbox(false)}>
-            <button className="news-lb-close" onClick={() => setLightbox(false)}>✕</button>
-            <img src={event.image_url} alt={event.title || ''} onClick={e => e.stopPropagation()} />
-          </div>
-        )}
+        <Lightbox src={lightbox ? event.image_url : null} alt={event.title || ''} onClose={closeLightbox} />
       </section>
     );
   }
